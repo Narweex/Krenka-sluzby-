@@ -10,6 +10,14 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
+
+.web-logo {
+            height: 2%;
+            width: 2%;
+            background-color: white;
+            
+}
 :root {
   --blue: #4e73df;
   --indigo: #6610f2;
@@ -77,6 +85,12 @@ hr {
   box-sizing: content-box;
   height: 0;
   overflow: visible;
+}
+
+.web-logo {
+  height: 10px;
+  width: 10px;
+  background-color: white;
 }
 
 h1, h2, h3, h4, h5, h6 {
