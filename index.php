@@ -31,7 +31,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="">
                     <i class="fas fa-fw fa-wrench"></i>
                 </div>
@@ -43,7 +43,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="index.php">
                     <!--<i class="fas fa-fw fa-table"></i>-->
                     <span>PŘEHLED</span></a>
             </li>
@@ -53,7 +53,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item Show">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="index.php">
                     <!--<i class="fas fa-fw fa-table"></i>-->
                     <span>PROJEKTORY</span></a>
             </li>
@@ -63,7 +63,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item Show">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="index.php">
                     <!--<i class="fas fa-fw fa-table"></i>-->
                     <span>TISKÁRNY</span></a>
             </li>
