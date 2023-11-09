@@ -385,36 +385,10 @@
                     <!--Heading-Projektory -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800"> Projektory </h1>
-<<<<<<< HEAD
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"><i
                             class="fas fa-envelope fa-sm text-white-50"></i> Nahlásit problém</a>
 
                     </div>
-=======
-				<div class="h3 mb-0 text-gray-800">
-				<?php
-				$servername = "localhost";
-				$username = "c0dev";
-				$password = "bobrjenejlepsi";
-
-				// Create connection
-					$conn = mysqli_connect($servername, $username, $password);
-
-				// Check connection
-				if (!$conn) {
-				 	 die("Spojení selhalo: " . mysqli_connect_error());
-				}
-					echo "Připojeno k serveru";
-
-				?>
-					
-				</div>
-
-
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"><i
-                            class="fas fa-envelope fa-sm text-white-50"></i> Nahlásit problém</a>
-			 </div>
->>>>>>> 08adb94b43f4622c5618e9fd85dbb7cf06b914f4
 
                     <!--Button-Nahlásit Problém
                     <div>
