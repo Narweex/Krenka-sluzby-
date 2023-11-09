@@ -385,6 +385,24 @@
                     <!--Heading-Projektory -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800"> Projektory </h1>
+
+                        <?php
+                        $servername = "localhost";
+                        $username = "c0dev";
+                        $password = "U_g9h3PzgQwMU";
+
+                        // Create connection
+                        $conn = mysqli_connect($servername, $username, $password);
+
+                        // Check connection
+                        if (!$conn) {
+                            die("Connection failed: " . mysqli_connect_error());
+                        }
+                        echo "Connected successfully";
+
+                        ?>
+
+
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"><i
                             class="fas fa-envelope fa-sm text-white-50"></i> Nahlásit problém</a>
 
