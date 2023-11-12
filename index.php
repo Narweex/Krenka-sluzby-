@@ -400,7 +400,8 @@
 
                     <ul class="navbar-nav ml-auto">
 
-
+			
+			
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
 
@@ -414,13 +415,18 @@
 
                             </a>
 
+
                             <!-- Dropdown - Messages -->
 
                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
 
                                 aria-labelledby="searchDropdown">
+					
+					
 
                                 <form class="form-inline mr-auto w-100 navbar-search">
+
+					
 
                                     <div class="input-group">
 
@@ -453,6 +459,7 @@
                         <!-- Nav Item - Alerts -->
 
                         <li class="nav-item dropdown no-arrow mx-1">
+
 
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
 
@@ -798,7 +805,13 @@
 
                         }
 
-                        echo "Připojeno k databázi";
+                        echo "Připojeno k databázi <br>";
+				
+			$today = date("m.d.Y");
+			echo "Dnes je $today";
+
+
+
 
 
 
@@ -1018,7 +1031,35 @@
 
                                                 Se závadou</div>
 
-                                            <div class="h5 mb-0 font-weight-bold text-warning">3</div>
+                                            <div class="h5 mb-0 font-weight-bold text-warning">
+
+						<?php
+							$servername = "localhost";
+							$username = "c0dev";
+							$password = "U_g9h3PzgQwMU";
+							$dbName = "c0projectors";
+
+							// Create connection
+								$conn = mysqli_connect($servername, $username, $password, $dbName);
+
+
+							$sql2 = "SELECT * FROM projektory WHERE funkce='Z';";
+
+								if ($result2 = mysqli_query($conn, $sql2)) 	
+								{
+
+     									 $rowcount = mysqli_num_rows( $result2 );
+    
+   									 echo $rowcount;
+ 								}
+
+
+
+	
+
+							?>
+
+						</div>
 
                                         </div>
 
