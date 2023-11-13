@@ -85,10 +85,7 @@ include 'connection.php';
 
             <hr class="sidebar-divider my-0">
 
-
-
-            <!-- Nav Item - Dashboard -->
-
+            <!-- Nav Item - Přehled -->
             <li class="nav-item active">
 
                 <a class="nav-link" href="index.php">
@@ -105,14 +102,9 @@ include 'connection.php';
 
             <hr class="sidebar-divider">
 
-
-
-            <!-- Nav Item - Dashboard -->
-
+            <!-- Nav Item - Projektory -->
             <li class="nav-item Show">
-
-                <a class="nav-link" href="index.php">
-
+                <a class="nav-link" href="projektory.html">
                     <!--<i class="fas fa-fw fa-table"></i>-->
 
                     <span>PROJEKTORY</span></a>
@@ -125,14 +117,9 @@ include 'connection.php';
 
             <hr class="sidebar-divider">
 
-
-
-            <!-- Nav Item - Dashboard -->
-
+            <!-- Nav Item - Tiskárny -->
             <li class="nav-item Show">
-
-                <a class="nav-link" href="index.php">
-
+                <a class="nav-link" href="tiskarny.html">
                     <!--<i class="fas fa-fw fa-table"></i>-->
 
                     <span>TISKÁRNY</span></a>
@@ -369,10 +356,14 @@ include 'connection.php';
 
                     </button>
 
+                    <a href="#" class="btn btn-secondary ">
+                        <span class="icon text-white-50">
+                            
+                        </span>
+                        <span class="text">Nahlásit problém</span>
+                    </a>
 
-
-                    <!-- Topbar Search -->
-
+                    <!-- Topbar Search 
                     <form
 
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
@@ -394,20 +385,12 @@ include 'connection.php';
                             </div>
 
                         </div>
+                    </form> ->>
 
-                    </form>
-
-
-
-                    <!-- Topbar Navbar -->
-
+                     Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-			
-			
-
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) 
                         <li class="nav-item dropdown no-arrow d-sm-none">
 
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
@@ -417,10 +400,7 @@ include 'connection.php';
                                 <i class="fas fa-search fa-fw"></i>
 
                             </a>
-
-
-                            <!-- Dropdown - Messages -->
-
+                             Dropdown - Messages 
                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
 
                                 aria-labelledby="searchDropdown">
@@ -454,8 +434,7 @@ include 'connection.php';
                                 </form>
 
                             </div>
-
-                        </li>
+                        </li>-->
 
 
 
@@ -483,9 +462,7 @@ include 'connection.php';
                                 aria-labelledby="alertsDropdown">
 
                                 <h6 class="dropdown-header">
-
-                                    Alerts Center
-
+                                    Oznámení
                                 </h6>
 
                                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -553,17 +530,12 @@ include 'connection.php';
                                     </div>
 
                                 </a>
-
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Všechna oznámení</a>
                             </div>
 
                         </li>
 
-
-
-                        <!-- Nav Item - Messages -->
-
+                        <!-- Nav Item - Messages 
                         <li class="nav-item dropdown no-arrow mx-1">
 
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
@@ -571,15 +543,11 @@ include 'connection.php';
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                                 <i class="fas fa-envelope fa-fw"></i>
-
-                                <!-- Counter - Messages -->
-
+                                 Counter - Messages 
                                 <span class="badge badge-danger badge-counter">7</span>
 
                             </a>
-
-                            <!-- Dropdown - Messages -->
-
+                             Dropdown - Messages 
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
 
                                 aria-labelledby="messagesDropdown">
@@ -696,18 +664,13 @@ include 'connection.php';
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 
-
-
-                        <!-- Nav Item - User Information -->
-
+                         Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
 
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
 
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Uživatel</span>
                                 <img class="img-profile rounded-circle"
 
                                     src="img/undraw_profile.svg">
@@ -723,17 +686,13 @@ include 'connection.php';
                                 <a class="dropdown-item" href="#">
 
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-
-                                    Profile
-
+                                    Profil
                                 </a>
 
                                 <a class="dropdown-item" href="#">
 
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-
-                                    Settings
-
+                                    Nastavení
                                 </a>
 
                                 <a class="dropdown-item" href="#">
@@ -749,9 +708,7 @@ include 'connection.php';
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
 
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-
-                                    Logout
-
+                                    Odhlásit se
                                 </a>
 
                             </div>
@@ -782,8 +739,7 @@ include 'connection.php';
 
                         <h1 class="h3 mb-0 text-gray-800"> Projektory </h1>
 
-
-		<div class=" h3 mb-0 text-gray-800">
+                        <!--Connection To Database-->
                         <?php
 
                         $servername = "localhost";
@@ -825,9 +781,8 @@ include 'connection.php';
 
 
 
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"><i
-
-                            class="fas fa-envelope fa-sm text-white-50"></i> Nahlásit problém</a>
+                       <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"><i
+                            class="fas fa-envelope fa-sm text-white-50"></i> Nahlásit problém</a>-->
 
 
 
@@ -1066,11 +1021,8 @@ include 'connection.php';
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
 
     <h1 class="h3 mb-0 text-gray-800"> Tiskárny </h1>
-
-    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"><i
-
-            class="fas fa-envelope fa-sm text-white-50"></i> Nahlásit problém</a>
-
+<!--    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"><i
+            class="fas fa-envelope fa-sm text-white-50"></i> Nahlásit problém</a>-->
 </div>
 
 
