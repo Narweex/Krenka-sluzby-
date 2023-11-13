@@ -2,6 +2,9 @@
 
 <html lang="en">
 
+<?php
+include 'connection.php';
+?>
 
 
 <head>
@@ -807,7 +810,7 @@
 
                         echo "Připojeno k databázi <br>";
 				
-			$today = date("m.d.Y");
+			$today = date("d.m.Y");
 			echo "Dnes je $today";
 
 
@@ -897,30 +900,23 @@
                                             <div class="h5 mb-0 font-weight-bold text-success">
 								
 						<?php
-							$servername = "localhost";
-							$username = "c0dev";
-							$password = "U_g9h3PzgQwMU";
-							$dbName = "c0projectors";
 
-							// Create connection
-								$conn = mysqli_connect($servername, $username, $password, $dbName);
+							$conn = mysqli_connect($servername, $username, $password, $dbName);
 
 
-							$sql2 = "SELECT * FROM projektory WHERE funkce='T';";
+							$sql3 = "SELECT * FROM projektory p left join problemy r on r.id_projektor=p.id where r.status='t' group by p.id;";
+							if($result3 = mysqli_query($conn, $sql3)){
+							
+								$num = mysqli_num_rows($result3);
 
-								if ($result2 = mysqli_query($conn, $sql2)) 	
-								{
-
-     									 $rowcount = mysqli_num_rows( $result2 );
-    
-   									 echo $rowcount;
- 								}
-
-
-
+								echo $num;
 	
+							}
+							else{
+								echo "Chyba";
+							}
 
-							?>
+					?>
 	
 
 				
@@ -963,28 +959,20 @@
                                             <div class="h5 mb-0 font-weight-bold text-danger">
 
 						<?php
-							$servername = "localhost";
-							$username = "c0dev";
-							$password = "U_g9h3PzgQwMU";
-							$dbName = "c0projectors";
-
-							// Create connection
-								$conn = mysqli_connect($servername, $username, $password, $dbName);
+							$conn = mysqli_connect($servername, $username, $password, $dbName);
 
 
-							$sql2 = "SELECT * FROM projektory WHERE funkce='F';";
+							$sql3 = "SELECT * FROM projektory p left join problemy r on r.id_projektor=p.id where r.status='f' group by p.id;";
+							if($result3 = mysqli_query($conn, $sql3)){
+							
+								$num = mysqli_num_rows($result3);
 
-								if ($result2 = mysqli_query($conn, $sql2)) 	
-								{
-
-     									 $rowcount = mysqli_num_rows( $result2 );
-    
-   									 echo $rowcount;
- 								}
-
-
-
+								echo $num;
 	
+							}
+							else{
+								echo "Chyba";
+							}
 
 							?>
 
@@ -1034,28 +1022,20 @@
                                             <div class="h5 mb-0 font-weight-bold text-warning">
 
 						<?php
-							$servername = "localhost";
-							$username = "c0dev";
-							$password = "U_g9h3PzgQwMU";
-							$dbName = "c0projectors";
-
-							// Create connection
-								$conn = mysqli_connect($servername, $username, $password, $dbName);
+							$conn = mysqli_connect($servername, $username, $password, $dbName);
 
 
-							$sql2 = "SELECT * FROM projektory WHERE funkce='Z';";
+							$sql3 = "SELECT * FROM projektory p left join problemy r on r.id_projektor=p.id where r.status='z' group by p.id;";
+							if($result3 = mysqli_query($conn, $sql3)){
+							
+								$num = mysqli_num_rows($result3);
 
-								if ($result2 = mysqli_query($conn, $sql2)) 	
-								{
-
-     									 $rowcount = mysqli_num_rows( $result2 );
-    
-   									 echo $rowcount;
- 								}
-
-
-
+								echo $num;
 	
+							}
+							else{
+								echo "Chyba";
+							}
 
 							?>
 
