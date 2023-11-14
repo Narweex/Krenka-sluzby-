@@ -83,7 +83,7 @@ include 'connection.php';
 
             <!-- Divider -->
 
-            <hr class="sidebar-divider my-0">
+            <hr class="sidebar-divider my-1">
 
             <!-- Nav Item - Přehled -->
             <li class="nav-item active">
@@ -100,7 +100,7 @@ include 'connection.php';
 
             <!-- Divider -->
 
-            <hr class="sidebar-divider">
+            <hr class="sidebar-divider my-1">
 
             <!-- Nav Item - Projektory -->
             <li class="nav-item Show">
@@ -115,7 +115,7 @@ include 'connection.php';
 
             <!-- Divider -->
 
-            <hr class="sidebar-divider">
+            <hr class="sidebar-divider my-1">
 
             <!-- Nav Item - Tiskárny -->
             <li class="nav-item Show">
@@ -356,7 +356,8 @@ include 'connection.php';
 
                     </button>
 
-                    <a href="#" class="btn btn-secondary ">
+                    <!-- Button Nahlásit Problém -->
+                    <a href="nahlasit-problem.html" class="btn btn-secondary ">
                         <span class="icon text-white-50">
                             
                         </span>
