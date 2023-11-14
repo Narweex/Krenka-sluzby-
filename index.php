@@ -776,7 +776,7 @@ include 'connection.php';
 
 
                         ?>
-		</div>
+		<!--</div>-->
 
 
 
@@ -914,7 +914,7 @@ include 'connection.php';
 
                                             <div class="h5 mb-0 font-weight-bold text-danger">
 
-						<?php
+						<?php                   
 							$conn = mysqli_connect($servername, $username, $password, $dbName);
 
 
