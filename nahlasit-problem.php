@@ -398,8 +398,8 @@
 
                             <!-- Dropdown Select Menu Místnost -->
                             <div class="dropdown  mb-5">
-                                <label class="mb-1">Vyberte prosím místnost:</label>
-                                <select class="custom-select" id="">
+                                <label for="NahlasitProblemMistnost" class="mb-1">Vyberte prosím místnost:</label>
+                                <select class="custom-select" id="NahlasitProblemMistnost">
                                     <option value="1">1.A</option>
                                     <option value="2">2.A</option>
                                     <option value="3">3.A</option>
@@ -408,17 +408,17 @@
 
                             <!-- Dropdown Select Menu Zařízení -->
                             <div class="dropdown  mb-5">
-                                <label class="mb-1">Vyberte prosím zařízení, u&#160kterého se vyskytl problém:</label>
-                                <select class="custom-select" id="">
+                                <label for="NahlasitProblemZarizeni" class="mb-1">Vyberte prosím zařízení, u&#160kterého se vyskytl problém:</label>
+                                <select class="custom-select" id="NahlasitProblemZarizeni">
                                     <option value="1">Projektor</option>
                                     <option value="2">Tiskárna</option>   
                                 </select>
                             </div>
 
-                            <!--Input message -->
+                            <!--Input Message Popište Problém-->
                             <div class="form-group">
-                                <label for="formGroupExampleInput" class="mb-1">Popište prosím problém se&#160zařízením:</label>
-                                <textarea type="text" class="form-control" id="" rows="7"></textarea>
+                                <label for="NahlasitProblemPopisteProblem" class="mb-1">Popište prosím problém se&#160zařízením:</label>
+                                <textarea type="text" class="form-control" id="NahlasitProblemPopisteProblem" rows="7"></textarea>
                             </div>
 
                             <!--Button Odeslat-->

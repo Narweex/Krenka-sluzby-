@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Křenka Služby- Oznámení</title>
+    <title>Křenka Služby- Přidat Zařízení</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -168,6 +168,7 @@
 
         </ul>
         <!-- End of Sidebar -->
+
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -562,23 +563,63 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Oznámení</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Přidat Zařízení</h1>
 
-                    <!-- List Oznámení-->
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                          <div class="d-flex w-100 justify-content-between">
-                            <small class="text-muted">10.11. 2023</small>
-                          </div>
-                          <p class="mb-1">Zařízení <u>Projektor</u> v&#160místnosti <u>1.A</u> bylo označeno jako <b style="color:#1cc88a;">funkční</b></p>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                            <div class="d-flex w-100 justify-content-between">
-                              <small class="text-muted">11.11. 2023</small>
+                    <!-- Form Přidat Zařízení -->
+                    <form class="card-body" action="" method="post">
+
+                        <!-- Input Message Název Zařízení -->
+                        <label>Název Zařízení:</label>
+                        <input class="form-control mb-5" type="text">
+
+                        <!-- Input message Místnost -->
+                        <label>Místnost:</label>
+                        <input class="form-control mb-5" type="text">
+
+                        <!-- Dropdown Select Menu Bezdrátový -->
+                        <div class="dropdown  mb-5">
+                            <label for="" class="mb-1">Bezdrátové:</label>
+                            <select class="custom-select">
+                                <option value="1">T</option>
+                                <option value="2">F</option>   
+                            </select>
+                        </div>
+
+                        <!-- Dropdown Select Menu Konektor -->
+                        <div class="mb-3">
+                            <label class="mb-1">Konektor:</label>
+
+                            <!-- Checkbox HDMI -->
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <label class="form-check-label" for="">
+                                    HDMI
+                                </label>
                             </div>
-                            <p class="mb-1">Zařízení <u>Tiskárna</u> v&#160místnosti <u>Kabinet AJ</u> bylo označeno jako <b style="color: #e74a3b;">nefunkční</b> </p>
-                          </a>
-                      </div>
+
+                            <!-- Checkbox VGA-->
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <label class="form-check-label" for="">
+                                    VGA
+                                </label>
+                            </div>
+                            
+                            <!--Checkbox DisplayPort-->
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <label class="form-check-label" for="">
+                                    DisplayPort
+                                </label>
+                            </div>
+                                
+                          
+                        </div>
+
+                        <!-- Button Odeslat -->
+                        <button type="submit" class="btn btn-primary">Odeslat</button>
+
+                    </form>
 
                 </div>
                 <!-- /.container-fluid -->

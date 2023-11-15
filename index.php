@@ -357,7 +357,7 @@ include 'connection.php';
                     </button>
 
                     <!-- Button Nahlásit Problém -->
-                    <a href="nahlasit-problem.html" class="btn btn-secondary ">
+                    <a href="nahlasit-problem.php" class="btn btn-secondary ">
                         <span class="icon text-white-50">
                             
                         </span>
@@ -776,7 +776,7 @@ include 'connection.php';
 
 
                         ?>
-		</div>
+		<!--</div>-->
 
 
 
@@ -914,7 +914,7 @@ include 'connection.php';
 
                                             <div class="h5 mb-0 font-weight-bold text-danger">
 
-						<?php
+						<?php                   
 							$conn = mysqli_connect($servername, $username, $password, $dbName);
 
 
