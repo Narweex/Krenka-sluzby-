@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+include 'connection.php'
+?>
+
 <head>
 
     <meta charset="utf-8">
@@ -399,11 +403,34 @@
                             <!-- Dropdown Select Menu Místnost -->
                             <div class="dropdown  mb-5">
                                 <label for="NahlasitProblemMistnost" class="mb-1">Vyberte prosím místnost:</label>
-                                <select class="custom-select" id="NahlasitProblemMistnost">
-                                    <option value="1">1.A</option>
-                                    <option value="2">2.A</option>
-                                    <option value="3">3.A</option>
-                                </select>
+                                
+
+
+ <?php
+
+                        $sql = "select trida from projektory;";
+                        $result = mysqli_query($conn, $sql);
+
+
+                          if (mysqli_num_rows($result) > 0) {
+        
+                                echo "<select class='custom-select' name='trida'>";
+
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            echo "<option>" . $row['trida'] . "</option>";
+                                        }
+
+                                    echo "</select>";
+                                } 
+                            else {
+                                        echo "Žádné výsledky nenalezeny";
+                                }
+
+                                   mysqli_close($conn);
+
+                ?>
+
+
                             </div>
 
                             <!-- Dropdown Select Menu Zařízení -->
