@@ -398,7 +398,7 @@ include 'connection.php'
                     <h1 class="h3 mb-4 text-gray-800">Nahlásit Problém</h1>
 
                     <!-- Form Nahlásit Problém -->
-                        <form class="card-body" action="" method="post">
+                        <form class="card-body" method="POST" action="report.php" >
 
                             <!-- Dropdown Select Menu Místnost -->
                             <div class="dropdown  mb-5">
@@ -436,7 +436,7 @@ include 'connection.php'
                             <!-- Dropdown Select Menu Zařízení -->
                             <div class="dropdown  mb-5">
                                 <label for="NahlasitProblemZarizeni" class="mb-1">Vyberte prosím zařízení, u&#160kterého se vyskytl problém:</label>
-                                <select class="custom-select" id="NahlasitProblemZarizeni">
+                                <select class="custom-select" name="zarizeni" id="NahlasitProblemZarizeni">
                                     <option value="1">Projektor</option>
                                     <option value="2">Tiskárna</option>   
                                 </select>
@@ -445,7 +445,7 @@ include 'connection.php'
                             <!--Input Message Popište Problém-->
                             <div class="form-group">
                                 <label for="NahlasitProblemPopisteProblem" class="mb-1">Popište prosím problém se&#160zařízením:</label>
-                                <textarea type="text" class="form-control" id="NahlasitProblemPopisteProblem" rows="7"></textarea>
+                                <textarea type="text" class="form-control" name="popis" id="NahlasitProblemPopisteProblem" rows="7"></textarea>
                             </div>
 
                             <!--Button Odeslat-->
