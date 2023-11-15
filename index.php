@@ -357,7 +357,7 @@ include 'connection.php';
                     </button>
 
                     <!-- Button Nahlásit Problém -->
-                    <a href="nahlasit-problem.html" class="btn btn-secondary ">
+                    <a href="nahlasit-problem.php" class="btn btn-secondary ">
                         <span class="icon text-white-50">
                             
                         </span>
