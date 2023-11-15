@@ -4,6 +4,7 @@
 
 <?php
 include 'connection.php';
+include 'config.php';
 ?>
 
 
@@ -740,25 +741,14 @@ include 'connection.php';
 
                         <h1 class="h3 mb-0 text-gray-800"> Projektory </h1>
 
-                        <!--Connection To Database-->
-                        <?php
+                                               <?php
 
-                        $servername = "localhost";
-
-                        $username = "c0dev";
-
-                        $password = "U_g9h3PzgQwMU";
+			$conn = mysqli_connect($servername, $username, $password, $dbName);
 
 
-
-                        // Create connection
-
-                        $conn = mysqli_connect($servername, $username, $password);
-
-
-
-                        // Check connection
-
+		if($debug_mode){
+                       
+				
                         if (!$conn) {
 
                             die("Spojení selhalo: " . mysqli_connect_error());
@@ -767,9 +757,11 @@ include 'connection.php';
 
                         echo "Připojeno k databázi <br>";
 				
-			$today = date("d.m.Y");
-			echo "Dnes je $today";
+			}
 
+			$today = date("d.m.Y");
+
+			echo "Dnes je $today";
 
 
 
@@ -860,7 +852,8 @@ include 'connection.php';
 							$conn = mysqli_connect($servername, $username, $password, $dbName);
 
 
-							$sql3 = "SELECT * FROM projektory p left join problemy r on r.id_projektor=p.id where r.status='t' group by p.id;";
+							$sql3 = "SELECT * FROM projektory p LEFT JOIN problemy r ON r.id_projektor = p.id WHERE r.status IS NULL OR (r.id_projektor,r.vytvoreno) IN (SELECT id_projektor, MAX(vytvoreno) AS max_created_at FROM problemy GROUP BY id_projektor) AND r.status = 't';";							
+
 							if($result3 = mysqli_query($conn, $sql3)){
 							
 								$num = mysqli_num_rows($result3);
