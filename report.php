@@ -46,8 +46,7 @@ include 'config.php';
 
 <body>
    <?php
-include 'connection.php';
-include 'config.php';
+
 
 
     $trida = $_REQUEST['trida'];
