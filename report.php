@@ -60,7 +60,7 @@ include 'config.php';
 
 $conn1 = mysqli_connect($servername, $username, $password, $dbName);
 
-if (!$conn1) {
+if (!$conn1 && DEBUG_MODE) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
@@ -70,7 +70,7 @@ if ($result) {
     while ($row = mysqli_fetch_assoc($result)) {
         $projector_id = $row['id'];
     }
-} else {
+} else if(DEBUG_MODE){
     echo "Error: " . $sql1 . "<br>" . mysqli_error($conn1);
 }
 
@@ -84,13 +84,15 @@ mysqli_close($conn1);
 
     $conn = mysqli_connect($servername, $username, $password, $dbName);
 
- if (!$conn) {
+ if (!$conn && DEBUG_MODE) {
         die("Connection failed: " . mysqli_connect_error());
     }
 
     if (mysqli_query($conn, $sql)) {
-        echo "Stored";
-    } else {
+        if(DEBUG_MODE){
+		echo "Stored";
+		}
+    } else if(DEBUG_MODE){
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 
@@ -142,4 +144,3 @@ mysqli_close($conn1);
 
 </body>
 </html>
-
