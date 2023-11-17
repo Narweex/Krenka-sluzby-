@@ -746,18 +746,19 @@ include 'config.php';
 			$conn = mysqli_connect($servername, $username, $password, $dbName);
 
 
-		if($debug_mode){
-                       
+		                       
 				
                         if (!$conn) {
-
-                            die("Spojení selhalo: " . mysqli_connect_error());
-
+			 	if(DEBUG_MODE){
+				 die("Spojení selhalo: " . mysqli_connect_error());
+				}
+				die();			
                         }
-
+			
+			if(DEBUG_MODE){
                         echo "Připojeno k databázi <br>";
-				
 			}
+				
 
 			$today = date("d.m.Y");
 
