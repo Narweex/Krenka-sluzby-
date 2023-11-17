@@ -105,7 +105,7 @@ include 'config.php';
 
             <!-- Nav Item - Projektory -->
             <li class="nav-item Show">
-                <a class="nav-link" href="projektory.html">
+                <a class="nav-link" href="projektory.php">
                     <!--<i class="fas fa-fw fa-table"></i>-->
 
                     <span>PROJEKTORY</span></a>
