@@ -581,7 +581,7 @@ include 'config.php';
                         <label>Místnost:</label>
                         <input class="form-control mb-5" type="text" name="mistnost">
 
-                        <!-- Dropdown Select Menu Bezdrátový -->
+                        <!-- Dropdown Select Menu Bezdrátové -->
                         <div class="dropdown  mb-5">
                             <label for="" class="mb-1">Bezdrátové:</label>
                             <select class="custom-select" name="bezdratovy">
@@ -593,34 +593,13 @@ include 'config.php';
                         <!-- Dropdown Select Menu Konektor -->
                        
 
-                        <div class="mb-3">
-                            <label class="mb-1">Konektor:</label>
-
-                            <!-- Checkbox HDMI -->
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" value="">
-                                <label class="form-check-label" for="">
-                                    HDMI
-                                </label>
-                            </div>
-
-                            <!-- Checkbox VGA-->
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" value="">
-                                <label class="form-check-label" for="">
-                                    VGA
-                                </label>
-                            </div>
-                            
-                            <!--Checkbox DisplayPort-->
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" value="">
-                                <label class="form-check-label" for="">
-                                    DisplayPort
-                                </label>
-                            </div>
-                                               
-                          
+                        <div class="dropdown  mb-5">
+                            <label for="" class="mb-1">Konektor:</label>
+                            <select class="custom-select" name="bezdratovy">
+                                <option value="1">HDMI </option>
+                                <option value="2">VGA</option>
+                                <option value="3">HDMI + VGA</option>    
+                            </select>
                         </div>
 
                         <!-- Button Odeslat -->
