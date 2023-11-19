@@ -1716,7 +1716,7 @@ include 'config.php';
 
 
 
-            <!-- </div> -->
+             </div> 
 
             <!-- End of Main Content -->
 
