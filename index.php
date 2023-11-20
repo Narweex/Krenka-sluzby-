@@ -842,10 +842,23 @@ include 'config.php';
 
                                         <div class="col mr-2">
 
-                                            <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">
-
-                                                Funkční</div>
-
+                                            <a href="#" class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1 dropdown no-arrow">
+                                                
+                                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <a href="#" class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Funkční</a>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                                <div class="dropdown-header">Dropdown Header:</div>
+                                                <a class="dropdown-item" href="#">Action</a>
+                                                <a class="dropdown-item" href="#">Another action</a>
+                                                <a class="dropdown-item" href="#">Something else here</a>
+                                                <a class="dropdown-item" href="#">Action</a>
+                                                <a class="dropdown-item" href="#">Another action</a>
+                                                <a class="dropdown-item" href="#">Something else here</a>
+                                            </div>
+                                            
+                                            </a>
                                             <div class="h5 mb-0 font-weight-bold text-success">
 								
 						<?php
@@ -913,13 +926,27 @@ include 'config.php';
 
                                         <div class="col mr-2">
 
-                                            <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">
+                                            <div class="dropdown no-arrow">
+                                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Nefunkční</div>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                                    <div class="dropdown-header">Dropdown Header:</div>
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                </div>
 
-                                                Nefunkční</div>
+                                                    
 
-                                            <div class="h5 mb-0 font-weight-bold text-danger">
-
-						<?php                   
+                                                
+                                            </div>
+						    <div class="h5 mb-0 font-weight-bold text-danger">
+                            <?php                   
 							$conn = mysqli_connect($servername, $username, $password, $dbName);
 
 
@@ -944,21 +971,9 @@ include 'config.php';
 
                                         </div>
 
-                                        <div class="col-auto dropdown no-arrow">
-                                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <div class="col-auto">
+                                            
                                             <i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                                                <div class="dropdown-header">Dropdown Header:</div>
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#">Something else here</a>
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#">Something else here</a>
-                                            </div>
-
                                             
 
                                         </div>
