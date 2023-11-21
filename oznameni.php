@@ -2,9 +2,10 @@
 <html lang="en">
 
 <?php
-
+include 'config.php';
+include 'connection.php';
+include 'footer.php';
 include 'header.php';
-
 ?>
 
 <head>
@@ -19,8 +20,9 @@ include 'header.php';
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-          rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -50,8 +52,7 @@ include 'header.php';
             <li class="nav-item Show">
                 <a class="nav-link" href="index.php">
                     <!--<i class="fas fa-fw fa-table"></i>-->
-                    <span>PŘEHLED</span>
-                </a>
+                    <span>PŘEHLED</span></a>
             </li>
 
             <!-- Divider -->
@@ -61,8 +62,7 @@ include 'header.php';
             <li class="nav-item Show">
                 <a class="nav-link" href="projektory.html">
                     <!--<i class="fas fa-fw fa-table"></i>-->
-                    <span>PROJEKTORY</span>
-                </a>
+                    <span>PROJEKTORY</span></a>
             </li>
 
             <!-- Divider -->
@@ -72,16 +72,15 @@ include 'header.php';
             <li class="nav-item show">
                 <a class="nav-link" href="tiskarny.html">
                     <!--<i class="fas fa-fw fa-table"></i>-->
-                    <span>TISKÁRNY</span>
-                </a>
+                    <span>TISKÁRNY</span></a>
             </li>
 
-            <!-- Heading
+            <!-- Heading 
             <div class="sidebar-heading">
                 Interface
             </div>
 
-             Nav Item - Pages Collapse Menu
+             Nav Item - Pages Collapse Menu 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
@@ -97,7 +96,7 @@ include 'header.php';
                 </div>
             </li>
 
-             Nav Item - Utilities Collapse Menu
+             Nav Item - Utilities Collapse Menu 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
@@ -116,15 +115,15 @@ include 'header.php';
                 </div>
             </li>
 
-             Divider
+             Divider 
             <hr class="sidebar-divider">
 
-             Heading
+             Heading 
             <div class="sidebar-heading">
                 Addons
             </div>
 
-             Nav Item - Pages Collapse Menu
+             Nav Item - Pages Collapse Menu 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
@@ -145,14 +144,14 @@ include 'header.php';
                 </div>
             </li>
 
-             Nav Item - Charts
+             Nav Item - Charts 
             <li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
             </li>
 
-             Nav Item - Tables
+             Nav Item - Tables 
             <li class="nav-item">
                 <a class="nav-link" href="tables.html">
                     <i class="fas fa-fw fa-table"></i>
@@ -167,7 +166,7 @@ include 'header.php';
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
-            <!-- Sidebar Message
+            <!-- Sidebar Message 
             <div class="sidebar-card d-none d-lg-flex">
                 <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
                 <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
@@ -182,14 +181,15 @@ include 'header.php';
             <!-- Main Content -->
             <div id="content">
 
+                 <!-- Topbar -->
 
-                <!-- HEADER -->
-                <?php
+                 <?php
 
                 draw_header();
 
                 ?>
-                <!-- END-HEADER -->
+
+                <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -200,32 +200,31 @@ include 'header.php';
                     <!-- List Oznámení-->
                     <div class="list-group">
                         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                            <div class="d-flex w-100 justify-content-between">
-                                <small class="text-muted">10.11. 2023</small>
-                            </div>
-                            <p class="mb-1">Zařízení <u>Projektor</u> v&#160místnosti <u>1.A</u> bylo označeno jako <b style="color:#1cc88a;">funkční</b></p>
+                          <div class="d-flex w-100 justify-content-between">
+                            <small class="text-muted">10.11. 2023</small>
+                          </div>
+                          <p class="mb-1">Zařízení <u>Projektor</u> v&#160místnosti <u>1.A</u> bylo označeno jako <b style="color:#1cc88a;">funkční</b></p>
                         </a>
                         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                             <div class="d-flex w-100 justify-content-between">
-                                <small class="text-muted">11.11. 2023</small>
+                              <small class="text-muted">11.11. 2023</small>
                             </div>
                             <p class="mb-1">Zařízení <u>Tiskárna</u> v&#160místnosti <u>Kabinet AJ</u> bylo označeno jako <b style="color: #e74a3b;">nefunkční</b> </p>
-                        </a>
-                    </div>
+                          </a>
+                      </div>
 
                 </div>
                 <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
+
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; <a href="https://web-lab.cz/">Web-Lab.cz</a> & Seminář IVT 2023/24 </span>
-                    </div>
-                </div>
-            </footer>
+            <?php
+
+                footer();
+
+            ?>
             <!-- End of Footer -->
 
         </div>
@@ -233,6 +232,7 @@ include 'header.php';
 
     </div>
     <!-- End of Page Wrapper -->
+
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
@@ -240,7 +240,7 @@ include 'header.php';
 
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
