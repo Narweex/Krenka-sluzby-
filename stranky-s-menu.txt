@@ -5,3 +5,7 @@ nahlasit problem
 dokumentace
 oznameni
 pridat zarizeni
+
+
+
+
