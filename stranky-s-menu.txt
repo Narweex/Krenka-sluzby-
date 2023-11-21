@@ -1,10 +1,15 @@
-index
+index*
 projektory
 tiskarny
 nahlasit problem
 dokumentace
 oznameni
 pridat zarizeni
+
++ jen s footerem:
+pridat zarizeni do databaze
+problem nahlasen
+
 
 
 
