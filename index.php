@@ -848,13 +848,30 @@ include 'config.php';
                                                 <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Funkční</div>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                                                    <div class="dropdown-header">Dropdown Header:</div>
-                                                    <a class="dropdown-item" href="#">Action</a>
-                                                    <a class="dropdown-item" href="#">Another action</a>
-                                                    <a class="dropdown-item" href="#">Something else here</a>
-                                                    <a class="dropdown-item" href="#">Action</a>
-                                                    <a class="dropdown-item" href="#">Another action</a>
-                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                    <div class="dropdown-header">V místnostech:</div>
+
+                                                    <?php
+
+                                                    $sql = "SELECT * FROM projektory p LEFT JOIN problemy r ON r.id_projektor = p.id WHERE r.status IS NULL OR (r.id_projektor,r.vytvoreno) IN (SELECT id_projektor, MAX(vytvoreno) AS max_created_at FROM problemy GROUP BY id_projektor) AND r.status = 't';";
+
+                                                    $result = mysqli_query($conn, $sql);
+
+                                                    if (!$result) {
+                                                        if (DEBUG_MODE) {
+                                                            die("Query failed: " . mysqli_error($conn));
+                                                        }
+                                                    }
+
+                                                    $result_check = mysqli_num_rows($result);
+
+                                                    if ($result_check > 0) {
+                                                        while ($row = mysqli_fetch_assoc($result)) {
+
+                                                            echo "<a class='dropdown-item' href='#'>" . $row['trida'] . "</a>";
+                                                          
+                                                        }
+                                                    }
+                                                    ?>
                                                 </div>
 
                                                     
@@ -925,13 +942,29 @@ include 'config.php';
                                                 <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Nefunkční</div>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                                                    <div class="dropdown-header">Dropdown Header:</div>
-                                                    <a class="dropdown-item" href="#">Action</a>
-                                                    <a class="dropdown-item" href="#">Another action</a>
-                                                    <a class="dropdown-item" href="#">Something else here</a>
-                                                    <a class="dropdown-item" href="#">Action</a>
-                                                    <a class="dropdown-item" href="#">Another action</a>
-                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                    <div class="dropdown-header">V místnostech:</div>
+                                                    <?php
+
+                                                    $sql = "SELECT * FROM projektory p left join problemy r on r.id_projektor=p.id where r.status='f' group by p.id;";
+
+                                                    $result = mysqli_query($conn, $sql);
+
+                                                    if (!$result) {
+                                                        if (DEBUG_MODE) {
+                                                            die("Query failed: " . mysqli_error($conn));
+                                                        }
+                                                    }
+
+                                                    $result_check = mysqli_num_rows($result);
+
+                                                    if ($result_check > 0) {
+                                                        while ($row = mysqli_fetch_assoc($result)) {
+
+                                                            echo "<a class='dropdown-item' href='#'>" . $row['trida'] . "</a>";
+
+                                                        }
+                                                    }
+                                                    ?>
                                                 </div>
 
                                                     
@@ -1001,13 +1034,29 @@ include 'config.php';
                                                 <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Se zavádou</div>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                                                    <div class="dropdown-header">Dropdown Header:</div>
-                                                    <a class="dropdown-item" href="#">Action</a>
-                                                    <a class="dropdown-item" href="#">Another action</a>
-                                                    <a class="dropdown-item" href="#">Something else here</a>
-                                                    <a class="dropdown-item" href="#">Action</a>
-                                                    <a class="dropdown-item" href="#">Another action</a>
-                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                    <div class="dropdown-header">V místnostech:</div>
+                                                    <?php
+
+                                                    $sql = "SELECT * FROM projektory p left join problemy r on r.id_projektor=p.id where r.status='z' group by p.id;";
+
+                                                    $result = mysqli_query($conn, $sql);
+
+                                                    if (!$result) {
+                                                        if (DEBUG_MODE) {
+                                                            die("Query failed: " . mysqli_error($conn));
+                                                        }
+                                                    }
+
+                                                    $result_check = mysqli_num_rows($result);
+
+                                                    if ($result_check > 0) {
+                                                        while ($row = mysqli_fetch_assoc($result)) {
+
+                                                            echo "<a class='dropdown-item' href='#'>" . $row['trida'] . "</a>";
+
+                                                        }
+                                                    }
+                                                    ?>
                                                 </div>
 
                                                     
