@@ -595,7 +595,7 @@ include 'config.php';
 
                         <div class="dropdown  mb-5">
                             <label for="" class="mb-1">Konektor:</label>
-                            <select class="custom-select" name="bezdratovy">
+                            <select class="custom-select" name="konektor">
                                 <option value="1">HDMI </option>
                                 <option value="2">VGA</option>
                                 <option value="3">HDMI + VGA</option>    

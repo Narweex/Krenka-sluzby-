@@ -398,7 +398,7 @@ include 'connection.php'
                     <h1 class="h3 mb-4 text-gray-800">Nahlásit Problém</h1>
 
                     <!-- Form Nahlásit Problém -->
-                        <form class="card-body" method="POST" action="report.php" >
+                        <form class="card-body" method="POST" action="problem-nahlasen.php" >
 
                             <!-- Dropdown Select Menu Místnost -->
                             <div class="dropdown  mb-5">
