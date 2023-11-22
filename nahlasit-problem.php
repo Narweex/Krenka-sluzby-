@@ -2,27 +2,28 @@
 <html lang="en">
 
 <?php
-include 'connection.php'
-?>
+include 'connection.php';
+    include 'config.php';
+    ?>
 
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
     <title>Křenka Služby- Nahlásit Problém</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+        rel="stylesheet" />
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet" />
 
 </head>
 
@@ -43,33 +44,36 @@ include 'connection.php'
             </a>
 
             <!-- Divider -->
-            <hr class="sidebar-divider my-1">
+            <hr class="sidebar-divider my-1" />
 
             <!-- Nav Item - Přehled -->
             <li class="nav-item Show">
                 <a class="nav-link" href="index.php">
                     <!--<i class="fas fa-fw fa-table"></i>-->
-                    <span>PŘEHLED</span></a>
+                    <span>PŘEHLED</span>
+                </a>
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider my-1">
+            <hr class="sidebar-divider my-1" />
 
             <!-- Nav Item - Projektory -->
             <li class="nav-item Show">
                 <a class="nav-link" href="projektory.html">
                     <!--<i class="fas fa-fw fa-table"></i>-->
-                    <span>PROJEKTORY</span></a>
+                    <span>PROJEKTORY</span>
+                </a>
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider my-1">
+            <hr class="sidebar-divider my-1" />
 
             <!-- Nav Item - Tiskárny -->
             <li class="nav-item show">
                 <a class="nav-link" href="tiskarny.html">
                     <!--<i class="fas fa-fw fa-table"></i>-->
-                    <span>TISKÁRNY</span></a>
+                    <span>TISKÁRNY</span>
+                </a>
             </li>
 
             <!-- Heading 
@@ -156,7 +160,7 @@ include 'connection.php'
             </li>
 
              Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+            <hr class="sidebar-divider d-none d-md-block" />
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -186,7 +190,7 @@ include 'connection.php'
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-                    
+
                     <!-- Button Nahlásit Problém (Topbar)
                     <a href="#" class="btn btn-secondary ">
                         <span class="icon text-white-50">
@@ -247,8 +251,7 @@ include 'connection.php'
                             <!-- Dropdown - Alerts -->
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="alertsDropdown">
-                                <h6 class="dropdown-header">
-                                    Oznámení
+                                <h6 class="dropdown-header"> Oznámení
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="mr-3">
@@ -361,7 +364,7 @@ include 'connection.php'
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Uživatel</span>
                                 <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                    src="img/undraw_profile.svg" />
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -398,64 +401,63 @@ include 'connection.php'
                     <h1 class="h3 mb-4 text-gray-800">Nahlásit Problém</h1>
 
                     <!-- Form Nahlásit Problém -->
-                        <form class="card-body" method="POST" action="problem-nahlasen.php" >
+                    <form class="card-body" method="POST" action="problem-nahlasen.php">
 
-                            <!-- Dropdown Select Menu Místnost -->
-                            <div class="dropdown  mb-5">
-                                <label for="NahlasitProblemMistnost" class="mb-1">Vyberte prosím místnost:</label>
-                                
-
-
- <?php
-
-                        $sql = "select trida from projektory;";
-                        $result = mysqli_query($conn, $sql);
+                        <!-- Dropdown Select Menu Místnost -->
+                        <div class="dropdown  mb-5">
+                            <label for="NahlasitProblemMistnost" class="mb-1">Vyberte prosím místnost:</label>
 
 
-                          if (mysqli_num_rows($result) > 0) {
-        
+
+                            <?php
+
+                            $sql = "select trida from projektory;";
+                            $result = mysqli_query($conn, $sql);
+
+
+                            if (mysqli_num_rows($result) > 0) {
+
                                 echo "<select class='custom-select' name='trida'>";
 
-                                        while ($row = mysqli_fetch_assoc($result)) {
-                                            echo "<option>" . $row['trida'] . "</option>";
-                                        }
-
-                                    echo "</select>";
-                                } 
-                            else {
-                                        echo "Žádné výsledky nenalezeny";
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo "<option>" . $row['trida'] . "</option>";
                                 }
 
-                                   mysqli_close($conn);
+                                echo "</select>";
+                            } else {
+                                echo "Žádné výsledky nenalezeny";
+                            }
 
-                ?>
+                            mysqli_close($conn);
+
+                            ?>
 
 
-                            </div>
+                        </div>
 
-                            <!-- Dropdown Select Menu Zařízení -->
-                            <div class="dropdown  mb-5">
-                                <label for="NahlasitProblemZarizeni" class="mb-1">Vyberte prosím zařízení, u&#160kterého se vyskytl problém:</label>
-                                <select class="custom-select" name="zarizeni" id="NahlasitProblemZarizeni">
-                                    <option value="1">Projektor</option>
-                                    <option value="2">Tiskárna</option>   
-                                </select>
-                            </div>
+                        <!-- Dropdown Select Menu Zařízení -->
+                        <div class="dropdown  mb-5">
+                            <label for="NahlasitProblemZarizeni" class="mb-1">Vyberte prosím zařízení, u&#160kterého se vyskytl problém:</label>
+                            <select class="custom-select" name="zarizeni" id="NahlasitProblemZarizeni">
+                                <option value="1">Projektor</option>
+                                <option value="2">Tiskárna</option>
+                            </select>
+                        </div>
 
-                            <!--Input Message Popište Problém-->
-                            <div class="form-group">
-                                <label for="NahlasitProblemPopisteProblem" class="mb-1">Popište prosím problém se&#160zařízením:</label>
-                                <textarea type="text" class="form-control" name="popis" id="NahlasitProblemPopisteProblem" rows="7"></textarea>
-                            </div>
+                        <!--Input Message Popište Problém-->
+                        <div class="form-group">
+                            <label for="NahlasitProblemPopisteProblem" class="mb-1">Popište prosím problém se&#160zařízením:</label>
+                            <textarea type="text" class="form-control" name="popis" id="NahlasitProblemPopisteProblem" rows="7"></textarea>
+                        </div>
 
-                            <!--Button Odeslat-->
-                            <button type="submit" class="btn btn-primary">Odeslat</button>
+                        <!--Button Odeslat-->
+                        <button type="submit" class="btn btn-primary">Odeslat</button>
 
-                                
-                        </form>
-                    
-                    
-                    
+
+                    </form>
+
+
+
 
                 </div>
                 <!-- /.container-fluid -->
@@ -463,15 +465,15 @@ include 'connection.php'
             </div>
             <!-- End of Main Content -->
 
-           <!-- Footer -->
-           <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; <a href="https://web-lab.cz/">Web-Lab.cz</a> & Seminář IVT 2023/24 </span>
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; <a href="https://web-lab.cz/">Web-Lab.cz</a> & Seminář IVT 2023/24 </span>
+                    </div>
                 </div>
-            </div>
-        </footer>
-        <!-- End of Footer -->
+            </footer>
+            <!-- End of Footer -->
 
         </div>
         <!-- End of Content Wrapper -->

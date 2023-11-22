@@ -4,7 +4,7 @@
 include 'config.php';
 
 
-function draw_header(){
+function draw_topbar(){
 
     echo "
 <!-- Topbar -->

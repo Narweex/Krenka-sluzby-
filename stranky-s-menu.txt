@@ -1,14 +1,16 @@
 index*
-projektory
-tiskarny
-nahlasit problem
-dokumentace
-oznameni
-pridat zarizeni
+projektory* 
+tiskarny*
+nahlasit problem*
+dokumentace*
+oznameni*
+pridat zarizeni*
 
 + jen s footerem:
-pridat zarizeni do databaze
-problem nahlasen
+pridat zarizeni do databaze*    
+problem nahlasen*
+
+* -> pridany dynamicke footery
 
 
 

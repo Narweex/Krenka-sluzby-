@@ -186,7 +186,7 @@ include 'header.php';
                 <!-- HEADER -->
                 <?php
 
-                draw_header();
+                draw_topbar();
 
                 ?>
                 <!-- END-HEADER -->
