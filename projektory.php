@@ -418,7 +418,7 @@ include 'footer.php';
                                             <th>Číslo učebny</th>
                                             <th>Funkční</th>
                                             <th>Chybové hlášení</th>
-                                            <th>Předpokládaná doba opravy</th>
+                                            <th>Datum nahlášení problému</th>
                                             <th>Konektor</th>
                                             <th>Bezdrátový</th>
                                         </tr>
@@ -428,7 +428,7 @@ include 'footer.php';
                                             <th>Číslo učebny</th>
                                             <th>Funkční</th>
                                             <th>Chybové hlášení</th>
-                                            <th>Předpokládaná doba opravy</th>
+                                            <th>Datum nahlášení problému</th>
                                             <th>Konektor</th>
                                             <th>Bezdrátový</th>
                                         </tr>
