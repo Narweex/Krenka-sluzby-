@@ -1,16 +1,18 @@
-index*
-projektory* 
-tiskarny*
-nahlasit problem*
-dokumentace*
-oznameni*
-pridat zarizeni*
+index**
+projektory** 
+tiskarny**
+nahlasit problem**
+dokumentace**
+oznameni**
+pridat zarizeni**
+panel**
 
 + jen s footerem:
 pridat zarizeni do databaze*    
 problem nahlasen*
 
 * -> pridany dynamicke footery
+** -> pridany dynamicke topbary
 
 
 
