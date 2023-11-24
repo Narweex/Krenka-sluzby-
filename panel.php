@@ -207,7 +207,7 @@ include 'header.php';
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6> -->
                         </div>
-                        <div class="card-body">
+                        <form class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
@@ -218,7 +218,7 @@ include 'header.php';
                                             <th>Popis</th>
                                             <th>Stav</th>
                                             <th>Nahlášeno</th>
-                                            <th>Upravit</th>
+                                            
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -229,7 +229,7 @@ include 'header.php';
                                             <th>Popis</th>
                                             <th>Stav</th>
                                             <th>Nahlášeno</th>
-                                             <th>Upravit</th>
+                                             
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -274,10 +274,13 @@ include 'header.php';
 
                                                 echo "<td>
                                                     
-                                                  <form method='post'>
-                                                      <input type='hidden' name='problem_id' value='" . $row['id_problemu'] . "' />
-                                                      <input type='submit' name='button1' class='btn btn-secondary' value='Vyřešeno' /> 
-                                                  </form>
+                                                    <div class="dropdown  mb-5">
+                                                        <select class="custom-select" name="" id="">
+                                                            <option value="1">Funkční</option>
+                                                            <option value="2">Nefunkční</option>
+                                                            <option value="2">Se Závadou</option>
+                                                        </select>
+                                                    </div>  
                                                     
                                                     
                                                     
@@ -295,7 +298,7 @@ include 'header.php';
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
+                        </form>
                     </div>
 
                 </div>
