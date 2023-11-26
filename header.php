@@ -152,7 +152,7 @@ function draw_topbar(){
                                     </div>
 
                                 </a>
-                                <a class='dropdown-item text-center small text-gray-500' href='oznameni.html'>Všechna oznámení</a>
+                                <a class='dropdown-item text-center small text-gray-500' href='oznameni.php'>Všechna oznámení</a>
                             </div>
 
                         </li>
