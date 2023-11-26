@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
 
 <html lang="en">
 
@@ -480,7 +480,7 @@ include 'header.php';
 
                                                     <?php
 
-                                                    $sql = "SELECT * FROM projektory p LEFT JOIN problemy r ON r.id_projektor = p.id WHERE r.status IS NULL OR (r.id_projektor,r.vytvoreno) IN (SELECT id_projektor, MAX(vytvoreno) AS max_created_at FROM problemy GROUP BY id_projektor) AND r.status = 't';";
+                                                    $sql = "SELECT p.*, r.* FROM projektory p LEFT JOIN problemy r ON r.id_projektor = p.id WHERE r.status IS NULL OR (r.id_projektor, r.vytvoreno) IN (SELECT id_projektor, MAX(vytvoreno) AS max_created_at FROM problemy WHERE status = 't' GROUP BY id_projektor);";
 
                                                     $result = mysqli_query($conn, $sql);
 
@@ -496,7 +496,7 @@ include 'header.php';
                                                         while ($row = mysqli_fetch_assoc($result)) {
 
                                                             echo "<a class='dropdown-item' href='#'>" . $row['trida'] . "</a>";
-                                                          
+
                                                         }
                                                     }
                                                     ?>

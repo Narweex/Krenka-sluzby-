@@ -2,10 +2,7 @@
 <html lang="en">
 
 <?php
-include 'config.php';
-include 'connection.php';
-include 'footer.php';
-include 'header.php';
+include 'include.php';
 ?>
 
 <head>
@@ -207,8 +204,9 @@ include 'header.php';
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6> -->
                         </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
+                       
+
+                            <div class="table-responsive card-body">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
@@ -218,7 +216,9 @@ include 'header.php';
                                             <th>Popis</th>
                                             <th>Stav</th>
                                             <th>Nahlášeno</th>
-                                            <th>Upravit</th>
+                                            <th>Editovat</th>
+                                            <th>Uložit</th>
+                                            
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -229,7 +229,9 @@ include 'header.php';
                                             <th>Popis</th>
                                             <th>Stav</th>
                                             <th>Nahlášeno</th>
-                                             <th>Upravit</th>
+                                            <th>Editovat</th>
+                                            <th>Uložit</th>
+                                             
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -250,9 +252,10 @@ include 'header.php';
 
                                         if ($result_check > 0) {
                                             while ($row = mysqli_fetch_assoc($result)) {
-                                                echo "<tr>";
-                                                    echo "<td>" . $row['id_problemu'] . "</td>"; // V jake ucebne se projektor nachazi
-                                        
+                                                echo " <tr> <form method='post' action='zmenit-status.php'>";
+                                                    echo "<td id='cislo_problemu' name='cislo_problemu'>" . $row['id_problemu'] . "</td>
+                                                        <input type='hidden' name='cislo_problemu' value='". $row['id_problemu'] ."'>"; // V jake ucebne se projektor nachazi
+                                                  
                                                 echo "<td>" . $row['id_uzivatel'] . "</td>";
                                                   
                                                     echo "<td>" . $row['trida'] . "</td>";
@@ -262,40 +265,46 @@ include 'header.php';
                                                    
                                                     
                                                     if($row['status'] == "f"){
-                                                        echo "<th>Nevyřešeno</th>";} 
+                                                        echo "<td>Nefunkční</td>";} 
                                                     else if($row['status'] == "z"){
                                                         echo "<td>V řešení...</td>";}
                                                     else if($row['status'] == "t"){
-                                                         echo "<td>Vyřešeno</td>";
+                                                         echo "<td>Funkční</td>";
                                                     }
                                                     
                                                     echo "<td>" . $row['vytvoreno'] . "</td>";
 
 
                                                 echo "<td>
+
+
                                                     
-                                                  <form method='post'>
-                                                      <input type='hidden' name='problem_id' value='" . $row['id_problemu'] . "' />
-                                                      <input type='submit' name='button1' class='btn btn-secondary' value='Vyřešeno' /> 
-                                                  </form>
-                                                    
-                                                    
-                                                    
-                                                    
+                                                    <div class='dropdown  mb-5'>
+                                                        <select class='custom-select' name='set_status' id=''>
+                                                            <option value='1'" . ($row['status'] == 't' ? 'selected="selected"' : '') . ">Funkční</option>
+                                                            <option value='2'" . ($row['status'] == 'f' ? 'selected="selected"' : '') . ">Nefunkční</option>
+                                                            <option value='3'" . ($row['status'] == 'z' ? 'selected="selected"' : '') . ">Se závadou</option>
+                                                           
+                                                        </select>
+                                                    </div>  
                                                     
                                                     </td>";
                                                
-                                                echo "</tr>";
+                                                echo "<td>
+                                                        <button class='btn btn-secondary' type='submit'>Potvrdit</button>
+                                                     </td>
+                                                    </tr>
+                                                                                                              </form>";
                                             }
                                         }
 
-                                        // Close the database connection if needed
-                                        mysqli_close($conn);
+                                    
+                                      
                                         ?>
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
+                       
                     </div>
 
                 </div>
