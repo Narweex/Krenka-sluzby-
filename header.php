@@ -350,8 +350,16 @@ function draw_sidebar(){
 
             <hr class='sidebar-divider my-1'>
 
-            <!-- Nav Item - Přehled -->
-            <li class='nav-item active'>
+            <!-- Nav Item - Přehled -->";
+
+
+
+
+
+
+    echo ($_SERVER['REQUEST_URI'] == "/index.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+
+    echo"
 
                 <a class='nav-link' href='index.php'>
 
@@ -367,8 +375,12 @@ function draw_sidebar(){
 
             <hr class='sidebar-divider my-1'>
 
-            <!-- Nav Item - Projektory -->
-            <li class='nav-item Show'>
+            <!-- Nav Item - Projektory -->";
+
+             echo ($_SERVER['REQUEST_URI'] == "/projektory.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+
+
+    echo "
                 <a class='nav-link' href='projektory.php'>
                     <!--<i class='fas fa-fw fa-table'></i>-->
 
@@ -382,8 +394,12 @@ function draw_sidebar(){
 
             <hr class='sidebar-divider my-1'>
 
-            <!-- Nav Item - Tiskárny -->
-            <li class='nav-item Show'>
+            <!-- Nav Item - Tiskárny -->";
+
+            echo ($_SERVER['REQUEST_URI'] == "/tiskarny.html") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+
+
+             echo"
                 <a class='nav-link' href='tiskarny.html'>
                     <!--<i class='fas fa-fw fa-table'></i>-->
 
@@ -393,7 +409,7 @@ function draw_sidebar(){
 
 
 
-            <!-- Heading 
+            <!-- Heading
 
             <div class='sidebar-heading'>
 
@@ -403,7 +419,7 @@ function draw_sidebar(){
 
 
 
-             Nav Item - Pages Collapse Menu 
+             Nav Item - Pages Collapse Menu
 
             <li class='nav-item'>
 
@@ -435,7 +451,7 @@ function draw_sidebar(){
 
 
 
-             Nav Item - Utilities Collapse Menu 
+             Nav Item - Utilities Collapse Menu
 
             <li class='nav-item'>
 
@@ -473,13 +489,13 @@ function draw_sidebar(){
 
 
 
-             Divider 
+             Divider
 
             <hr class='sidebar-divider'>
 
 
 
-             Heading 
+             Heading
 
             <div class='sidebar-heading'>
 
@@ -489,7 +505,7 @@ function draw_sidebar(){
 
 
 
-             Nav Item - Pages Collapse Menu 
+             Nav Item - Pages Collapse Menu
 
             <li class='nav-item'>
 
@@ -531,7 +547,7 @@ function draw_sidebar(){
 
 
 
-             Nav Item - Charts 
+             Nav Item - Charts
 
             <li class='nav-item'>
 
@@ -545,7 +561,7 @@ function draw_sidebar(){
 
 
 
-             Nav Item - Tables 
+             Nav Item - Tables
 
             <li class='nav-item'>
 
@@ -575,7 +591,7 @@ function draw_sidebar(){
 
 
 
-            <!-- Sidebar Message 
+            <!-- Sidebar Message
 
             <div class='sidebar-card d-none d-lg-flex'>
 
