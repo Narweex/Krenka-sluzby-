@@ -474,7 +474,7 @@ include 'header.php';
 
                     </div>
 
-<!--Heading-Tiskárny -->
+<!--Heading-Tiskárny 
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
 
@@ -485,13 +485,13 @@ include 'header.php';
 
 
 
-<!-- Content Row-->
+<!-- Content Row
 
 <div class="row"> 
 
 
 
-    <!--Card Example-Funkční Tiskárny -->
+    <!--Card Example-Funkční Tiskárny 
 
     <div class="col-xl-3 col-md-6 mb-4">
 
@@ -540,7 +540,7 @@ include 'header.php';
 
 
 
-    <!--Card Example-Nefunkční Tiskárny -->
+    <!--Card Example-Nefunkční Tiskárny 
 
     <div class="col-xl-3 col-md-6 mb-4">
 
@@ -591,7 +591,7 @@ include 'header.php';
 
 
 
-    <!--Card Example-Se závadou Tiskárny -->
+    <!--Card Example-Se závadou Tiskárny 
 
     <div class="col-xl-3 col-md-6 mb-4">
 

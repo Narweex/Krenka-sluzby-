@@ -101,7 +101,7 @@ function draw_topbar(){
 
                             </div>
                         </li>-->
-                        <!-- Nav Item - Alerts -->
+                        <!-- Nav Item - Alerts 
 
                         <li class='nav-item dropdown no-arrow mx-1'>
 
@@ -111,13 +111,13 @@ function draw_topbar(){
 
                                 <i class='fas fa-bell fa-fw'></i>
 
-                                <!-- Counter - Alerts -->
+                                <!-- Counter - Alerts 
 
                                 <span class='badge badge-danger badge-counter'>2</span>
 
                             </a>
 
-                            <!-- Dropdown - Alerts -->
+                            <!-- Dropdown - Alerts 
 
                             <div class='dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in' aria-labelledby='alertsDropdown'>
 
@@ -286,7 +286,7 @@ function draw_topbar(){
 
                         <div class='topbar-divider d-none d-sm-block'></div>
 
-                         Nav Item - User Information -->
+                         Nav Item - User Information 
                         <li class='nav-item dropdown no-arrow'>
 
                             <a class='nav-link dropdown-toggle' href='#' id='userDropdown' role='button'
@@ -297,7 +297,7 @@ function draw_topbar(){
 
                             </a>
 
-                            <!-- Dropdown - User Information -->
+                            <!-- Dropdown - User Information 
 
                             <div class='dropdown-menu dropdown-menu-right shadow animated--grow-in'
                                  aria-labelledby='userDropdown'>
@@ -309,7 +309,7 @@ function draw_topbar(){
                                     Odhlásit se
                                 </a>
 
-                            </div>
+                            </div>-->
 
                         </li>
 
@@ -326,7 +326,7 @@ function draw_topbar(){
 
 function draw_sidebar(){
     echo "
-    <ul class='navbar-nav bg-gradient-primary sidebar sidebar-dark accordion' id='accordionSidebar'>
+    <ul class='navbar-nav bg-primary sidebar sidebar-dark accordion' id='accordionSidebar'>
 
 
 
@@ -390,18 +390,18 @@ function draw_sidebar(){
 
 
 
-            <!-- Divider -->
+            <!-- Divider 
 
             <hr class='sidebar-divider my-1'>
 
-            <!-- Nav Item - Tiskárny -->";
+            <!-- Nav Item - Tiskárny ";
 
             echo ($_SERVER['REQUEST_URI'] == "/tiskarny.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
 
 
              echo"
                 <a class='nav-link' href='tiskarny.php'>
-                    <!--<i class='fas fa-fw fa-table'></i>-->
+                    <!--<i class='fas fa-fw fa-table'></i>
 
                     <span>TISKÁRNY</span></a>
 
