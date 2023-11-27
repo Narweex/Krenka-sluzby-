@@ -102,14 +102,14 @@ include 'header.php';
                             <label for="NahlasitProblemZarizeni" class="mb-1">Vyberte prosím zařízení, u&#160kterého se vyskytl problém:</label>
                             <select class="custom-select" name="zarizeni" id="NahlasitProblemZarizeni">
                                 <option value="1">Projektor</option>
-                                <option value="2">Tiskárna</option>
+                                <!--<option value="2">Tiskárna</option>-->
                             </select>
                         </div>
 
                         <!--Input Message Popište Problém-->
-                        <div class="form-group">
-                            <label for="NahlasitProblemPopisteProblem" class="mb-1">Popište prosím problém se&#160zařízením:</label>
-                            <textarea type="text" class="form-control" name="popis" id="NahlasitProblemPopisteProblem" rows="7"></textarea>
+                        <div class='form-group'>
+                            <label for='NahlasitProblemPopisteProblem' class='mb-1'>Popište prosím problém se&#160zařízením:</label>
+                            <textarea type='text' class='form-control' name='popis' id='NahlasitProblemPopisteProblem' rows='7'></textarea>
                         </div>
 
                         <!--Button Odeslat-->
