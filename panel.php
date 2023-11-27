@@ -60,8 +60,8 @@ include 'include.php';
                 <div class="container-fluid">
 
                     <!-- Page Heading Projektory-->
-                    <h1 class="h3 mb-2 text-gray-800">Projektory</h1>
-                    <p class="mb-4">Následující tabulka obsahuje přehled informací o jednotlivých projektorech v jednotlivých učebnách.</p>
+                    <h1 class="h3 mb-2 text-gray-800">Admin Panel</h1>
+                    <p class="mb-4">Administrátorský panel, který Vám umožňuje měnit statusy funkčnosti zařízení</p>
 
                     <!-- DataTales Example -->
                    <!--<div class="card shadow mb-4">
@@ -81,6 +81,7 @@ include 'include.php';
                                             <th>Stav</th>
                                             <th>Nahlášeno</th>
                                             <th>Editovat</th>
+                                            <th>Popis změny</th>
                                             <th>Uložit</th>
                                             
                                         </tr>
@@ -94,6 +95,7 @@ include 'include.php';
                                             <th>Stav</th>
                                             <th>Nahlášeno</th>
                                             <th>Editovat</th>
+                                            <th>Popis změny</th>
                                             <th>Uložit</th>
                                              
                                         </tr>
@@ -153,6 +155,18 @@ include 'include.php';
                                                     </div>  
                                                     
                                                     </td>";
+
+                                                echo "<td>
+
+                                                    <div class='form-group'>
+                                                        <textarea type='text' class='form-control' name='' id='' rows='5' placeholder='Popište prosím důvod provedené změny'></textarea>
+                                                    </div>
+
+
+                                                </td>
+                                                
+                                                
+                                                ";
                                                
                                                 echo "<td>
                                                         <button class='btn btn-secondary' type='submit'>Potvrdit</button>
