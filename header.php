@@ -396,11 +396,11 @@ function draw_sidebar(){
 
             <!-- Nav Item - Tiskárny -->";
 
-            echo ($_SERVER['REQUEST_URI'] == "/tiskarny.html") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+            echo ($_SERVER['REQUEST_URI'] == "/tiskarny.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
 
 
              echo"
-                <a class='nav-link' href='tiskarny.html'>
+                <a class='nav-link' href='tiskarny.php'>
                     <!--<i class='fas fa-fw fa-table'></i>-->
 
                     <span>TISKÁRNY</span></a>

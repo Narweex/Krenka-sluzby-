@@ -70,6 +70,8 @@ include 'header.php';
 
         ?>
 
+        <!-- End of Sidebar-->
+
 
 
         <!-- Content Wrapper -->
