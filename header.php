@@ -608,5 +608,150 @@ function draw_sidebar(){
         </ul>";
 }
 
+function draw_admin_sidebar()
+    {
+    echo"
+    <!-- Sidebar -->
+
+        <ul class='navbar-nav bg-primary sidebar sidebar-dark accordion' id='accordionSidebar'>
+
+
+
+            <!-- Sidebar - Brand -->
+
+            <a class='sidebar-brand d-flex align-items-center justify-content-center' href='index.php'>
+
+                <div class=''>
+
+                    <i class='fas fa-fw fa-wrench'></i>
+
+                </div>
+
+                <div class='sidebar-brand-text mx-3'>Křenka Služby</div>
+
+            </a>
+
+
+
+            <!-- Divider -->
+
+            <hr class='sidebar-divider my-1'>
+
+            <!-- Nav Item - Přehled -->
+            <li class='nav-item active'>
+
+                <a class='nav-link' href='index.php'>
+
+                    <!--<i class='fas fa-fw fa-table'></i>-->
+
+                    <span>PŘEHLED</span></a>
+
+            </li>
+
+
+
+            <!-- Divider -->
+
+            <hr class='sidebar-divider my-1'>
+
+            <!-- Nav Item - Projektory -->
+            <li class='nav-item Show'>
+                <a class='nav-link' href='projektory.php'>
+                    <!--<i class='fas fa-fw fa-table'></i>-->
+
+                    <span>PROJEKTORY</span></a>
+
+            </li>
+
+
+
+            <!-- Divider -->
+
+            <hr class='sidebar-divider my-1'>
+
+            <!-- Nav Item - Tiskárny -->
+            <li class='nav-item Show'>
+                <a class='nav-link' href='tiskarny.html'>
+                    <!--<i class='fas fa-fw fa-table'></i>-->
+
+                    <span>TISKÁRNY</span></a>
+
+            </li>
+
+            <!-- Divider-->
+
+            <hr class='sidebar-divider my-1'>
+
+            <!--Nav Item - Přidat Zařízení-->
+            <li class='nav-item Show'>
+                <a class='nav-link' href='pridat-zarizeni.php'>
+                    <!--<i class='fas fa-fw fa-table'></i>-->
+
+                    <span>PŘIDAT ZAŘÍZENÍ</span></a>
+
+            </li>
+
+            <!-- Divider-->
+
+            <hr class='sidebar-divider my-1'>
+
+            <!--Nav Item - Panel-->
+            <li class='nav-item Show'>
+                <a class='nav-link' href='panel.php'>
+                    <!--<i class='fas fa-fw fa-table'></i>-->
+
+                    <span>PANEL</span></a>
+
+            </li>
+
+            <!-- Divider-->
+
+            <hr class='sidebar-divider my-1'>
+
+            <!--Nav Item - Dokumentace-->
+            <li class='nav-item Show'>
+                <a class='nav-link' href='dokumentace.php'>
+                    <!--<i class='fas fa-fw fa-table'></i>-->
+
+                    <span>DOKUMENTACE</span></a>
+
+            </li>
+
+            <!-- Divider-->
+
+            <hr class='sidebar-divider my-1'>
+
+            <!--Nav Item - Dokumentace-->
+            <li class='nav-item Show'>
+                <a class='nav-link' href='oznameni.php'>
+                    <!--<i class='fas fa-fw fa-table'></i>-->
+
+                    <span>OZNÁMENÍ</span></a>
+
+            </li>
+
+
+
+            <!--Divider -->
+            <hr class='sidebar-divider d-none d-md-block'>
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class='text-center d-none d-md-inline'>
+                <button class='rounded-circle border-0' id='sidebarToggle'></button>
+            </div>
+
+
+
+
+            
+
+
+
+        </ul>
+
+        <!-- End of Sidebar -->"
+
+;}
+
 ?>
 
