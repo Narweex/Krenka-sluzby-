@@ -77,6 +77,7 @@ include 'header.php';
                                             <th>Číslo učebny</th>
                                             <th>Funkční</th>
                                             <th>Chybové hlášení</th>
+                                            <th>Řešení</th>
                                             <th>Datum nahlášení problému</th>
                                             <th>Konektor</th>
                                             <th>Bezdrátový</th>
@@ -87,6 +88,7 @@ include 'header.php';
                                             <th>Číslo učebny</th>
                                             <th>Funkční</th>
                                             <th>Chybové hlášení</th>
+                                            <th>Řešení</th>
                                             <th>Datum nahlášení problému</th>
                                             <th>Konektor</th>
                                             <th>Bezdrátový</th>
@@ -121,6 +123,9 @@ include 'header.php';
                                                     }
                                                   
                                                     echo "<td>" . $row['chyba'] . "</td>";
+                                                  
+                                                    echo "<td>" . $row['popis_reseni'] . "</td>";
+
 
                                                 echo "<td>" . $row['vytvoreno'] . "</td>";
                                                     

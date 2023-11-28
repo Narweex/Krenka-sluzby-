@@ -159,7 +159,11 @@ include 'include.php';
                                                 echo "<td>
 
                                                     <div class='form-group'>
+<<<<<<< Updated upstream
                                                         <textarea type='text' class='form-control' name='' id='' rows='5' placeholder='Popište prosím důvod provedené změny'></textarea>
+=======
+                                                        <textarea type='text' class='form-control' name='popis_reseni' id='popis_reseni' rows='5' placeholder='" . $row['popis_reseni'] ."'></textarea>
+>>>>>>> Stashed changes
                                                     </div>
 
 

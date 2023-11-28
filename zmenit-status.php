@@ -52,11 +52,16 @@ include 'include.php';
 
     $status = $_REQUEST['set_status'];
 
+    $popis_reseni = $_REQUEST['popis_reseni'];
+
+
 
 
     echo "ID problemu " . $problem_id. "<br>";
 
     echo "Status " . $status. "<br>";
+
+    echo "Popis:  " . $popis_reseni. "<br>";
 
 
 
@@ -84,7 +89,7 @@ include 'include.php';
 
 
 
-    $sql = "update problemy set status='$status' where id_problemu='$problem_id';";
+    $sql = "update problemy set status='$status', popis_reseni='$popis_reseni' where id_problemu='$problem_id';";
 
 
 
