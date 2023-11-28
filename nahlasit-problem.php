@@ -73,7 +73,7 @@ include 'header.php';
 
                             <?php
 
-                            $sql = "select trida from projektory;";
+                            $sql = "SELECT trida FROM ( SELECT p.trida, MAX(r.vytvoreno) AS max_vytvoreno FROM projektory p LEFT JOIN problemy r ON r.id_projektor = p.id WHERE r.status = 't' OR r.status IS NULL GROUP BY p.id, p.trida ) AS subquery;";
                             $result = mysqli_query($conn, $sql);
 
 

@@ -314,7 +314,7 @@ include 'header.php';
                                                     <div class="dropdown-header">V místnostech:</div>
                                                     <?php
 
-                                                    $sql = "SELECT * FROM projektory p left join problemy r on r.id_projektor=p.id where r.status='f' group by p.id;";
+                                                    $sql = "SELECT * FROM projektory p LEFT JOIN problemy r ON r.id_projektor = p.id WHERE r.status IS NULL OR (r.id_projektor,r.vytvoreno) IN (SELECT id_projektor, MAX(vytvoreno) AS max_created_at FROM problemy GROUP BY id_projektor) AND r.status = 'f' group by p.id;";
 
                                                     $result = mysqli_query($conn, $sql);
 
@@ -341,23 +341,23 @@ include 'header.php';
                                                 
                                             </div>
 						    <div class="h5 mb-0 font-weight-bold text-danger">
-                            <?php                   
+                                <?php
 							$conn = mysqli_connect($servername, $username, $password, $dbName);
 
 
-							$sql3 = "SELECT * FROM projektory p left join problemy r on r.id_projektor=p.id where r.status='f' group by p.id;";
-							if($result3 = mysqli_query($conn, $sql3)){
-							
+							$sql3 = "SELECT * FROM projektory p LEFT JOIN problemy r ON r.id_projektor = p.id WHERE r.status IS NULL OR (r.id_projektor,r.vytvoreno) IN (SELECT id_projektor, MAX(vytvoreno) AS max_created_at FROM problemy GROUP BY id_projektor) AND r.status = 'f' group by p.id;";
+                                if($result3 = mysqli_query($conn, $sql3)){
+
 								$num = mysqli_num_rows($result3);
 
 								echo $num;
-	
+
 							}
 							else{
 								echo "Chyba";
 							}
 
-							?>
+                                ?>
 
 
 
@@ -406,7 +406,7 @@ include 'header.php';
                                                     <div class="dropdown-header">V místnostech:</div>
                                                     <?php
 
-                                                    $sql = "SELECT * FROM projektory p left join problemy r on r.id_projektor=p.id where r.status='z' group by p.id;";
+                                                    $sql = "SELECT p.*, r.* FROM projektory p LEFT JOIN problemy r ON r.id_projektor = p.id WHERE r.status IS NULL OR (r.id_projektor, r.vytvoreno) IN (SELECT id_projektor, MAX(vytvoreno) AS max_created_at FROM problemy WHERE status = 'z' GROUP BY id_projektor);";
 
                                                     $result = mysqli_query($conn, $sql);
 
