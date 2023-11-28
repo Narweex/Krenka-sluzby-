@@ -129,30 +129,25 @@ include 'include.php';
             <div class="mt-4">
 
                 <!-- Page Heading-->
-                <h1 class="h3 mb-0 text-gray-800 text-center"> DÄ›kujeme za nahlĂˇĹˇenĂ­ problĂ©mu</h1>
+                <h1 class="h3 mb-0 text-gray-800 text-center"> Status zařízení v databázi byl změněn</h1>
             </div>
 
             <div class="my-4 text-center">
 
-                <!-- Button ZpÄ›t na hlavnĂ­ strĂˇnku-->
+                <!-- Button Zpět na hlavní stránku-->
                 <a href="index.php" class="btn btn-primary mx-auto">
                     <span class="text">Zpět na hlavní stránku</span>
                 </a>
+
+                <!-- Button Pokračovat v úpravách -->
+                <a href="panel.php" class="btn btn-primary mx-auto">
+                    <span class="text">Pokračovat v úpravách</span>
+                </a>
             </div>
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-
-                <div class="container my-auto">
-
-                    <div class="copyright text-center my-auto">
-
-                        <span>Copyright &copy; <a href="https://web-lab.cz/">Web-Lab.cz</a> & Seminář IVT 2023/24 </span>
-
-                    </div>
-
-                </div>
-
-            </footer>
+            <?php
+                footer();
+            ?>
 
             <!-- End of Footer -->
 

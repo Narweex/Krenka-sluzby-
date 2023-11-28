@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php
-include 'config.php';
-include 'connection.php';
-include 'footer.php';
-include 'header.php';
-?>
-
 <head>
 
     <meta charset="utf-8">
@@ -16,7 +9,7 @@ include 'header.php';
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Křenka Služby- Dokumentace</title>
+    <title>Křenka Služby- Stránka nebyla nalezena</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -34,37 +27,17 @@ include 'header.php';
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <!-- Sidebar -->
-
-        <?php
-
-        draw_sidebar();
-
-        ?>
-
-        <!-- End of Sidebar -->
-
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-
-            <!-- Main Content -->
-            <div id="content">
-
-                <!-- Topbar -->
-
-                <?php
-
-                draw_topbar();
-
-                ?>
-
-                <!-- End of Topbar -->
+        
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Dokumentace</h1>
+                    <!-- 404 Error Text -->
+                    <div class="text-center mb-3">
+                        <h1 class="my-3 text-danger display-1">404</h1>
+                        <p class="display-4 text-danger mb-4">Stránka nebyla nalezena</p>
+                        <a href="index.php" class="text-gray-800">&larr; Zpět na hlavní stránku</a>
+                    </div>
 
                 </div>
                 <!-- /.container-fluid -->
@@ -73,15 +46,10 @@ include 'header.php';
             <!-- End of Main Content -->
 
             <!-- Footer -->
-
             <?php
-
                 footer();
-
             ?>
-
             <!-- End of Footer -->
-
 
         </div>
         <!-- End of Content Wrapper -->
