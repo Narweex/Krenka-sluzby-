@@ -214,6 +214,7 @@ include 'header.php';
                                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Funkční</div>
                                                 </a>
+                                                <small class="text-gray-600">Projektory, u kterých není hlášena závada</small>
                                                 <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in scrollable-menu" aria-labelledby="dropdownMenuLink">
                                                     <div class="dropdown-header">V místnostech:</div>
 
@@ -245,6 +246,15 @@ include 'header.php';
 
 
                                             </div>
+<<<<<<< Updated upstream
+=======
+                                            
+								
+						    <div class="h5 mb-0 mt-2 font-weight-bold text-success">
+                             <?php
+
+							$conn = mysqli_connect($servername, $username, $password, $dbName);
+>>>>>>> Stashed changes
 
 
                                             <div class="h5 mb-0 font-weight-bold text-success">
@@ -307,6 +317,7 @@ include 'header.php';
                                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Nefunkční</div>
                                                 </a>
+                                                <small class="text-gray-600">Projektory, u kterých je hlášena závada</small>
                                                 <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in scrollable-menu" aria-labelledby="dropdownMenuLink">
                                                     <div class="dropdown-header">V místnostech:</div>
                                                     <?php
@@ -337,9 +348,15 @@ include 'header.php';
 
 
                                             </div>
+<<<<<<< Updated upstream
                                             <div class="h5 mb-0 font-weight-bold text-danger">
                                                 <?php
                                                 $conn = mysqli_connect($servername, $username, $password, $dbName);
+=======
+						    <div class="h5 mb-0 mt-2 font-weight-bold text-danger">
+                                <?php
+							$conn = mysqli_connect($servername, $username, $password, $dbName);
+>>>>>>> Stashed changes
 
 
                                                 $sql3 = "SELECT * FROM projektory p LEFT JOIN problemy r ON r.id_projektor = p.id where r.status = 'f' group by p.id;";
@@ -381,7 +398,7 @@ include 'header.php';
 
 
 
-                        <!--Card Example-Se Závadou Projektory-->
+                        <!--Card Example-Probíhá oprava Projektory-->
 
                         <div class="col-xl-3 col-md-6 mb-4">
 
@@ -395,9 +412,15 @@ include 'header.php';
 
                                             <div class="dropdown no-arrow">
                                                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+<<<<<<< Updated upstream
                                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Se zavádou</div>
+=======
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Probíhá oprava</div>
+>>>>>>> Stashed changes
                                                 </a>
+                                                <small class="text-gray-600">Projektory, jejichž závada je právě řešena</small>
                                                 <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in scrollable-menu" aria-labelledby="dropdownMenuLink">
                                                     <div class="dropdown-header">V místnostech:</div>
                                                     <?php
@@ -428,10 +451,17 @@ include 'header.php';
 
 
                                             </div>
+<<<<<<< Updated upstream
 
                                             <div class="h5 mb-0 font-weight-bold text-warning">
                                                 <?php
                                                 $conn = mysqli_connect($servername, $username, $password, $dbName);
+=======
+                                                
+                        <div class="h5 mb-0 mt-2 font-weight-bold text-warning">
+						<?php
+							$conn = mysqli_connect($servername, $username, $password, $dbName);
+>>>>>>> Stashed changes
 
 
                                                 $sql3 = "SELECT * FROM projektory p left join problemy r on r.id_projektor=p.id where r.status='z' group by p.id;";
