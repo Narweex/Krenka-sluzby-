@@ -14,15 +14,15 @@ include 'header.php';
 
 
 
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="author" content="">
+    <meta name="author" content="" />
 
 
 
@@ -32,19 +32,17 @@ include 'header.php';
 
     <!-- Custom fonts for this template-->
 
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
 
     <link
-
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-
-        rel="stylesheet">
+        rel="stylesheet" />
 
 
 
     <!-- Custom styles for this template-->
 
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/sb-admin-2.css" rel="stylesheet" />
 
 
 
@@ -110,41 +108,41 @@ include 'header.php';
 
                         <h1 class="h3 mb-0 text-gray-800"> Projektory </h1>
 
-                                               <?php
+                        <?php
 
-			$conn = mysqli_connect($servername, $username, $password, $dbName);
+                        $conn = mysqli_connect($servername, $username, $password, $dbName);
 
 
-		                       
-				
+
+
                         if (!$conn) {
-			 	if(DEBUG_MODE){
-				 die("Spojení selhalo: " . mysqli_connect_error());
-				}
-				die();			
+                            if (DEBUG_MODE) {
+                                die("Spojení selhalo: " . mysqli_connect_error());
+                            }
+                            die();
                         }
-			
-			if(DEBUG_MODE){
-                        echo "Připojeno k databázi <br>";
-			}
-				
 
-			$today = date("d.m.Y");
+                        if (DEBUG_MODE) {
+                            echo "Připojeno k databázi <br>";
+                        }
 
-			echo "Dnes je $today";
+
+                        $today = date("d.m.Y");
+
+                        echo "Dnes je $today";
 
 
 
 
 
                         ?>
-		<!--</div>-->
+                        <!--</div>-->
 
 
 
 
 
-                       <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"><i
+                        <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"><i
                             class="fas fa-envelope fa-sm text-white-50"></i> Nahlásit problém</a>-->
 
 
@@ -191,7 +189,7 @@ include 'header.php';
 
                     </div>-->
 
-                    
+
 
                     <!-- Content Row -->
 
@@ -213,8 +211,8 @@ include 'header.php';
 
                                             <div class="dropdown no-arrow">
                                                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Funkční</div>
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Funkční</div>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in scrollable-menu" aria-labelledby="dropdownMenuLink">
                                                     <div class="dropdown-header">V místnostech:</div>
@@ -243,43 +241,42 @@ include 'header.php';
                                                     ?>
                                                 </div>
 
-                                                    
 
-                                                
+
+
                                             </div>
-                                            
-								
-						    <div class="h5 mb-0 font-weight-bold text-success">
-                             <?php
-
-							$conn = mysqli_connect($servername, $username, $password, $dbName);
 
 
-							$sql3 = "SELECT * FROM projektory p LEFT JOIN problemy r ON r.id_projektor = p.id WHERE r.status IS NULL OR (r.id_projektor,r.vytvoreno) IN (SELECT id_projektor, MAX(vytvoreno) AS max_created_at FROM problemy GROUP BY id_projektor) AND r.status = 't';";							
+                                            <div class="h5 mb-0 font-weight-bold text-success">
+                                                <?php
 
-							if($result3 = mysqli_query($conn, $sql3)){
-							
-								$num = mysqli_num_rows($result3);
+                                                $conn = mysqli_connect($servername, $username, $password, $dbName);
 
-								echo $num;
-	
-							}
-							else{
-								echo "Chyba";
-							}
 
-					?>
-	
+                                                $sql3 = "SELECT * FROM projektory p LEFT JOIN problemy r ON r.id_projektor = p.id WHERE r.status IS NULL OR (r.id_projektor,r.vytvoreno) IN (SELECT id_projektor, MAX(vytvoreno) AS max_created_at FROM problemy GROUP BY id_projektor) AND r.status = 't';";
 
-				
-						</div>
+                                                if ($result3 = mysqli_query($conn, $sql3)) {
+
+                                                    $num = mysqli_num_rows($result3);
+
+                                                    echo $num;
+
+                                                } else {
+                                                    echo "Chyba";
+                                                }
+
+                                                ?>
+
+
+
+                                            </div>
 
                                         </div>
 
                                         <div class="col-auto">
-                                            
+
                                             <i class="fas fa-check fa-2x text-gray-300"></i>
-                                            
+
 
                                         </div>
 
@@ -291,14 +288,14 @@ include 'header.php';
 
                         </div>
 
-                                
+
 
                         <!--Card Example-Nefunkční Projektory-->
 
                         <div class="col-xl-3 col-md-6 mb-4">
 
                             <div class="card border-left-danger shadow h-100 py-2">
-                                
+
                                 <div class="card-body">
 
                                     <div class="row no-gutters align-items-center">
@@ -307,8 +304,8 @@ include 'header.php';
 
                                             <div class="dropdown no-arrow">
                                                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Nefunkční</div>
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Nefunkční</div>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in scrollable-menu" aria-labelledby="dropdownMenuLink">
                                                     <div class="dropdown-header">V místnostech:</div>
@@ -336,40 +333,39 @@ include 'header.php';
                                                     ?>
                                                 </div>
 
-                                                    
 
-                                                
+
+
                                             </div>
-						    <div class="h5 mb-0 font-weight-bold text-danger">
-                                <?php
-							$conn = mysqli_connect($servername, $username, $password, $dbName);
+                                            <div class="h5 mb-0 font-weight-bold text-danger">
+                                                <?php
+                                                $conn = mysqli_connect($servername, $username, $password, $dbName);
 
 
-							$sql3 = "SELECT * FROM projektory p LEFT JOIN problemy r ON r.id_projektor = p.id where r.status = 'f' group by p.id;";
-                                if($result3 = mysqli_query($conn, $sql3)){
+                                                $sql3 = "SELECT * FROM projektory p LEFT JOIN problemy r ON r.id_projektor = p.id where r.status = 'f' group by p.id;";
+                                                if ($result3 = mysqli_query($conn, $sql3)) {
 
-								$num = mysqli_num_rows($result3);
+                                                    $num = mysqli_num_rows($result3);
 
-								echo $num;
+                                                    echo $num;
 
-							}
-							else{
-								echo "Vše funguje";
-							}
+                                                } else {
+                                                    echo "Vše funguje";
+                                                }
 
-                                ?>
-
+                                                ?>
 
 
 
-						</div>
+
+                                            </div>
 
                                         </div>
 
                                         <div class="col-auto">
-                                            
+
                                             <i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
-                                            
+
 
                                         </div>
 
@@ -381,7 +377,7 @@ include 'header.php';
 
                         </div>
 
-                
+
 
 
 
@@ -399,14 +395,14 @@ include 'header.php';
 
                                             <div class="dropdown no-arrow">
                                                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Se zavádou</div>
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Se zavádou</div>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in scrollable-menu" aria-labelledby="dropdownMenuLink">
                                                     <div class="dropdown-header">V místnostech:</div>
                                                     <?php
 
-                                                    $sql = "SELECT p.*, r.* FROM projektory p LEFT JOIN problemy r ON r.id_projektor = p.id WHERE r.status IS NULL OR (r.id_projektor, r.vytvoreno) IN (SELECT id_projektor, MAX(vytvoreno) AS max_created_at FROM problemy WHERE status = 'z' GROUP BY id_projektor);";
+                                                    $sql = "SELECT p.id, p.nazev, p.trida, r.status, r.vytvoreno FROM projektory p LEFT JOIN problemy r ON r.id_projektor = p.id WHERE (r.status IS NOT NULL AND r.status = 'z' AND (r.id_projektor, r.vytvoreno) IN ( SELECT id_projektor, MAX(vytvoreno) AS max_created_at FROM problemy WHERE status = 'z' GROUP BY id_projektor )) ORDER BY p.id, r.vytvoreno DESC;";
 
                                                     $result = mysqli_query($conn, $sql);
 
@@ -428,38 +424,37 @@ include 'header.php';
                                                     ?>
                                                 </div>
 
-                                                    
 
-                                                
+
+
                                             </div>
-                                                
-                        <div class="h5 mb-0 font-weight-bold text-warning">
-						<?php
-							$conn = mysqli_connect($servername, $username, $password, $dbName);
+
+                                            <div class="h5 mb-0 font-weight-bold text-warning">
+                                                <?php
+                                                $conn = mysqli_connect($servername, $username, $password, $dbName);
 
 
-							$sql3 = "SELECT * FROM projektory p left join problemy r on r.id_projektor=p.id where r.status='z' group by p.id;";
-							if($result3 = mysqli_query($conn, $sql3)){
-							
-								$num = mysqli_num_rows($result3);
+                                                $sql3 = "SELECT * FROM projektory p left join problemy r on r.id_projektor=p.id where r.status='z' group by p.id;";
+                                                if ($result3 = mysqli_query($conn, $sql3)) {
 
-								echo $num;
-	
-							}
-							else{
-								echo "Chyba";
-							}
+                                                    $num = mysqli_num_rows($result3);
 
-							?>
+                                                    echo $num;
 
-						</div>
+                                                } else {
+                                                    echo "Chyba";
+                                                }
+
+                                                ?>
+
+                                            </div>
 
                                         </div>
 
                                         <div class="col-auto">
-                                            
+
                                             <i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
-                                            
+
                                         </div>
 
                                     </div>
@@ -468,24 +463,24 @@ include 'header.php';
 
                             </div>
 
+                        </div>
+
+
+
                     </div>
 
- 
-
-                    </div>
-
-<!--Heading-Tiskárny 
+                    <!--Heading-Tiskárny 
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
 
     <h1 class="h3 mb-0 text-gray-800"> Tiskárny </h1>
 <!--    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"><i
             class="fas fa-envelope fa-sm text-white-50"></i> Nahlásit problém</a>-->
-</div>
+                </div>
 
 
 
-<!-- Content Row
+                <!-- Content Row
 
 <div class="row"> 
 
@@ -678,7 +673,7 @@ include 'header.php';
 
 
 
-                    <!-- Content Row 
+                <!-- Content Row 
 
 
 
@@ -686,7 +681,7 @@ include 'header.php';
 
 
 
-                        <!-- Area Chart 
+                <!-- Area Chart 
 
                         <div class="col-xl-8 col-lg-7">
 
@@ -840,7 +835,7 @@ include 'header.php';
 
 
 
-                        <!-- Content Column 
+                <!-- Content Column 
 
                         <div class="col-lg-6 mb-4"> 
 
@@ -1145,7 +1140,7 @@ include 'header.php';
 
 
 
-             </div> 
+            </div>
 
             <!-- End of Main Content -->
 
@@ -1153,13 +1148,13 @@ include 'header.php';
 
             <!-- Footer -->
 
-            
+
             <?php
 
-                footer();
+            footer();
 
             ?>
-  
+
 
             <!-- End of Footer -->
 
@@ -1190,7 +1185,6 @@ include 'header.php';
     <!-- Logout Modal-->
 
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-
         aria-hidden="true">
 
         <div class="modal-dialog" role="document">

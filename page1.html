@@ -18,7 +18,7 @@
         rel='stylesheet'>
 
     <!-- Custom styles for this template-->
-    <link href='css/sb-admin-2.min.css' rel='stylesheet'>
+    <link href='css/sb-admin-2.css' rel='stylesheet'>
 
 </head>
 
@@ -42,28 +42,7 @@
                             <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in scrollable-menu" aria-labelledby="dropdownMenuLink">
                                 <div class="dropdown-header">V místnostech:</div>
 
-                               <!-- <?php
-
-                                $sql = "SELECT p.*, r.* FROM projektory p LEFT JOIN problemy r ON r.id_projektor = p.id WHERE r.status IS NULL OR (r.id_projektor, r.vytvoreno) IN (SELECT id_projektor, MAX(vytvoreno) AS max_created_at FROM problemy WHERE status = 't' GROUP BY id_projektor);";
-
-                                $result = mysqli_query($conn, $sql);
-
-                                if (!$result) {
-                                    if (DEBUG_MODE) {
-                                        die("Query failed: " . mysqli_error($conn));
-                                    }
-                                }
-
-                                $result_check = mysqli_num_rows($result);
-
-                                if ($result_check > 0) {
-                                    while ($row = mysqli_fetch_assoc($result)) {
-
-                                        echo "<a class='dropdown-item' href='#'>" . $row['trida'] . "</a>";
-
-                                    }
-                                }
-                                ?>-->
+                              
 
                                 <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
                                 <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
