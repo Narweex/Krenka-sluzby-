@@ -1,8 +1,186 @@
+<!DOCTYPE html>
+<html lang='en'>
+
 <head>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+    <meta name='description' content=''>
+    <meta name='author' content=''>
+
+    <title>Křenka Služby- Dev</title>
+
+    <!-- Custom fonts for this template-->
+    <link href='vendor/fontawesome-free/css/all.min.css' rel='stylesheet' type='text/css'>
+    <link
+        href='https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i'
+        rel='stylesheet'>
+
+    <!-- Custom styles for this template-->
+    <link href='css/sb-admin-2.min.css' rel='stylesheet'>
+
 </head>
+
 <body>
-    <div id="menu"></div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+
+        <div class="card border-left-success shadow h-100 py-2">
+
+            <div class="card-body">
+
+                <div class="row no-gutters align-items-center">
+
+                    <div class="col mr-2">
+
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle scrollable-menu" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Funkční</div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in scrollable-menu" aria-labelledby="dropdownMenuLink">
+                                <div class="dropdown-header">V místnostech:</div>
+
+                               <!-- <?php
+
+                                $sql = "SELECT p.*, r.* FROM projektory p LEFT JOIN problemy r ON r.id_projektor = p.id WHERE r.status IS NULL OR (r.id_projektor, r.vytvoreno) IN (SELECT id_projektor, MAX(vytvoreno) AS max_created_at FROM problemy WHERE status = 't' GROUP BY id_projektor);";
+
+                                $result = mysqli_query($conn, $sql);
+
+                                if (!$result) {
+                                    if (DEBUG_MODE) {
+                                        die("Query failed: " . mysqli_error($conn));
+                                    }
+                                }
+
+                                $result_check = mysqli_num_rows($result);
+
+                                if ($result_check > 0) {
+                                    while ($row = mysqli_fetch_assoc($result)) {
+
+                                        echo "<a class='dropdown-item' href='#'>" . $row['trida'] . "</a>";
+
+                                    }
+                                }
+                                ?>-->
+
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+                                <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
+
+                            
+
+                            </div>
+
+                                
+
+                            
+                        </div>
+                        
+            
+        <div class="h5 mb-0 font-weight-bold text-success">
+         <!--<?php
+
+        $conn = mysqli_connect($servername, $username, $password, $dbName);
+
+
+        $sql3 = "SELECT * FROM projektory p LEFT JOIN problemy r ON r.id_projektor = p.id WHERE r.status IS NULL OR (r.id_projektor,r.vytvoreno) IN (SELECT id_projektor, MAX(vytvoreno) AS max_created_at FROM problemy GROUP BY id_projektor) AND r.status = 't';";							
+
+        if($result3 = mysqli_query($conn, $sql3)){
+        
+            $num = mysqli_num_rows($result3);
+
+            echo $num;
+
+        }
+        else{
+            echo "Chyba";
+        }
+
+?>--->
+
+
+
+    </div>
+
+                    </div>
+
+                    <div class="col-auto">
+                        
+                        <i class="fas fa-check fa-2x text-gray-300"></i>
+                        
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <!-- Bootstrap core JavaScript-->
+
+    <script src='vendor/jquery/jquery.min.js'></script>
+
+    <script src='vendor/bootstrap/js/bootstrap.bundle.min.js'></script>
+
+
+
+    <!-- Core plugin JavaScript-->
+
+    <script src='vendor/jquery-easing/jquery.easing.min.js'></script>
+
+
+
+    <!-- Custom scripts for all pages-->
+
+    <script src='js/sb-admin-2.min.js'></script>
+
+
+
+    <!-- Page level plugins -->
+
+    <script src='vendor/chart.js/Chart.min.js'></script>
+
+
+
+    <!-- Page level custom scripts -->
+
+    <script src='js/demo/chart-area-demo.js'></script>
+
+    <script src='js/demo/chart-pie-demo.js'></script>
 </body>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/menu-loader.js"></script>

@@ -13,7 +13,11 @@
 
 
 
-            
+  .scrollable-menu {
+  height: auto;
+  max-height: 200px;
+  overflow-x: hidden;
+}
 :root {
   --blue: #2C3E50;
   --indigo: #6610f2;
