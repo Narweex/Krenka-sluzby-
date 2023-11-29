@@ -216,7 +216,7 @@ include 'header.php';
                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Funkční</div>
                                                 </a>
-                                                <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                                <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in scrollable-menu" aria-labelledby="dropdownMenuLink">
                                                     <div class="dropdown-header">V místnostech:</div>
 
                                                     <?php
@@ -310,7 +310,7 @@ include 'header.php';
                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Nefunkční</div>
                                                 </a>
-                                                <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                                <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in scrollable-menu" aria-labelledby="dropdownMenuLink">
                                                     <div class="dropdown-header">V místnostech:</div>
                                                     <?php
 
@@ -402,7 +402,7 @@ include 'header.php';
                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Se zavádou</div>
                                                 </a>
-                                                <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                                <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in scrollable-menu" aria-labelledby="dropdownMenuLink">
                                                     <div class="dropdown-header">V místnostech:</div>
                                                     <?php
 
