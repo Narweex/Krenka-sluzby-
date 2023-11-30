@@ -3045,6 +3045,10 @@ input[type="button"].btn-block {
   background-clip: padding-box;
   border: 1px solid #e3e6f0;
   border-radius: 0.35rem;
+
+  height: auto;
+ max-height: 300px;
+ overflow-x: hidden;
 }
 
 .dropdown-menu-left {

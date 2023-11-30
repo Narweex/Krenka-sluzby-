@@ -18,7 +18,7 @@
         rel='stylesheet'>
 
     <!-- Custom styles for this template-->
-    <link href='css/sb-admin-2.min.css' rel='stylesheet'>
+    <link href='css/sb-admin-2.css' rel='stylesheet'>
 
 </head>
 
@@ -33,37 +33,17 @@
                 <div class="row no-gutters align-items-center">
 
                     <div class="col mr-2">
-
+                
                         <div class="dropdown no-arrow">
                             <a class="dropdown-toggle scrollable-menu" href="#" role="button" id="dropdownMenuLink"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Funkční</div>
+                            <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-0">Funkční</div>
                             </a>
+                            <small class="text-gray-600">Projektory, u kterých není hlášena závada</small>
                             <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in scrollable-menu" aria-labelledby="dropdownMenuLink">
                                 <div class="dropdown-header">V místnostech:</div>
 
-                               <!-- <?php
-
-                                $sql = "SELECT p.*, r.* FROM projektory p LEFT JOIN problemy r ON r.id_projektor = p.id WHERE r.status IS NULL OR (r.id_projektor, r.vytvoreno) IN (SELECT id_projektor, MAX(vytvoreno) AS max_created_at FROM problemy WHERE status = 't' GROUP BY id_projektor);";
-
-                                $result = mysqli_query($conn, $sql);
-
-                                if (!$result) {
-                                    if (DEBUG_MODE) {
-                                        die("Query failed: " . mysqli_error($conn));
-                                    }
-                                }
-
-                                $result_check = mysqli_num_rows($result);
-
-                                if ($result_check > 0) {
-                                    while ($row = mysqli_fetch_assoc($result)) {
-
-                                        echo "<a class='dropdown-item' href='#'>" . $row['trida'] . "</a>";
-
-                                    }
-                                }
-                                ?>-->
+                              
 
                                 <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
                                 <a class='dropdown-item' href='#'>iavfuiavfuifviufv</a>
@@ -106,7 +86,7 @@
                         </div>
                         
             
-        <div class="h5 mb-0 font-weight-bold text-success">
+        <div class="h5 mb-0 mt-2 font-weight-bold text-success">
          <!--<?php
 
         $conn = mysqli_connect($servername, $username, $password, $dbName);
@@ -123,9 +103,13 @@
         }
         else{
             echo "Chyba";
+
+
         }
 
 ?>--->
+
+45
 
 
 
@@ -147,6 +131,59 @@
         </div>
 
     </div>
+
+
+     
+
+
+
+        <!--Card Example-Funkční Tiskárny -->
+    
+        <div class="col-xl-3 col-md-6 mb-4">
+    
+            <div class="card border-left-success shadow h-100 py-2">
+    
+                <div class="card-body">
+    
+                    <div class="row no-gutters align-items-center">
+    
+                        <div class="col mr-2">
+    
+                            <div class="text-xs font-weight-bold text-gray-800 text-uppercase">
+    
+                                Funkční</div>
+                                <small class="text-gray-600">Projektory, u kterých není hlášena závada</small>
+    
+                            <div class="h5 mb-0 mt-2 font-weight-bold text-success">42</div>
+    
+                        </div>
+    
+                        <div class="col-auto dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa-2x text-gray-300 fas fa-check"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                            aria-labelledby="dropdownMenuLink">
+                            <div class="dropdown-header">Dropdown Header:</div>
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                            
+    
+                        </div>
+    
+                    </div>
+    
+                </div>
+    
+            </div>
+    
+        </div>
 
 
 
