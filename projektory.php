@@ -118,8 +118,11 @@ include 'header.php';
                                                     if($row['status'] == "f"){
                                                         echo "<td>Nefunkční</td>";
                                                     }
-                                                    else if($row['status'] != "f"){
+                                                    else if($row['status'] == "t"){
                                                         echo "<td>Funkční</td>";
+                                                    }
+                                                    else if( $row["status"] == "z"){
+                                                        echo "<td>Probíhá oprava</td>";
                                                     }
                                                   
                                                     echo "<td>" . $row['chyba'] . "</td>";
