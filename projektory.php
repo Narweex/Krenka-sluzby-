@@ -125,7 +125,7 @@ include 'header.php';
                                                         echo "<td>Probíhá oprava</td>";
                                                     }
 
-                                                if ($row['status'] == "f") {
+                                                if ($row['status'] != "t") {
                                                     echo "<td>" . $row['chyba'] . "</td>";
                                                 }
                                                 else{
