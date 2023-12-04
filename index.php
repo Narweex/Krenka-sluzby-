@@ -214,6 +214,7 @@ include 'header.php';
                                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Funkční</div>
                                                 </a>
+                                                <small class="text-gray-600">Projektory, u kterých nejsou nahlášeny závady</small>
                                                 <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in scrollable-menu" aria-labelledby="dropdownMenuLink">
                                                     <div class="dropdown-header">V místnostech:</div>
 
@@ -247,7 +248,7 @@ include 'header.php';
                                             </div>
 
 
-                                            <div class="h5 mb-0 font-weight-bold text-success">
+                                            <div class="h5 mb-0 mt-2 font-weight-bold text-success">
                                                 <?php
 
                                                 $conn = mysqli_connect($servername, $username, $password, $dbName);
@@ -307,6 +308,7 @@ include 'header.php';
                                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Nefunkční</div>
                                                 </a>
+                                                <small class="text-gray-600">Projektory, u kterých byla nahlášena závada</small>
                                                 <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in scrollable-menu" aria-labelledby="dropdownMenuLink">
                                                     <div class="dropdown-header">V místnostech:</div>
                                                     <?php
@@ -337,7 +339,7 @@ include 'header.php';
 
 
                                             </div>
-                                            <div class="h5 mb-0 font-weight-bold text-danger">
+                                            <div class="h5 mb-0 mt-2 font-weight-bold text-danger">
                                                 <?php
                                                 $conn = mysqli_connect($servername, $username, $password, $dbName);
 
@@ -381,7 +383,7 @@ include 'header.php';
 
 
 
-                        <!--Card Example-Se Závadou Projektory-->
+                        <!--Card Example-Probíhá oprava Projektory-->
 
                         <div class="col-xl-3 col-md-6 mb-4">
 
@@ -396,13 +398,14 @@ include 'header.php';
                                             <div class="dropdown no-arrow">
                                                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Se zavádou</div>
+                                                    <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Probíhá oprava</div>
                                                 </a>
+                                                <small class="text-gray-600">Projektory, jejichž závada je právě řešena</small>
                                                 <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in scrollable-menu" aria-labelledby="dropdownMenuLink">
                                                     <div class="dropdown-header">V místnostech:</div>
                                                     <?php
 
-                                                    $sql = "SELECT p.*, r.* FROM projektory p LEFT JOIN problemy r ON r.id_projektor = p.id WHERE r.status IS NULL OR (r.id_projektor, r.vytvoreno) IN (SELECT id_projektor, MAX(vytvoreno) AS max_created_at FROM problemy WHERE status = 'z' GROUP BY id_projektor);";
+                                                    $sql = "SELECT * FROM projektory p LEFT JOIN problemy r ON r.id_projektor = p.id where r.status = 'z' group by p.id;";
 
                                                     $result = mysqli_query($conn, $sql);
 
@@ -429,7 +432,7 @@ include 'header.php';
 
                                             </div>
 
-                                            <div class="h5 mb-0 font-weight-bold text-warning">
+                                            <div class="h5 mb-0 mt-2 font-weight-bold text-warning">
                                                 <?php
                                                 $conn = mysqli_connect($servername, $username, $password, $dbName);
 
@@ -453,7 +456,7 @@ include 'header.php';
 
                                         <div class="col-auto">
 
-                                            <i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
+                                            <i class="fas fa-tools fa-2x text-gray-300"></i>
 
                                         </div>
 
