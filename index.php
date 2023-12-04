@@ -461,7 +461,7 @@ include 'header.php';
 
                                         <div class="col-auto">
 
-                                            <i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
+                                            <i class="fas fa-tools fa-2x text-gray-300"></i>
 
                                         </div>
 
