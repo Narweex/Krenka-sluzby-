@@ -405,7 +405,7 @@ include 'header.php';
                                                     <div class="dropdown-header">V místnostech:</div>
                                                     <?php
 
-                                                    $sql = "SELECT p.*, r.* FROM projektory p LEFT JOIN problemy r ON r.id_projektor = p.id WHERE r.status IS NULL OR (r.id_projektor, r.vytvoreno) IN (SELECT id_projektor, MAX(vytvoreno) AS max_created_at FROM problemy WHERE status = 'z' GROUP BY id_projektor);";
+                                                    $sql = "SELECT * FROM projektory p LEFT JOIN problemy r ON r.id_projektor = p.id where r.status = 'z' group by p.id;";
 
                                                     $result = mysqli_query($conn, $sql);
 
