@@ -306,7 +306,7 @@ include 'header.php';
                                             <div class="dropdown no-arrow">
                                                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Nefunkční</div>
+                                                    <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Se závadou</div>
                                                 </a>
                                                 <small class="text-gray-600">Projektory, u kterých byla nahlášena závada</small>
                                                 <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in scrollable-menu" aria-labelledby="dropdownMenuLink">
