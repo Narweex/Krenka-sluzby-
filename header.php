@@ -580,6 +580,13 @@ function draw_sidebar(){
             <hr class='sidebar-divider d-none d-md-block'>
 
 
+            <!-- Verzování -->
+            <li class='nav-item Show text-gray-400 text-center d-sm-inline-block'>
+                
+                    <small class='version'>Verze aplikace: 1.1.1</small>
+
+            </li>
+
 
             <!-- Sidebar Toggler (Sidebar) -->
 
@@ -602,6 +609,8 @@ function draw_sidebar(){
                 <a class='btn btn-success btn-sm' href='https://startbootstrap.com/theme/sb-admin-pro'>Upgrade to Pro!</a>
 
             </div> -->
+
+           
 
 
 
@@ -734,6 +743,14 @@ function draw_admin_sidebar()
 
             <!--Divider -->
             <hr class='sidebar-divider d-none d-md-block'>
+
+            
+            <!-- Verzování -->
+            <li class='nav-item Show text-gray-400 text-center d-sm-inline-block'>
+                
+                    <small class='version'>Verze aplikace: 1.1.1</small>
+
+            </li>
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class='text-center d-none d-md-inline'>
