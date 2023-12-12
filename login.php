@@ -25,10 +25,20 @@
 <body class="body">
     
     <div id="wrapper">
+        
+        <div class="h-100 d-flex align-items-center justify-content-center">
+
+        <!-- Heading Vítejte -->
+        
+        <h1 class="text-gray-700">Vítejte na Křenka Službách!</h1>
+        
         <!-- Button Přihlásit-->
-        <a href="index.php" class="btn btn-primary mx-auto mt-3">
+        
+        <a href="index.php" class="btn btn-primary mt-3">
             <span class="text">Přihlásit</span>
             </a>
+        </div>
+        
 
     </div>
 
