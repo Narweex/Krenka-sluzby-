@@ -11,10 +11,12 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
- .version{
+
+ .version {
   display: block;
   padding: 0.5rem 1rem;
-} 
+}
+
 
   .scrollable-menu {
   height: auto;

@@ -407,6 +407,12 @@ function draw_sidebar(){
 
             </li>
 
+            <li class='nav-item Show text-gray-400 text-center d-sm-inline-block'>
+                
+                    <small class='version'>Verze aplikace: 1.1.1</small>
+
+            </li>
+
 
 
             <!-- Heading
