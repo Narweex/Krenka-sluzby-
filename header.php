@@ -1,13 +1,15 @@
 
 <?php
 
-include 'config.php';
+require_once 'config.php';
+//require_once 'index.php';
 
 
-function draw_topbar(){
+function draw_topbar()
+{
 
     echo "
-<!-- Topbar -->
+ <!-- Topbar -->
 
                 <nav class='navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow'>
 
@@ -29,79 +31,25 @@ function draw_topbar(){
                         <span class='text'>Nahlásit problém</span>
                     </a>
 
-                    <!-- Topbar Search
-                    <form
 
-                        class='d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search'>
 
-                        <div class='input-group'>
-
-                            <input type='text' class='form-control bg-light border-0 small' placeholder='Search for...'
-
-                                aria-label='Search' aria-describedby='basic-addon2'>
-
-                            <div class='input-group-append'>
-
-                                <button class='btn btn-primary' type='button'>
-
-                                    <i class='fas fa-search fa-sm'></i>
-
-                                </button>
-
-                            </div>
-
-                        </div>
-                    </form> ->>
-
-                     Topbar Navbar -->
+                    <!-- Topbar Navbar -->
                     <ul class='navbar-nav ml-auto'>
 
-                        <!-- Nav Item - Search Dropdown (Visible Only XS)
-                        <li class='nav-item dropdown no-arrow d-sm-none'>
 
-                            <a class='nav-link dropdown-toggle' href='#' id='searchDropdown' role='button'
+                        <!-- Link Potřebujete poradit? -->
+                        <div class='nav-item mx-1 no-arrow dropdown'>
 
-                                data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-
-                                <i class='fas fa-search fa-fw'></i>
-
+                            <a class='text-gray-600 nav-link dropdown-toggle' href='dokumentace.php'>
+                                <i class='fa fa-lightbulb'></i>
+                                &nbsp; Potřebujete poradit?
                             </a>
-                             Dropdown - Messages
-                            <div class='dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in'
-
-                                aria-labelledby='searchDropdown'>
 
 
-
-                                <form class='form-inline mr-auto w-100 navbar-search'>
-
+                        </div>
 
 
-                                    <div class='input-group'>
-
-                                        <input type='text' class='form-control bg-light border-0 small'
-
-                                            placeholder='Search for...' aria-label='Search'
-
-                                            aria-describedby='basic-addon2'>
-
-                                        <div class='input-group-append'>
-
-                                            <button class='btn btn-primary' type='button'>
-
-                                                <i class='fas fa-search fa-sm'></i>
-
-                                            </button>
-
-                                        </div>
-
-                                    </div>
-
-                                </form>
-
-                            </div>
-                        </li>-->
-                        <!-- Nav Item - Alerts 
+                        <!-- Nav Item - Upozornění -->
 
                         <li class='nav-item dropdown no-arrow mx-1'>
 
@@ -111,13 +59,13 @@ function draw_topbar(){
 
                                 <i class='fas fa-bell fa-fw'></i>
 
-                                <!-- Counter - Alerts 
+                                <!-- Counter - Upozornění -->
 
                                 <span class='badge badge-danger badge-counter'>2</span>
 
                             </a>
 
-                            <!-- Dropdown - Alerts 
+                            <!-- Dropdown - Upozornění -->
 
                             <div class='dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in' aria-labelledby='alertsDropdown'>
 
@@ -157,159 +105,30 @@ function draw_topbar(){
 
                         </li>
 
-                        <!-- Nav Item - Messages
-                        <li class='nav-item dropdown no-arrow mx-1'>
-
-                            <a class='nav-link dropdown-toggle' href='#' id='messagesDropdown' role='button'
-
-                                data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-
-                                <i class='fas fa-envelope fa-fw'></i>
-                                 Counter - Messages
-                                <span class='badge badge-danger badge-counter'>7</span>
-
-                            </a>
-                             Dropdown - Messages
-                            <div class='dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in'
-
-                                aria-labelledby='messagesDropdown'>
-
-                                <h6 class='dropdown-header'>
-
-                                    Message Center
-
-                                </h6>
-
-                                <a class='dropdown-item d-flex align-items-center' href='#'>
-
-                                    <div class='dropdown-list-image mr-3'>
-
-                                        <img class='rounded-circle' src='img/undraw_profile_1.svg'
-
-                                            alt='...'>
-
-                                        <div class='status-indicator bg-success'></div>
-
-                                    </div>
-
-                                    <div class='font-weight-bold'>
-
-                                        <div class='text-truncate'>Hi there! I am wondering if you can help me with a
-
-                                            problem I've been having.</div>
-
-                                        <div class='small text-gray-500'>Emily Fowler · 58m</div>
-
-                                    </div>
-
-                                </a>
-
-                                <a class='dropdown-item d-flex align-items-center' href='#'>
-
-                                    <div class='dropdown-list-image mr-3'>
-
-                                        <img class='rounded-circle' src='img/undraw_profile_2.svg'
-
-                                            alt='...'>
-
-                                        <div class='status-indicator'></div>
-
-                                    </div>
-
-                                    <div>
-
-                                        <div class='text-truncate'>I have the photos that you ordered last month, how
-
-                                            would you like them sent to you?</div>
-
-                                        <div class='small text-gray-500'>Jae Chun · 1d</div>
-
-                                    </div>
-
-                                </a>
-
-                                <a class='dropdown-item d-flex align-items-center' href='#'>
-
-                                    <div class='dropdown-list-image mr-3'>
-
-                                        <img class='rounded-circle' src='img/undraw_profile_3.svg'
-
-                                            alt='...'>
-
-                                        <div class='status-indicator bg-warning'></div>
-
-                                    </div>
-
-                                    <div>
-
-                                        <div class='text-truncate'>Last month's report looks great, I am very happy with
-
-                                            the progress so far, keep up the good work!</div>
-
-                                        <div class='small text-gray-500'>Morgan Alvarez · 2d</div>
-
-                                    </div>
-
-                                </a>
-
-                                <a class='dropdown-item d-flex align-items-center' href='#'>
-
-                                    <div class='dropdown-list-image mr-3'>
-
-                                        <img class='rounded-circle' src='https://source.unsplash.com/Mv9hjnEUHR4/60x60'
-
-                                            alt='...'>
-
-                                        <div class='status-indicator bg-success'></div>
-
-                                    </div>
-
-                                    <div>
-
-                                        <div class='text-truncate'>Am I a good boy? The reason I ask is because someone
-
-                                            told me that people say this to all dogs, even if they aren't good...</div>
-
-                                        <div class='small text-gray-500'>Chicken the Dog · 2w</div>
-
-                                    </div>
-
-                                </a>
-
-                                <a class='dropdown-item text-center small text-gray-500' href='#'>Read More Messages</a>
-
-                            </div>
-
-                        </li>
-
-
-
-                        <div class='topbar-divider d-none d-sm-block'></div>
-
-                         Nav Item - User Information 
+                        <!-- Nav Item - Informace o uživateli -->
                         <li class='nav-item dropdown no-arrow'>
 
                             <a class='nav-link dropdown-toggle' href='#' id='userDropdown' role='button'
                                data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-                                <span class='mr-2 d-none d-lg-inline text-gray-600 small'>Uživatel</span>
+                                <span class='mr-2 d-none d-lg-inline text-gray-600 small'>". $_SESSION['user_name'] ."</span>
                                 <img class='img-profile rounded-circle'
-                                     src='img/undraw_profile.svg'>
+                                     src=". $_SESSION['user_avatar'] .">
 
                             </a>
 
-                            <!-- Dropdown - User Information 
+                            <!-- Dropdown - Informace o uživateli -->
 
                             <div class='dropdown-menu dropdown-menu-right shadow animated--grow-in'
                                  aria-labelledby='userDropdown'>
 
 
-                                <a class='dropdown-item' href='#' data-toggle='modal' data-target='#logoutModal'>
+                                <a class='dropdown-item' href='logout.php' data-toggle='modal' data-target=''>
 
                                     <i class='fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400'></i>
                                     Odhlásit se
                                 </a>
 
-                            </div>-->
+                            </div>
 
                         </li>
 
@@ -321,10 +140,11 @@ function draw_topbar(){
 
                 </nav>
 
-                <!-- End of Topbar -->  ";
+                <!-- End of Topbar --> ";
 }
 
-function draw_sidebar(){
+function draw_sidebar()
+{
     echo "
     <ul class='navbar-nav bg-primary sidebar sidebar-dark accordion' id='accordionSidebar'>
 
@@ -359,7 +179,7 @@ function draw_sidebar(){
 
     echo ($_SERVER['REQUEST_URI'] == "/index.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
 
-    echo"
+    echo "
 
                 <a class='nav-link' href='index.php'>
 
@@ -377,7 +197,7 @@ function draw_sidebar(){
 
             <!-- Nav Item - Projektory -->";
 
-             echo ($_SERVER['REQUEST_URI'] == "/projektory.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+    echo ($_SERVER['REQUEST_URI'] == "/projektory.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
 
 
     echo "
@@ -390,16 +210,16 @@ function draw_sidebar(){
 
 
 
-            <!-- Divider 
+            <!-- Divider
 
             <hr class='sidebar-divider my-1'>
 
             <!-- Nav Item - Tiskárny ";
 
-            echo ($_SERVER['REQUEST_URI'] == "/tiskarny.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+    echo ($_SERVER['REQUEST_URI'] == "/tiskarny.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
 
-
-             echo"
+    global $App_Version;
+    echo "
                 <a class='nav-link' href='tiskarny.php'>
                     <!--<i class='fas fa-fw fa-table'></i>
 
@@ -408,8 +228,8 @@ function draw_sidebar(){
             </li>
 
             <li class='nav-item Show text-gray-400 text-center d-sm-inline-block'>
-                
-                    <small class='version'>Verze aplikace: 1.1.1</small>
+
+                    <small class='version'>Verze aplikace: ". $App_Version . "</small>
 
             </li>
 
@@ -588,8 +408,8 @@ function draw_sidebar(){
 
             <!-- Verzování -->
             <li class='nav-item Show text-gray-400 text-center d-sm-inline-block'>
-                
-                    <small class='version'>Verze aplikace: 1.1.1</small>
+
+                    <small class='version'>Verze aplikace: ". $App_Version ."</small>
 
             </li>
 
@@ -616,7 +436,7 @@ function draw_sidebar(){
 
             </div> -->
 
-           
+
 
 
 
@@ -624,8 +444,8 @@ function draw_sidebar(){
 }
 
 function draw_admin_sidebar()
-    {
-    echo"
+{
+    echo "
     <!-- Sidebar -->
 
         <ul class='navbar-nav bg-primary sidebar sidebar-dark accordion' id='accordionSidebar'>
@@ -670,9 +490,9 @@ function draw_admin_sidebar()
             <hr class='sidebar-divider my-1'>
 
             <!-- Nav Item - Projektory -->";
-                echo ($_SERVER['REQUEST_URI'] == "/projektory.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
-                
-            echo"
+    echo ($_SERVER['REQUEST_URI'] == "/projektory.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+
+    echo "
             <a class='nav-link' href='projektory.php'>
                     <!--<i class='fas fa-fw fa-table'></i>-->
 
@@ -752,10 +572,10 @@ function draw_admin_sidebar()
             <!--Divider -->
             <hr class='sidebar-divider d-none d-md-block'>
 
-            
+
             <!-- Verzování -->
             <li class='nav-item Show text-gray-400 text-center d-sm-inline-block'>
-                
+
                     <small class='version'>Verze aplikace: 1.1.1</small>
 
             </li>
@@ -768,7 +588,7 @@ function draw_admin_sidebar()
 
 
 
-            
+
 
 
 
@@ -779,4 +599,3 @@ function draw_admin_sidebar()
 ;}
 
 ?>
-

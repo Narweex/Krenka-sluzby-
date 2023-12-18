@@ -105,7 +105,7 @@ include 'include.php';
                                         <?php
                                       
                                         
-                                        $sql = "select * from problemy r left join projektory p on p.id=r.id_projektor;";
+                                        $sql = "select u.jmeno, p.trida, r.id_problemu, r.chyba, r.status, r.vytvoreno from problemy r left join projektory p on p.id=r.id_projektor left join uzivatele u on r.id_uzivatel=u.id;";
                                         $result = mysqli_query($conn, $sql); // Use mysqli_query instead of mysql_query
                                         
                                         if (!$result) {
@@ -122,7 +122,7 @@ include 'include.php';
                                                     echo "<td id='cislo_problemu' name='cislo_problemu'>" . $row['id_problemu'] . "</td>
                                                         <input type='hidden' name='cislo_problemu' value='". $row['id_problemu'] ."'>"; // V jake ucebne se projektor nachazi
                                                   
-                                                echo "<td>" . $row['id_uzivatel'] . "</td>";
+                                                echo "<td>" . $row['jmeno'] . "</td>";
                                                   
                                                     echo "<td>" . $row['trida'] . "</td>";
 
@@ -149,7 +149,7 @@ include 'include.php';
                                                         <select class='custom-select' name='set_status' id=''>
                                                             <option value='1'" . ($row['status'] == 't' ? 'selected="selected"' : '') . ">Funkční</option>
                                                             <option value='2'" . ($row['status'] == 'f' ? 'selected="selected"' : '') . ">Nefunkční</option>
-                                                            <option value='3'" . ($row['status'] == 'z' ? 'selected="selected"' : '') . ">Probíhá oprava</option>
+                                                            <option value='3'" . ($row['status'] == 'z' ? 'selected="selected"' : '') . ">Se závadou</option>
                                                            
                                                         </select>
                                                     </div>  

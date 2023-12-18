@@ -5,6 +5,12 @@
 <?php
 include 'connection.php';
 include 'config.php';
+
+if(!isset($_SESSION['user_token'])){
+    header("Location: login.php");
+}
+
+
 ?>
 
 
@@ -45,41 +51,43 @@ include 'config.php';
 <body>
     <?php
 
+    session_start();
 
 
     $trida = $_REQUEST['trida'];
     $device = $_REQUEST['zarizeni'];
     $popis = $_REQUEST['popis'];
+    $uzivatel = $_SESSION['id'];
     $projector_id = 0;
+    echo $uzivatel;
+
+    $sql = "SELECT id FROM projektory p WHERE p.trida='$trida';";
 
 
-    $sql1 = "SELECT id FROM projektory p WHERE p.trida='$trida';";
 
-    $conn1 = mysqli_connect($servername, $username, $password, $dbName);
-
-    if (!$conn1 && DEBUG_MODE) {
+    if (!$conn && DEBUG_MODE) {
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    $result = mysqli_query($conn1, $sql1);
+    $result = mysqli_query($conn, $sql);
 
     if ($result) {
         while ($row = mysqli_fetch_assoc($result)) {
             $projector_id = $row['id'];
         }
     } else if (DEBUG_MODE) {
-        echo "Error: " . $sql1 . "<br>" . mysqli_error($conn1);
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 
-    mysqli_close($conn1);
 
 
 
 
 
-    $sql = "INSERT INTO problemy (id_problemu, id_uzivatel, id_projektor, chyba, cas_opravy, status, popis_reseni, vytvoreno) VALUES (NULL, '1', '$projector_id', '$popis', '', 'f', '', current_timestamp());";
+    $sql = "INSERT INTO problemy (id_uzivatel, id_projektor, chyba, cas_opravy, status, popis_reseni, vytvoreno)
+              VALUES ('$uzivatel', '$projector_id', '$popis', '', 'f', '', current_timestamp());";
 
-    $conn = mysqli_connect($servername, $username, $password, $dbName);
+
 
     if (!$conn && DEBUG_MODE) {
         die("Connection failed: " . mysqli_connect_error());
@@ -92,10 +100,6 @@ include 'config.php';
     } else if (DEBUG_MODE) {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
-
-    mysqli_close($conn);
-
-    sleep(5);
 
     ?>
 
@@ -126,6 +130,7 @@ include 'config.php';
                     <div class="copyright text-center my-auto">
 
                         <span>Copyright &copy; <a href="https://web-lab.cz/">Web-Lab.cz</a> & Seminář IVT 2023/24 </span>
+                        
 
                     </div>
 
