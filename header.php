@@ -680,7 +680,7 @@ function draw_admin_sidebar()
 
             <!-- Nav Item - Tiskárny -->
             <li class='nav-item Show'>
-                <a class='nav-link' href='tiskarny.html'>
+                <a class='nav-link' href='tiskarny.php'>
                     <!--<i class='fas fa-fw fa-table'></i>-->
 
                     <span>TISKÁRNY</span></a>
