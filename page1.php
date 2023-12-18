@@ -113,26 +113,17 @@ include 'header.php';
                     <!-- Topbar Navbar -->
                     <ul class='navbar-nav ml-auto'>
 
-                        <li class='nav-item dropdown no-arrow mx-1'>
-                            <a class='text-gray-600 nav-link dropdown-toggle' href='#'>
+
+                        <!-- Link Potřebujete poradit? -->
+                        <div class='nav-item mx-1 no-arrow dropdown'>
+                            
+                            <a class='text-gray-600 nav-link dropdown-toggle' href='dokumentace.php'>
                                 <i class='fa fa-lightbulb'></i>
                                 &nbsp; Potřebujete poradit?
                             </a>
 
-                            <div class='dropdown-menu dropdown-menu-right shadow animated--grow-in'
-                                 aria-labelledby='userDropdown'>
 
-
-                                <a class='dropdown-item' href='#' data-toggle='modal' data-target='#logoutModal'>
-
-                                    <i class='fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400'></i>
-                                    Odhlásit se
-                                </a>
-
-                            </div>
-
-
-                        </li>
+                        </div>
 
                         
                         <!-- Nav Item - Alerts -->
