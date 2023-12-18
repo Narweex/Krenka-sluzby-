@@ -126,7 +126,7 @@ include 'header.php';
                         </div>
 
                         
-                        <!-- Nav Item - Alerts -->
+                        <!-- Nav Item - Upozornění -->
 
                         <li class='nav-item dropdown no-arrow mx-1'>
 
@@ -136,13 +136,13 @@ include 'header.php';
 
                                 <i class='fas fa-bell fa-fw'></i>
 
-                                <!-- Counter - Alerts -->
+                                <!-- Counter - Upozornění -->
 
                                 <span class='badge badge-danger badge-counter'>2</span>
 
                             </a>
 
-                            <!-- Dropdown - Alerts -->
+                            <!-- Dropdown - Upozornění -->
 
                             <div class='dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in' aria-labelledby='alertsDropdown'>
 
@@ -182,7 +182,7 @@ include 'header.php';
 
                         </li>
 
-                        <!-- Nav Item - User Information-->
+                        <!-- Nav Item - Informace o uživateli -->
                         <li class='nav-item dropdown no-arrow'>
 
                             <a class='nav-link dropdown-toggle' href='#' id='userDropdown' role='button'
@@ -193,7 +193,7 @@ include 'header.php';
 
                             </a>
 
-                            <!-- Dropdown - User Information -->
+                            <!-- Dropdown - Informace o uživateli -->
 
                             <div class='dropdown-menu dropdown-menu-right shadow animated--grow-in'
                                  aria-labelledby='userDropdown'>
