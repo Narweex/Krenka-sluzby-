@@ -99,8 +99,8 @@ include 'header.php';
                                         <?php
                                       
                                         
-                                        $sql = "SELECT * FROM projektory pr LEFT JOIN problemy p ON p.id_projektor = pr.id left join konektory k on pr.konektor=k.id GROUP BY pr.id;;";
-                                        $result = mysqli_query($conn, $sql); // Use mysqli_query instead of mysql_query
+                                        $sql = "SELECT trida, bezdratovy, status, p.chyba, p.popis_reseni, p.vytvoreno, k.typ FROM projektory pr LEFT JOIN problemy p ON p.id_projektor = pr.id left join konektory k on pr.konektor=k.id GROUP BY pr.id;";
+                                        $result = mysqli_query($conn, $sql); 
                                         
                                         if (!$result) {
                                             if (DEBUG_MODE) {
@@ -117,20 +117,32 @@ include 'header.php';
 
                                                     if($row['status'] == "f"){
                                                         echo "<td>Nefunkční</td>";
-                                                    } 
-                                                    if($row['status'] == "z"){
-                                                        echo "<td>Probíhá oprava</td>";
                                                     }
-                                                    else if($row['status'] != "f"){
+                                                    else if($row['status'] == "t"|| is_null($row['status'])){
                                                         echo "<td>Funkční</td>";
                                                     }
-                                                  
+                                                    else if( $row["status"] == "z"){
+                                                        echo "<td>Probíhá oprava</td>";
+                                                    }
+
+                                                if ($row['status'] != "t") {
                                                     echo "<td>" . $row['chyba'] . "</td>";
-                                                  
+                                                }
+                                                else{
+                                                    echo "<td> </td>";
+                                                }
+
+                                                                                           
                                                     echo "<td>" . $row['popis_reseni'] . "</td>";
 
 
-                                                echo "<td>" . $row['vytvoreno'] . "</td>";
+
+                                                if ($row['status'] == "f") {
+                                                    echo "<td>" . $row['vytvoreno'] . "</td>";
+                                                } else {
+                                                    echo "<td> </td>";
+                                                }
+                                             
                                                     
                                                     echo "<td>" . $row['typ'] . "</td>";
                                                     

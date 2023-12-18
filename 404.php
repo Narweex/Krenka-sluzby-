@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+include 'include.php';
+?>
+
 <head>
 
     <meta charset="utf-8">

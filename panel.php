@@ -149,7 +149,7 @@ include 'include.php';
                                                         <select class='custom-select' name='set_status' id=''>
                                                             <option value='1'" . ($row['status'] == 't' ? 'selected="selected"' : '') . ">Funkční</option>
                                                             <option value='2'" . ($row['status'] == 'f' ? 'selected="selected"' : '') . ">Nefunkční</option>
-                                                            <option value='3'" . ($row['status'] == 'z' ? 'selected="selected"' : '') . ">Se závadou</option>
+                                                            <option value='3'" . ($row['status'] == 'z' ? 'selected="selected"' : '') . ">Probíhá oprava</option>
                                                            
                                                         </select>
                                                     </div>  

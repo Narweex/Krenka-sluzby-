@@ -42,7 +42,7 @@ include 'header.php';
 
     <!-- Custom styles for this template-->
 
-    <link href="css/sb-admin-2.min.css" rel="stylesheet" />
+    <link href="css/sb-admin-2.css" rel="stylesheet" />
 
 
 
@@ -64,7 +64,7 @@ include 'header.php';
 
         <?php
 
-        draw_sidebar();
+        draw_admin_sidebar();
 
         ?>
 
@@ -86,11 +86,138 @@ include 'header.php';
 
                 <!-- Topbar -->
 
-                <?php
+                <!-- Topbar -->
 
-                draw_topbar();
+                <nav class='navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow'>
 
-                ?>
+
+
+                    <!-- Sidebar Toggle (Topbar) -->
+
+                    <button id='sidebarToggleTop' class='btn btn-link d-md-none rounded-circle mr-3'>
+
+                        <i class='fa fa-bars'></i>
+
+                    </button>
+
+                    <!-- Button Nahlásit Problém -->
+                    <a href='nahlasit-problem.php' class='btn btn-secondary '>
+                        <span class='icon text-white-50'>
+
+                        </span>
+                        <span class='text'>Nahlásit problém</span>
+                    </a> 
+
+                     
+
+                    <!-- Topbar Navbar -->
+                    <ul class='navbar-nav ml-auto'>
+
+
+                        <!-- Link Potřebujete poradit? -->
+                        <div class='nav-item mx-1 no-arrow dropdown'>
+                            
+                            <a class='text-gray-600 nav-link dropdown-toggle' href='dokumentace.php'>
+                                <i class='fa fa-lightbulb'></i>
+                                &nbsp; Potřebujete poradit?
+                            </a>
+
+
+                        </div>
+
+                        
+                        <!-- Nav Item - Upozornění -->
+
+                        <li class='nav-item dropdown no-arrow mx-1'>
+
+
+                            <a class='nav-link dropdown-toggle' href='#' id='alertsDropdown' role='button'
+                               data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+
+                                <i class='fas fa-bell fa-fw'></i>
+
+                                <!-- Counter - Upozornění -->
+
+                                <span class='badge badge-danger badge-counter'>2</span>
+
+                            </a>
+
+                            <!-- Dropdown - Upozornění -->
+
+                            <div class='dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in' aria-labelledby='alertsDropdown'>
+
+
+                                <h6 class='dropdown-header'>
+                                    Oznámení
+                                </h6>
+
+                                <a class='dropdown-item d-flex align-items-center' href='#'>
+
+                                    <div>
+
+                                        <div class='d-flex w-100 justify-content-between'>
+                                            <small class='text-muted'>10.11. 2023</small>
+                                        </div>
+                                        <p class='mb-1'>Zařízení <u>Projektor</u> v&#160místnosti <u>1.A</u> bylo označeno jako <b style='color:#1cc88a;'>funkční</b></p>
+
+                                    </div>
+
+                                </a>
+
+                                <a class='dropdown-item d-flex align-items-center' href='#'>
+
+
+                                    <div>
+
+                                        <div class='d-flex w-100 justify-content-between'>
+                                            <small class='text-muted'>11.11. 2023</small>
+                                        </div>
+                                        <p class='mb-1'>Zařízení <u>Tiskárna</u> v&#160místnosti <u>Kabinet AJ</u> bylo označeno jako <b style='color: #e74a3b;'>nefunkční</b> </p>
+
+                                    </div>
+
+                                </a>
+                                <a class='dropdown-item text-center small text-gray-500' href='oznameni.php'>Všechna oznámení</a>
+                            </div>
+
+                        </li>
+
+                        <!-- Nav Item - Informace o uživateli -->
+                        <li class='nav-item dropdown no-arrow'>
+
+                            <a class='nav-link dropdown-toggle' href='#' id='userDropdown' role='button'
+                               data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                <span class='mr-2 d-none d-lg-inline text-gray-600 small'>Uživatel</span>
+                                <img class='img-profile rounded-circle'
+                                     src='img/undraw_profile.svg'>
+
+                            </a>
+
+                            <!-- Dropdown - Informace o uživateli -->
+
+                            <div class='dropdown-menu dropdown-menu-right shadow animated--grow-in'
+                                 aria-labelledby='userDropdown'>
+
+
+                                <a class='dropdown-item' href='#' data-toggle='modal' data-target='#logoutModal'>
+
+                                    <i class='fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400'></i>
+                                    Odhlásit se
+                                </a>
+
+                            </div>  
+
+                        </li>
+
+
+
+                    </ul>
+
+
+
+                </nav>
+
+                <!-- End of Topbar -->  
 
                 <!-- End of Topbar -->
 
@@ -247,15 +374,9 @@ include 'header.php';
 
                                             </div>
 
-                                            
-								
-						    <div class="h5 mb-0 mt-2 font-weight-bold text-success">
-                             <?php
 
-							$conn = mysqli_connect($servername, $username, $password, $dbName);
-
-                                                
-
+                                            <div class="h5 mb-0 mt-2 font-weight-bold text-success">
+                                                <?php
 
                                                 $conn = mysqli_connect($servername, $username, $password, $dbName);
 
@@ -272,7 +393,7 @@ include 'header.php';
                                                     echo "Chyba";
                                                 }
 
-                                                    ?>
+                                                ?>
 
 
 
@@ -345,11 +466,9 @@ include 'header.php';
 
 
                                             </div>
-
-						    <div class="h5 mb-0 mt-2 font-weight-bold text-danger">
-                                <?php
-							$conn = mysqli_connect($servername, $username, $password, $dbName);
-
+                                            <div class="h5 mb-0 mt-2 font-weight-bold text-danger">
+                                                <?php
+                                                $conn = mysqli_connect($servername, $username, $password, $dbName);
 
 
                                                 $sql3 = "SELECT * FROM projektory p LEFT JOIN problemy r ON r.id_projektor = p.id where r.status = 'f' group by p.id;";
@@ -405,10 +524,8 @@ include 'header.php';
 
                                             <div class="dropdown no-arrow">
                                                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Probíhá oprava</div>
-
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Probíhá oprava</div>
                                                 </a>
                                                 <small class="text-gray-600">Projektory, jejichž závada je právě řešena</small>
                                                 <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in scrollable-menu" aria-labelledby="dropdownMenuLink">
@@ -435,7 +552,6 @@ include 'header.php';
                                                         }
                                                     }
                                                     ?>
-
                                                 </div>
 
 
@@ -443,11 +559,9 @@ include 'header.php';
 
                                             </div>
 
-                                                
-                        <div class="h5 mb-0 mt-2 font-weight-bold text-warning">
-						<?php
-							$conn = mysqli_connect($servername, $username, $password, $dbName);
-
+                                            <div class="h5 mb-0 mt-2 font-weight-bold text-warning">
+                                                <?php
+                                                $conn = mysqli_connect($servername, $username, $password, $dbName);
 
 
                                                 $sql3 = "SELECT * FROM projektory p left join problemy r on r.id_projektor=p.id where r.status='z' group by p.id;";

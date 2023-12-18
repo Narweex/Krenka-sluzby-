@@ -586,6 +586,13 @@ function draw_sidebar(){
             <hr class='sidebar-divider d-none d-md-block'>
 
 
+            <!-- Verzování -->
+            <li class='nav-item Show text-gray-400 text-center d-sm-inline-block'>
+                
+                    <small class='version'>Verze aplikace: 1.1.1</small>
+
+            </li>
+
 
             <!-- Sidebar Toggler (Sidebar) -->
 
@@ -608,6 +615,8 @@ function draw_sidebar(){
                 <a class='btn btn-success btn-sm' href='https://startbootstrap.com/theme/sb-admin-pro'>Upgrade to Pro!</a>
 
             </div> -->
+
+           
 
 
 
@@ -660,9 +669,11 @@ function draw_admin_sidebar()
 
             <hr class='sidebar-divider my-1'>
 
-            <!-- Nav Item - Projektory -->
-            <li class='nav-item Show'>
-                <a class='nav-link' href='projektory.php'>
+            <!-- Nav Item - Projektory -->";
+                echo ($_SERVER['REQUEST_URI'] == "/projektory.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+                
+            echo"
+            <a class='nav-link' href='projektory.php'>
                     <!--<i class='fas fa-fw fa-table'></i>-->
 
                     <span>PROJEKTORY</span></a>
@@ -677,7 +688,7 @@ function draw_admin_sidebar()
 
             <!-- Nav Item - Tiskárny -->
             <li class='nav-item Show'>
-                <a class='nav-link' href='tiskarny.html'>
+                <a class='nav-link' href='tiskarny.php'>
                     <!--<i class='fas fa-fw fa-table'></i>-->
 
                     <span>TISKÁRNY</span></a>
@@ -740,6 +751,14 @@ function draw_admin_sidebar()
 
             <!--Divider -->
             <hr class='sidebar-divider d-none d-md-block'>
+
+            
+            <!-- Verzování -->
+            <li class='nav-item Show text-gray-400 text-center d-sm-inline-block'>
+                
+                    <small class='version'>Verze aplikace: 1.1.1</small>
+
+            </li>
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class='text-center d-none d-md-inline'>
