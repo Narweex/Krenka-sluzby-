@@ -663,9 +663,11 @@ function draw_admin_sidebar()
 
             <hr class='sidebar-divider my-1'>
 
-            <!-- Nav Item - Projektory -->
-            <li class='nav-item Show'>
-                <a class='nav-link' href='projektory.php'>
+            <!-- Nav Item - Projektory -->";
+                echo ($_SERVER['REQUEST_URI'] == "/projektory.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+                
+            echo"
+            <a class='nav-link' href='projektory.php'>
                     <!--<i class='fas fa-fw fa-table'></i>-->
 
                     <span>PROJEKTORY</span></a>
