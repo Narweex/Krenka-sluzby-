@@ -1,9 +1,18 @@
+<?php
+
+include 'include.php';
+require_once 'config.php';
+
+if (isset($_SESSION['session_id'])) {
+
+    header("Location: main.php");
+
+} 
+?>
+
 <!DOCTYPE html> 
 <html lang="en">
 
-<?php
-include 'include.php';
-?>
 <head>
 
     <meta charset="utf-8">
@@ -44,27 +53,29 @@ include 'include.php';
                     
                     <!-- Button Přihlásit-->
                     
-                    <a href="index.php" class="btn btn-primary my-3">
-                        <span class="text">Přihlásit</span>
-                        </a>
+
+                    <?php
+
+                    echo " <a href='" . $client->createAuthUrl() . "' class='btn btn-primary my-3'>
+                        <span class='text'>Přihlásit</span>
+                        </a>"
+                    ?>
+                   
 
                 </div>
 
-                <!-- Footer -->
-                <?php
-                footer();
-                ?>
+                
+                
 
             </div>
 
             
-
     
-        
-        
-
     </div>
-
+<!-- Footer -->
+                <?php
+                footer();
+                ?>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>

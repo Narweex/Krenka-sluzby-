@@ -1,4 +1,4 @@
-<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en">
 
@@ -7,6 +7,68 @@ include 'connection.php';
 include 'config.php';
 include 'footer.php';
 include 'header.php';
+
+
+// authenticate code from Google OAuth Flow
+if (isset($_GET['code'])) {
+    $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+    $client->setAccessToken($token['access_token']);
+    $_SESSION['user_token'] = $token;
+
+    // get profile info
+    $google_oauth = new Google_Service_Oauth2($client);
+    $google_account_info = $google_oauth->userinfo->get();
+    $userinfo = [
+        'email' => $google_account_info['email'],
+        'jmeno' => $google_account_info['name'],
+        'avatar' => $google_account_info['picture'],
+        'verifiedEmail' => $google_account_info['verifiedEmail'],
+        'token' => $google_account_info['id'],
+
+    ];
+
+    $sql = "SELECT * FROM uzivatele WHERE email ='{$userinfo['email']}'";
+    $result = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result) > 0) {
+    // user exists
+    $_SESSION = mysqli_fetch_assoc($result);
+    $token = $_SESSION['google_id'];
+    } else {
+        // user is not exists
+
+        $sql = "INSERT INTO uzivatele (id, jmeno, avatar, email, google_id, session) VALUES ('', '{$userinfo['jmeno']}', '{$userinfo['avatar']}', '{$userinfo['email']}', '{$userinfo['token']}', '0')";
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+            $token = $userinfo['token'];
+        } else {
+            echo "User is not created";
+            die();
+        }
+    }
+
+    $_SESSION['user_token'] = $token;
+    $_SESSION['user_name'] = $userinfo['jmeno'];
+    $_SESSION['user_avatar'] = $userinfo['avatar'];
+    $_SESSION['user_email'] = $userinfo['email'];
+    $_SESSION['user_id'] = $userinfo['id'];
+
+
+
+
+} else {
+
+
+    if (!isset($_SESSION['user_token'])) {
+        header("Location: login.php");
+        die();
+    }
+
+
+}
+
+
+
+
 ?>
 
 
@@ -63,6 +125,8 @@ include 'header.php';
         <!-- Sidebar -->
 
         <?php
+
+       
 
         draw_sidebar();
 
@@ -124,6 +188,8 @@ include 'header.php';
 
                         if (DEBUG_MODE) {
                             echo "Připojeno k databázi <br>";
+
+                           
                         }
 
 
@@ -136,6 +202,18 @@ include 'header.php';
 
 
                         ?>
+
+                                              
+   
+    
+                        <!--<img src="<?= $_SESSION['user_avatar'] ?>" alt="" width="90px" height="90px" />
+                        <ul>
+                            <li>Full Name: <?= $_SESSION['user_name'] ?></li>
+                            <li>Email Address: <?= $_SESSION['user_email'] ?></li>
+                            <li>Email Address: <?= $_SESSION['id'] ?></li>
+                           
+                            <li><a href="logout.php">Logout</a></li>
+                        </ul>-->
                         <!--</div>-->
 
 
@@ -214,7 +292,6 @@ include 'header.php';
                                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Funkční</div>
                                                 </a>
-                                                <small class="text-gray-600">Projektory, u kterých nejsou nahlášeny závady</small>
                                                 <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in scrollable-menu" aria-labelledby="dropdownMenuLink">
                                                     <div class="dropdown-header">V místnostech:</div>
 
@@ -247,15 +324,9 @@ include 'header.php';
 
                                             </div>
 
-                                            
-								
-						    <div class="h5 mb-0 mt-2 font-weight-bold text-success">
-                             <?php
 
-							$conn = mysqli_connect($servername, $username, $password, $dbName);
-
-                                                
-
+                                            <div class="h5 mb-0 font-weight-bold text-success">
+                                                <?php
 
                                                 $conn = mysqli_connect($servername, $username, $password, $dbName);
 
@@ -272,7 +343,7 @@ include 'header.php';
                                                     echo "Chyba";
                                                 }
 
-                                                    ?>
+                                                ?>
 
 
 
@@ -312,9 +383,8 @@ include 'header.php';
                                             <div class="dropdown no-arrow">
                                                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Se závadou</div>
+                                                    <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Nefunkční</div>
                                                 </a>
-                                                <small class="text-gray-600">Projektory, u kterých byla nahlášena závada</small>
                                                 <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in scrollable-menu" aria-labelledby="dropdownMenuLink">
                                                     <div class="dropdown-header">V místnostech:</div>
                                                     <?php
@@ -345,11 +415,9 @@ include 'header.php';
 
 
                                             </div>
-
-						    <div class="h5 mb-0 mt-2 font-weight-bold text-danger">
-                                <?php
-							$conn = mysqli_connect($servername, $username, $password, $dbName);
-
+                                            <div class="h5 mb-0 font-weight-bold text-danger">
+                                                <?php
+                                                $conn = mysqli_connect($servername, $username, $password, $dbName);
 
 
                                                 $sql3 = "SELECT * FROM projektory p LEFT JOIN problemy r ON r.id_projektor = p.id where r.status = 'f' group by p.id;";
@@ -391,7 +459,7 @@ include 'header.php';
 
 
 
-                        <!--Card Example-Probíhá oprava Projektory-->
+                        <!--Card Example-Se Závadou Projektory-->
 
                         <div class="col-xl-3 col-md-6 mb-4">
 
@@ -405,17 +473,14 @@ include 'header.php';
 
                                             <div class="dropdown no-arrow">
                                                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Probíhá oprava</div>
-
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Se zavádou</div>
                                                 </a>
-                                                <small class="text-gray-600">Projektory, jejichž závada je právě řešena</small>
                                                 <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in scrollable-menu" aria-labelledby="dropdownMenuLink">
                                                     <div class="dropdown-header">V místnostech:</div>
                                                     <?php
 
-                                                    $sql = "SELECT * FROM projektory p LEFT JOIN problemy r ON r.id_projektor = p.id where r.status = 'z' group by p.id;";
+                                                    $sql = "SELECT p.*, r.* FROM projektory p LEFT JOIN problemy r ON r.id_projektor = p.id WHERE r.status IS NULL OR (r.id_projektor, r.vytvoreno) IN (SELECT id_projektor, MAX(vytvoreno) AS max_created_at FROM problemy WHERE status = 'z' GROUP BY id_projektor);";
 
                                                     $result = mysqli_query($conn, $sql);
 
@@ -435,7 +500,6 @@ include 'header.php';
                                                         }
                                                     }
                                                     ?>
-
                                                 </div>
 
 
@@ -443,11 +507,9 @@ include 'header.php';
 
                                             </div>
 
-                                                
-                        <div class="h5 mb-0 mt-2 font-weight-bold text-warning">
-						<?php
-							$conn = mysqli_connect($servername, $username, $password, $dbName);
-
+                                            <div class="h5 mb-0 font-weight-bold text-warning">
+                                                <?php
+                                                $conn = mysqli_connect($servername, $username, $password, $dbName);
 
 
                                                 $sql3 = "SELECT * FROM projektory p left join problemy r on r.id_projektor=p.id where r.status='z' group by p.id;";
@@ -469,7 +531,7 @@ include 'header.php';
 
                                         <div class="col-auto">
 
-                                            <i class="fas fa-tools fa-2x text-gray-300"></i>
+                                            <i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
 
                                         </div>
 

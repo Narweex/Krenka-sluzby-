@@ -1,12 +1,9 @@
-<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en">
 
 <?php
-include 'connection.php';
-include 'config.php';
-include 'footer.php';
-include 'header.php';
+include 'include.php';
 ?>
 
 
@@ -86,140 +83,138 @@ include 'header.php';
 
                 <!-- Topbar -->
 
-                <!-- Topbar -->
+                 <!-- Topbar -->
 
-                <nav class='navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow'>
-
-
-
-                    <!-- Sidebar Toggle (Topbar) -->
-
-                    <button id='sidebarToggleTop' class='btn btn-link d-md-none rounded-circle mr-3'>
-
-                        <i class='fa fa-bars'></i>
-
-                    </button>
-
-                    <!-- Button Nahlásit Problém -->
-                    <a href='nahlasit-problem.php' class='btn btn-secondary '>
-                        <span class='icon text-white-50'>
-
-                        </span>
-                        <span class='text'>Nahlásit problém</span>
-                    </a> 
-
-                     
-
-                    <!-- Topbar Navbar -->
-                    <ul class='navbar-nav ml-auto'>
-
-
-                        <!-- Link Potřebujete poradit? -->
-                        <div class='nav-item mx-1 no-arrow dropdown'>
-                            
-                            <a class='text-gray-600 nav-link dropdown-toggle' href='dokumentace.php'>
-                                <i class='fa fa-lightbulb'></i>
-                                &nbsp; Potřebujete poradit?
-                            </a>
-
-
-                        </div>
-
-                        
-                        <!-- Nav Item - Upozornění -->
-
-                        <li class='nav-item dropdown no-arrow mx-1'>
-
-
-                            <a class='nav-link dropdown-toggle' href='#' id='alertsDropdown' role='button'
-                               data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-
-                                <i class='fas fa-bell fa-fw'></i>
-
-                                <!-- Counter - Upozornění -->
-
-                                <span class='badge badge-danger badge-counter'>2</span>
-
-                            </a>
-
-                            <!-- Dropdown - Upozornění -->
-
-                            <div class='dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in' aria-labelledby='alertsDropdown'>
-
-
-                                <h6 class='dropdown-header'>
-                                    Oznámení
-                                </h6>
-
-                                <a class='dropdown-item d-flex align-items-center' href='#'>
-
-                                    <div>
-
-                                        <div class='d-flex w-100 justify-content-between'>
-                                            <small class='text-muted'>10.11. 2023</small>
-                                        </div>
-                                        <p class='mb-1'>Zařízení <u>Projektor</u> v&#160místnosti <u>1.A</u> bylo označeno jako <b style='color:#1cc88a;'>funkční</b></p>
-
-                                    </div>
-
-                                </a>
-
-                                <a class='dropdown-item d-flex align-items-center' href='#'>
-
-
-                                    <div>
-
-                                        <div class='d-flex w-100 justify-content-between'>
-                                            <small class='text-muted'>11.11. 2023</small>
-                                        </div>
-                                        <p class='mb-1'>Zařízení <u>Tiskárna</u> v&#160místnosti <u>Kabinet AJ</u> bylo označeno jako <b style='color: #e74a3b;'>nefunkční</b> </p>
-
-                                    </div>
-
-                                </a>
-                                <a class='dropdown-item text-center small text-gray-500' href='oznameni.php'>Všechna oznámení</a>
-                            </div>
-
-                        </li>
-
-                        <!-- Nav Item - Informace o uživateli -->
-                        <li class='nav-item dropdown no-arrow'>
-
-                            <a class='nav-link dropdown-toggle' href='#' id='userDropdown' role='button'
-                               data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-                                <span class='mr-2 d-none d-lg-inline text-gray-600 small'>Uživatel</span>
-                                <img class='img-profile rounded-circle'
-                                     src='img/undraw_profile.svg'>
-
-                            </a>
-
-                            <!-- Dropdown - Informace o uživateli -->
-
-                            <div class='dropdown-menu dropdown-menu-right shadow animated--grow-in'
-                                 aria-labelledby='userDropdown'>
-
-
-                                <a class='dropdown-item' href='#' data-toggle='modal' data-target='#logoutModal'>
-
-                                    <i class='fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400'></i>
-                                    Odhlásit se
-                                </a>
-
-                            </div>  
-
-                        </li>
+                 <nav class='navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow'>
 
 
 
-                    </ul>
+<!-- Sidebar Toggle (Topbar) -->
+
+<button id='sidebarToggleTop' class='btn btn-link d-md-none rounded-circle mr-3'>
+
+    <i class='fa fa-bars'></i>
+
+</button>
+
+<!-- Button Nahlásit Problém -->
+<a href='nahlasit-problem.php' class='btn btn-secondary '>
+    <span class='icon text-white-50'>
+
+    </span>
+    <span class='text'>Nahlásit problém</span>
+</a>
 
 
 
-                </nav>
+<!-- Topbar Navbar -->
+<ul class='navbar-nav ml-auto'>
 
-                <!-- End of Topbar -->  
 
-                <!-- End of Topbar -->
+    <!-- Link Potřebujete poradit? -->
+    <div class='nav-item mx-1 no-arrow dropdown'>
+
+        <a class='text-gray-600 nav-link dropdown-toggle' href='dokumentace.php'>
+            <i class='fa fa-lightbulb'></i>
+            &nbsp; Potřebujete poradit?
+        </a>
+
+
+    </div>
+
+
+    <!-- Nav Item - Upozornění -->
+
+    <li class='nav-item dropdown no-arrow mx-1'>
+
+
+        <a class='nav-link dropdown-toggle' href='#' id='alertsDropdown' role='button'
+           data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+
+            <i class='fas fa-bell fa-fw'></i>
+
+            <!-- Counter - Upozornění -->
+
+            <span class='badge badge-danger badge-counter'>2</span>
+
+        </a>
+
+        <!-- Dropdown - Upozornění -->
+
+        <div class='dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in' aria-labelledby='alertsDropdown'>
+
+
+            <h6 class='dropdown-header'>
+                Oznámení
+            </h6>
+
+            <a class='dropdown-item d-flex align-items-center' href='#'>
+
+                <div>
+
+                    <div class='d-flex w-100 justify-content-between'>
+                        <small class='text-muted'>10.11. 2023</small>
+                    </div>
+                    <p class='mb-1'>Zařízení <u>Projektor</u> v&#160místnosti <u>1.A</u> bylo označeno jako <b style='color:#1cc88a;'>funkční</b></p>
+
+                </div>
+
+            </a>
+
+            <a class='dropdown-item d-flex align-items-center' href='#'>
+
+
+                <div>
+
+                    <div class='d-flex w-100 justify-content-between'>
+                        <small class='text-muted'>11.11. 2023</small>
+                    </div>
+                    <p class='mb-1'>Zařízení <u>Tiskárna</u> v&#160místnosti <u>Kabinet AJ</u> bylo označeno jako <b style='color: #e74a3b;'>nefunkční</b> </p>
+
+                </div>
+
+            </a>
+            <a class='dropdown-item text-center small text-gray-500' href='oznameni.php'>Všechna oznámení</a>
+        </div>
+
+    </li>
+
+    <!-- Nav Item - Informace o uživateli -->
+    <li class='nav-item dropdown no-arrow'>
+
+        <a class='nav-link dropdown-toggle' href='#' id='userDropdown' role='button'
+           data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+            <span class='mr-2 d-none d-lg-inline text-gray-600 small'>Uživatel</span>
+            <img class='img-profile rounded-circle'
+                 src=''>
+
+        </a>
+
+        <!-- Dropdown - Informace o uživateli -->
+
+        <div class='dropdown-menu dropdown-menu-right shadow animated--grow-in'
+             aria-labelledby='userDropdown'>
+
+
+            <a class='dropdown-item' href='#' data-toggle='modal' data-target='#logoutModal'>
+
+                <i class='fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400'></i>
+                Odhlásit se
+            </a>
+
+        </div>
+
+    </li>
+
+
+
+</ul>
+
+
+
+</nav>
+
+<!-- End of Topbar -->
 
 
 
@@ -1310,46 +1305,10 @@ include 'header.php';
 
     </a>
 
-
-
-    <!-- Logout Modal-->
-
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-
-        <div class="modal-dialog" role="document">
-
-            <div class="modal-content">
-
-                <div class="modal-header">
-
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-
-                        <span aria-hidden="true">×</span>
-
-                    </button>
-
-                </div>
-
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-
-                <div class="modal-footer">
-
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
+    <!-- Logout modal -->
+    <?php
+        draw_modal();
+    ?>
 
     <!-- Bootstrap core JavaScript-->
 
