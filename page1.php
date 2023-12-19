@@ -1,12 +1,9 @@
-<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en">
 
 <?php
-include 'connection.php';
-include 'config.php';
-include 'footer.php';
-include 'header.php';
+include 'include.php';
 ?>
 
 
@@ -199,7 +196,7 @@ include 'header.php';
                                  aria-labelledby='userDropdown'>
 
 
-                                <a class='dropdown-item' href='#' data-toggle='modal' data-target='#logoutModal'>
+                                <a class='dropdown-item' href='login.php' data-toggle='modal' data-target='#logoutModal'>
 
                                     <i class='fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400'></i>
                                     Odhlásit se
@@ -1312,7 +1309,7 @@ include 'header.php';
 
 
 
-    <!-- Logout Modal-->
+    <!-- Logout Modal
 
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -1323,7 +1320,7 @@ include 'header.php';
 
                 <div class="modal-header">
 
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Odhlásit se?</h5>
 
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
 
@@ -1333,13 +1330,13 @@ include 'header.php';
 
                 </div>
 
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Pro odhlášení klikněte na "Odhlásit."</div>
 
                 <div class="modal-footer">
 
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Zrušit</button>
 
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="login.php">Odhlásit</a>
 
                 </div>
 
@@ -1347,9 +1344,11 @@ include 'header.php';
 
         </div>
 
-    </div>
+    </div>-->
 
-
+    <?php
+        draw_modal();
+    ?>
 
     <!-- Bootstrap core JavaScript-->
 

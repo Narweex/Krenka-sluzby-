@@ -64,21 +64,18 @@ if (isset($_SESSION['session_id'])) {
 
                 </div>
 
-                <!-- Footer -->
-                <?php
-                footer();
-                ?>
+                
+                
 
             </div>
 
             
-
     
-        
-        
-
     </div>
-
+<!-- Footer -->
+                <?php
+                footer();
+                ?>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
