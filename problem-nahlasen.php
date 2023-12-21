@@ -57,7 +57,7 @@ if(!isset($_SESSION['user_token'])){
     $trida = $_REQUEST['trida'];
     $device = $_REQUEST['zarizeni'];
     $popis = $_REQUEST['popis'];
-    $uzivatel = $_SESSION['id'];
+    $uzivatel = $_SESSION['user_id'];
     $projector_id = 0;
     echo $uzivatel;
 
