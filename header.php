@@ -49,7 +49,7 @@ function draw_topbar()
                         </div>
 
 
-                        <!-- Nav Item - Upozornění -->
+                        <!-- Nav Item - Upozornění 
 
                         <li class='nav-item dropdown no-arrow mx-1'>
 
@@ -59,13 +59,13 @@ function draw_topbar()
 
                                 <i class='fas fa-bell fa-fw'></i>
 
-                                <!-- Counter - Upozornění -->
+                                <!-- Counter - Upozornění 
 
                                 <span class='badge badge-danger badge-counter'>2</span>
 
                             </a>
 
-                            <!-- Dropdown - Upozornění -->
+                            <!-- Dropdown - Upozornění 
 
                             <div class='dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in' aria-labelledby='alertsDropdown'>
 
