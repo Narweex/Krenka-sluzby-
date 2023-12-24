@@ -7,6 +7,7 @@ include 'connection.php';
 include 'config.php';
 include 'footer.php';
 include 'header.php';
+include 'modal.php';
 
 
 // authenticate code from Google OAuth Flow
@@ -30,9 +31,9 @@ if (isset($_GET['code'])) {
     $sql = "SELECT * FROM uzivatele WHERE email ='{$userinfo['email']}'";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
-    // user exists
-    $_SESSION = mysqli_fetch_assoc($result);
-    $token = $_SESSION['google_id'];
+        // user exists
+        $_SESSION = mysqli_fetch_assoc($result);
+        $token = $_SESSION['google_id'];
     } else {
         // user is not exists
 
@@ -46,12 +47,22 @@ if (isset($_GET['code'])) {
         }
     }
 
+    $sql = "SELECT * FROM uzivatele WHERE email ='{$userinfo['email']}'";
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+        // user exists
+        $UID = mysqli_fetch_assoc($result);
+        $_SESSION['user_id'] = $UID['id'];
+    }
+
     $_SESSION['user_token'] = $token;
     $_SESSION['user_name'] = $userinfo['jmeno'];
     $_SESSION['user_avatar'] = $userinfo['avatar'];
     $_SESSION['user_email'] = $userinfo['email'];
-    $_SESSION['user_id'] = $userinfo['id'];
+   
 
+    header("Location: index.php");
 
 
 
@@ -65,6 +76,10 @@ if (isset($_GET['code'])) {
 
 
 }
+
+
+
+
 
 
 
@@ -188,8 +203,12 @@ if (isset($_GET['code'])) {
 
                         if (DEBUG_MODE) {
                             echo "Připojeno k databázi <br>";
+                            echo $_SESSION['user_avatar'] . "<br>";
+                            echo $_SESSION['user_name'] . "<br>";
+                            echo $_SESSION['user_email'] . "<br>";
+                            echo $_SESSION['user_id'] . "<br>";
+                            
 
-                           
                         }
 
 
@@ -1260,42 +1279,11 @@ if (isset($_GET['code'])) {
 
 
 
-    <!-- Logout Modal-->
+    <?php
 
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-
-        <div class="modal-dialog" role="document">
-
-            <div class="modal-content">
-
-                <div class="modal-header">
-
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-
-                        <span aria-hidden="true">×</span>
-
-                    </button>
-
-                </div>
-
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-
-                <div class="modal-footer">
-
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+    draw_modal();
+    
+    ?>
 
 
 
