@@ -403,7 +403,7 @@ function draw_sidebar()
 
              Divider -->
 
-            <hr class='sidebar-divider d-none d-md-block'>
+             <hr class='sidebar-divider my-1'>
 
 
             <!-- Verzování -->
@@ -570,7 +570,7 @@ function draw_admin_sidebar()
 
 
             <!--Divider -->
-            <hr class='sidebar-divider d-none d-md-block'>
+            <hr class='sidebar-divider my-1'>
 
 
             <!-- Verzování -->
