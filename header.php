@@ -38,7 +38,7 @@ function draw_topbar()
 
 
                         <!-- Link Potřebujete poradit? -->
-                        <div class='nav-item mx-1 no-arrow dropdown'>
+                        <div class='d-none d-sm-inline-block nav-item dropdown no-arrow'>
 
                             <a class='text-gray-600 nav-link dropdown-toggle' href='dokumentace.php'>
                                 <i class='fa fa-lightbulb'></i>
@@ -47,6 +47,13 @@ function draw_topbar()
 
 
                         </div>
+
+                        <!-- Icon Potřebujete poradit? (visible only XS)-->
+                            <div class='d-block d-sm-none nav-item'>
+                                <a href='dokumentace.php' class='nav-link text-gray-600'>
+                                    <i class='fa fa-lightbulb'></i>
+                                </a>
+                            </div>
 
 
                         <!-- Nav Item - Upozornění 
