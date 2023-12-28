@@ -1,7 +1,7 @@
 
 <?php
 
-require 'config.php';
+include 'config.php';
 //require_once 'index.php';
 
 
@@ -616,9 +616,11 @@ function draw_admin_sidebar()
             </li>
 
             <!--Divider -->
-            <hr class='sidebar-divider my-1'>[
+            <hr class='sidebar-divider my-1'>";
 
+            global $App_Version;
 
+            echo"
             <!-- Verzování -->
             <li class='nav-item Show text-gray-400 text-center d-sm-inline-block'>
 
