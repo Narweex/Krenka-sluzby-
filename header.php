@@ -217,6 +217,27 @@ function draw_sidebar()
 
 
 
+
+            <!-- Divider -->
+
+            <hr class='sidebar-divider my-1'>
+
+
+            <!-- Nav Item - Kontakt -->";
+
+    echo ($_SERVER['REQUEST_URI'] == "/kontakt.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+
+
+    echo "
+                <a class='nav-link' href='projektory.php'>
+                    <!--<i class='fas fa-fw fa-table'></i>-->
+
+                    <span>KONTAKT</span></a>
+
+            </li>
+
+
+
             <!-- Divider
 
             <hr class='sidebar-divider my-1'>
@@ -233,6 +254,8 @@ function draw_sidebar()
                     <span>TISKÁRNY</span></a>
 
             </li>
+
+            
 
             <li class='nav-item Show text-gray-400 text-center d-sm-inline-block'>
 
