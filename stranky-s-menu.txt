@@ -20,7 +20,7 @@ ODHLASOVACI MODALY:
 index*
 tiskarny*
 nahlasit problem
-dokumentace
+dokumentace*
 oznameni
 pridat zarizeni
 panel*
