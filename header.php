@@ -229,7 +229,7 @@ function draw_sidebar()
 
 
     echo "
-                <a class='nav-link' href='projektory.php'>
+                <a class='nav-link' href='kontakt.php'>
                     <!--<i class='fas fa-fw fa-table'></i>-->
 
                     <span>KONTAKT</span></a>
@@ -608,7 +608,7 @@ function draw_admin_sidebar()
 
 
     echo "
-                <a class='nav-link' href='projektory.php'>
+                <a class='nav-link' href='kontakt.php'>
                     <!--<i class='fas fa-fw fa-table'></i>-->
 
                     <span>KONTAKT</span></a>

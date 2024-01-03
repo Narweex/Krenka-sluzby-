@@ -82,18 +82,18 @@ include 'include.php';
                     <div class='row justify-content-start mb-5'>
 
                         <!-- Card Kontakt- Waldhans -->
-                        <div class='col-xl-4 col-md-6 mb-4'>
+                        <div class="col-xl-4 col-md-6 mb-4 ">
                             <div class='card border border-left-primary'>
                                 <div class='card-body bg-white'>
                                     <div class='row align-items-center'>
                                         <div class='col-3 ml-1'>
-                                            <img src='img/undraw_profile.svg' class='img-profile rounded-circle'>
+                                            <img src='img/undraw_profile.svg' class='img-fluid rounded-circle' style=''>
                                         </div> 
 
                                         <div class='col-auto'>
                                             <h3 class='h5'>Warek Maldhans</h3>
                                             <p>
-                                                E-mail: waldhans@gmail.com <br>
+                                                E-mail: example@gmail.com <br>
                                                 Telefon: 000 000 000
                                             </p>
                                             
