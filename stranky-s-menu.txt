@@ -16,6 +16,16 @@ zmenit status*
 ** -> pridany dynamicke topbary
 *** -> pridany dynamicke sidebary
 
+ODHLASOVACI MODALY:
+index*
+tiskarny*
+nahlasit problem
+dokumentace*
+oznameni
+pridat zarizeni
+panel*
+
+* -> pridan dynamicky odhlasovaci modal
 
 
 

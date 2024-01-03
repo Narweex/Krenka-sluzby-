@@ -89,132 +89,139 @@ include 'include.php';
 
 
 
-<!-- Sidebar Toggle (Topbar) -->
+                        <!-- Sidebar Toggle (Topbar) -->
 
-<button id='sidebarToggleTop' class='btn btn-link d-md-none rounded-circle mr-3'>
+                        <button id='sidebarToggleTop' class='btn btn-link d-md-none rounded-circle mr-3'>
 
-    <i class='fa fa-bars'></i>
+                            <i class='fa fa-bars'></i>
 
-</button>
+                        </button>
 
-<!-- Button Nahlásit Problém -->
-<a href='nahlasit-problem.php' class='btn btn-secondary '>
-    <span class='icon text-white-50'>
+                            <!-- Button Nahlásit Problém -->
+                            <a href='nahlasit-problem.php' class='btn btn-secondary'>
+                                <span class='icon text-white-50'>
 
-    </span>
-    <span class='text'>Nahlásit problém</span>
-</a>
-
-
-
-<!-- Topbar Navbar -->
-<ul class='navbar-nav ml-auto'>
-
-
-    <!-- Link Potřebujete poradit? -->
-    <div class='nav-item mx-1 no-arrow dropdown'>
-
-        <a class='text-gray-600 nav-link dropdown-toggle' href='dokumentace.php'>
-            <i class='fa fa-lightbulb'></i>
-            &nbsp; Potřebujete poradit?
-        </a>
-
-
-    </div>
-
-
-    <!-- Nav Item - Upozornění -->
-
-    <li class='nav-item dropdown no-arrow mx-1'>
-
-
-        <a class='nav-link dropdown-toggle' href='#' id='alertsDropdown' role='button'
-           data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-
-            <i class='fas fa-bell fa-fw'></i>
-
-            <!-- Counter - Upozornění -->
-
-            <span class='badge badge-danger badge-counter'>2</span>
-
-        </a>
-
-        <!-- Dropdown - Upozornění -->
-
-        <div class='dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in' aria-labelledby='alertsDropdown'>
-
-
-            <h6 class='dropdown-header'>
-                Oznámení
-            </h6>
-
-            <a class='dropdown-item d-flex align-items-center' href='#'>
-
-                <div>
-
-                    <div class='d-flex w-100 justify-content-between'>
-                        <small class='text-muted'>10.11. 2023</small>
-                    </div>
-                    <p class='mb-1'>Zařízení <u>Projektor</u> v&#160místnosti <u>1.A</u> bylo označeno jako <b style='color:#1cc88a;'>funkční</b></p>
-
-                </div>
-
-            </a>
-
-            <a class='dropdown-item d-flex align-items-center' href='#'>
-
-
-                <div>
-
-                    <div class='d-flex w-100 justify-content-between'>
-                        <small class='text-muted'>11.11. 2023</small>
-                    </div>
-                    <p class='mb-1'>Zařízení <u>Tiskárna</u> v&#160místnosti <u>Kabinet AJ</u> bylo označeno jako <b style='color: #e74a3b;'>nefunkční</b> </p>
-
-                </div>
-
-            </a>
-            <a class='dropdown-item text-center small text-gray-500' href='oznameni.php'>Všechna oznámení</a>
-        </div>
-
-    </li>
-
-    <!-- Nav Item - Informace o uživateli -->
-    <li class='nav-item dropdown no-arrow'>
-
-        <a class='nav-link dropdown-toggle' href='#' id='userDropdown' role='button'
-           data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-            <span class='mr-2 d-none d-lg-inline text-gray-600 small'>Uživatel</span>
-            <img class='img-profile rounded-circle'
-                 src=''>
-
-        </a>
-
-        <!-- Dropdown - Informace o uživateli -->
-
-        <div class='dropdown-menu dropdown-menu-right shadow animated--grow-in'
-             aria-labelledby='userDropdown'>
-
-
-            <a class='dropdown-item' href='#' data-toggle='modal' data-target='#logoutModal'>
-
-                <i class='fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400'></i>
-                Odhlásit se
-            </a>
-
-        </div>
-
-    </li>
+                                </span>
+                                <span class='text'>Nahlásit problém</span>
+                            </a>
 
 
 
-</ul>
+                        <!-- Topbar Navbar -->
+                        <ul class='navbar-nav ml-auto'>
+                            
+                            
+                            <!-- Link Potřebujete poradit? -->
+                            <div class='d-none d-sm-inline-block nav-item dropdown no-arrow'>
+
+                                <a class='text-gray-600 nav-link dropdown-toggle' href='dokumentace.php'>
+                                    <i class='fa fa-lightbulb'></i>
+                                    &nbsp; Potřebujete poradit?
+                                </a>
+
+
+                            </div>
+
+                            <!-- Icon Potřebujete poradit? (visible only XS)-->
+                            <div class='d-block d-sm-none nav-item'>
+                                <a href='dokumentace.php' class='nav-link text-gray-600'>
+                                    <i class='fa fa-lightbulb'></i>
+                                </a>
+                            </div>
+
+
+                            <!-- Nav Item - Upozornění -->
+
+                            <li class='nav-item dropdown no-arrow mx-1'>
+
+
+                                <a class='nav-link dropdown-toggle' href='#' id='alertsDropdown' role='button'
+                                data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+
+                                    <i class='fas fa-bell fa-fw'></i>
+
+                                    <!-- Counter - Upozornění-->
+
+                                    <span class='badge badge-danger badge-counter'>2</span>
+
+                                </a>
+
+                                <!-- Dropdown - Upozornění -->
+
+                                <div class='dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in' aria-labelledby='alertsDropdown'>
+
+
+                                    <h6 class='dropdown-header'>
+                                        Oznámení
+                                    </h6>
+
+                                    <a class='dropdown-item d-flex align-items-center' href='#'>
+
+                                        <div>
+
+                                            <div class='d-flex w-100 justify-content-between'>
+                                                <small class='text-muted'>10.11. 2023</small>
+                                            </div>
+                                            <p class='mb-1'>Zařízení <u>Projektor</u> v&#160místnosti <u>1.A</u> bylo označeno jako <b style='color:#1cc88a;'>funkční</b></p>
+
+                                        </div>
+
+                                    </a>
+
+                                    <a class='dropdown-item d-flex align-items-center' href='#'>
+
+
+                                        <div>
+
+                                            <div class='d-flex w-100 justify-content-between'>
+                                                <small class='text-muted'>11.11. 2023</small>
+                                            </div>
+                                            <p class='mb-1'>Zařízení <u>Tiskárna</u> v&#160místnosti <u>Kabinet AJ</u> bylo označeno jako <b style='color: #e74a3b;'>nefunkční</b> </p>
+
+                                        </div>
+
+                                    </a>
+                                    <a class='dropdown-item text-center small text-gray-500' href='oznameni.php'>Všechna oznámení</a>
+                                </div>
+
+                            </li>
+
+                            <!-- Nav Item - Informace o uživateli -->
+                            <li class='nav-item dropdown no-arrow'>
+
+                                <a class='nav-link dropdown-toggle' href='#' id='userDropdown' role='button'
+                                data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                    <span class='mr-2 d-none d-lg-inline text-gray-600 small'>Uživatel</span>
+                                    <img class='img-profile rounded-circle'
+                                        src=''>
+
+                                </a>
+
+                                <!-- Dropdown - Informace o uživateli -->
+
+                                <div class='dropdown-menu dropdown-menu-right shadow animated--grow-in'
+                                    aria-labelledby='userDropdown'>
+
+
+                                    <a class='dropdown-item' href='#' data-toggle='modal' data-target='#logoutModal'>
+
+                                        <i class='fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400'></i>
+                                        Odhlásit se
+                                    </a>
+
+                                </div>
+
+                            </li>
 
 
 
-</nav>
+                        </ul>
 
-<!-- End of Topbar -->
+
+
+                </nav>
+
+                <!-- End of Topbar -->
 
 
 

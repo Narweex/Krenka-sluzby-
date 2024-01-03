@@ -1,7 +1,7 @@
 
 <?php
 
-require_once 'config.php';
+include 'config.php';
 //require_once 'index.php';
 
 
@@ -38,7 +38,7 @@ function draw_topbar()
 
 
                         <!-- Link Potřebujete poradit? -->
-                        <div class='nav-item mx-1 no-arrow dropdown'>
+                        <div class='d-none d-sm-inline-block nav-item dropdown no-arrow'>
 
                             <a class='text-gray-600 nav-link dropdown-toggle' href='dokumentace.php'>
                                 <i class='fa fa-lightbulb'></i>
@@ -48,8 +48,15 @@ function draw_topbar()
 
                         </div>
 
+                        <!-- Icon Potřebujete poradit? (visible only XS)-->
+                            <div class='d-block d-sm-none nav-item'>
+                                <a href='dokumentace.php' class='nav-link text-gray-600'>
+                                    <i class='fa fa-lightbulb'></i>
+                                </a>
+                            </div>
 
-                        <!-- Nav Item - Upozornění -->
+
+                        <!-- Nav Item - Upozornění 
 
                         <li class='nav-item dropdown no-arrow mx-1'>
 
@@ -59,13 +66,13 @@ function draw_topbar()
 
                                 <i class='fas fa-bell fa-fw'></i>
 
-                                <!-- Counter - Upozornění -->
+                                <!-- Counter - Upozornění 
 
                                 <span class='badge badge-danger badge-counter'>2</span>
 
                             </a>
 
-                            <!-- Dropdown - Upozornění -->
+                            <!-- Dropdown - Upozornění 
 
                             <div class='dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in' aria-labelledby='alertsDropdown'>
 
@@ -210,6 +217,27 @@ function draw_sidebar()
 
 
 
+
+            <!-- Divider -->
+
+            <hr class='sidebar-divider my-1'>
+
+
+            <!-- Nav Item - Kontakt -->";
+
+    echo ($_SERVER['REQUEST_URI'] == "/kontakt.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+
+
+    echo "
+                <a class='nav-link' href='kontakt.php'>
+                    <!--<i class='fas fa-fw fa-table'></i>-->
+
+                    <span>KONTAKT</span></a>
+
+            </li>
+
+
+
             <!-- Divider
 
             <hr class='sidebar-divider my-1'>
@@ -226,6 +254,8 @@ function draw_sidebar()
                     <span>TISKÁRNY</span></a>
 
             </li>
+
+            
 
             <li class='nav-item Show text-gray-400 text-center d-sm-inline-block'>
 
@@ -403,7 +433,7 @@ function draw_sidebar()
 
              Divider -->
 
-            <hr class='sidebar-divider d-none d-md-block'>
+             <hr class='sidebar-divider my-1'>
 
 
             <!-- Verzování -->
@@ -570,13 +600,31 @@ function draw_admin_sidebar()
 
 
             <!--Divider -->
-            <hr class='sidebar-divider d-none d-md-block'>
+            <hr class='sidebar-divider my-1'>
+
+            <!-- Nav Item - Kontakt -->";
+
+    echo ($_SERVER['REQUEST_URI'] == "/kontakt.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
 
 
+    echo "
+                <a class='nav-link' href='kontakt.php'>
+                    <!--<i class='fas fa-fw fa-table'></i>-->
+
+                    <span>KONTAKT</span></a>
+
+            </li>
+
+            <!--Divider -->
+            <hr class='sidebar-divider my-1'>";
+
+            global $App_Version;
+
+            echo"
             <!-- Verzování -->
             <li class='nav-item Show text-gray-400 text-center d-sm-inline-block'>
 
-                    <small class='version'>Verze aplikace: 1.1.1</small>
+                <small class='version'>Verze aplikace: ". $App_Version ."</small>
 
             </li>
 
