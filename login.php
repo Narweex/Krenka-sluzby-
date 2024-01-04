@@ -5,7 +5,7 @@ require_once 'config.php';
 
 if (isset($_SESSION['session_id'])) {
 
-    header("Location: main.php");
+    header("Location: index.php");
 
 } 
 ?>
