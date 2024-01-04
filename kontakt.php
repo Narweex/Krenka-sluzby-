@@ -4,6 +4,11 @@
 
 <?php
 include 'include.php';
+
+//if (!isset($_SESSION['user_token'])) {
+//    header("Location: login.php");
+//}
+
 ?>
 
 
@@ -79,21 +84,21 @@ include 'include.php';
                     <h2 class='h4 text-gray-700 mb-3'>Správci:</h2>
 
                     <!-- Content Row-->
-                    <div class='row justify-content-start mb-5'>
+                    <div class='row justify-content-start mb-4'>
 
                         <!-- Card Kontakt- Waldhans -->
                         <div class="col-xl-4 col-md-6 mb-4 ">
                             <div class='card border border-left-primary'>
                                 <div class='card-body bg-white'>
                                     <div class='row align-items-center'>
-                                        <div class='col-3 ml-1'>
+                                        <!--<div class='col-3 ml-1'>
                                             <img src='img/undraw_profile.svg' class='img-fluid rounded-circle' style=''>
-                                        </div> 
+                                        </div> -->
 
                                         <div class='col-auto'>
-                                            <h3 class='h5'>Warek Maldhans</h3>
+                                            <h3 class='h5 text-gray-600 font-weight-bold'>Warek Maldhans</h3>
                                             <p>
-                                                E-mail: example@gmail.com <br>
+                                                E-mail: <a href="mailto:waldhans@gmail.com">waldhans@gmail.com</a> <br>
                                                 Telefon: 000 000 000
                                             </p>
                                             
@@ -110,14 +115,14 @@ include 'include.php';
                             <div class='card border border-left-primary'>
                                 <div class='card-body bg-white'>
                                     <div class='row align-items-center'>
-                                        <div class='col-3 ml-1'>
+                                        <!--<div class='col-3 ml-1'>
                                             <img src='img/undraw_profile.svg' class='img-profile rounded-circle'>
-                                        </div> 
+                                        </div>-->
 
                                         <div class='col-auto'>
-                                            <h3 class='h5'>Osoba #1</h3>
+                                            <h3 class='h5 text-gray-700 font-weight-bold'>Osoba #1</h3>
                                             <p>
-                                                E-mail: example@gmail.com <br>
+                                                E-mail: <a href='mailto: example@gmail.com'>example@gmail.com</a> <br>
                                                 Telefon: 000 000 000
                                             </p>
                                             
@@ -129,28 +134,7 @@ include 'include.php';
                         </div>
 
 
-                        <!-- Card Kontakt- Example -->
-                        <div class="col-xl-4 col-md-6 mb-4 ">
-                            <div class='card border border-left-primary'>
-                                <div class='card-body bg-white'>
-                                    <div class='row align-items-center'>
-                                        <div class='col-3 ml-1'>
-                                            <img src='img/undraw_profile.svg' class='img-profile rounded-circle'>
-                                        </div> 
-
-                                        <div class='col-auto'>
-                                            <h3 class='h5'>Osoba #1</h3>
-                                            <p>
-                                                E-mail: example@gmail.com <br>
-                                                Telefon: 000 000 000
-                                            </p>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
+                        
                         
                     </div>
 
@@ -160,21 +144,21 @@ include 'include.php';
                     <h2 class='h4 text-gray-700 mb-3'>Vývojáři:</h2>
 
                     <!-- Content Row -->
-                    <div class='row justify-content-start'>
+                    <div class='row justify-content-start mb-4'>
 
                         <!-- Card Kontakt- Gruber -->
                         <div class="col-xl-4 col-md-6 mb-4 ">
                             <div class='card border border-left-primary'>
                                 <div class='card-body bg-white'>
                                     <div class='row align-items-center'>
-                                        <div class='col-3 ml-1'>
+                                        <!--<div class='col-3 ml-1'>
                                             <img src='img/undraw_profile.svg' class='img-profile rounded-circle'>
-                                        </div> 
+                                        </div>-->
 
                                         <div class='col-auto'>
-                                            <h3 class='h5'>Tomáš Gruber</h3>
+                                            <h3 class='h5 text-gray-700 font-weight-bold'>Tomáš Gruber</h3>
                                             <p>
-                                                E-mail: gruber@web-lab.cz<br>
+                                                E-mail: <a href='mailto: gruber@web-lab.cz'>gruber@web-lab.cz</a><br>
                                                 Telefon: 604 147 970
                                             </p>
                                             
@@ -191,14 +175,14 @@ include 'include.php';
                             <div class='card border border-left-primary'>
                                 <div class='card-body bg-white'>
                                     <div class='row align-items-center'>
-                                        <div class='col-3 ml-1'>
+                                        <!--<div class='col-3 ml-1'>
                                             <img src='img/undraw_profile.svg' class='img-profile rounded-circle'>
-                                        </div> 
+                                        </div>-->
 
                                         <div class='col-auto'>
-                                            <h3 class='h5'>Jakub Kříž</h3>
+                                            <h3 class='h5 font-weight-bold text-gray-700'>Jakub Kříž</h3>
                                             <p>
-                                                E-mail: krizj@web-lab.cz<br>
+                                                E-mail: <a href='mailto: krizj@web-lab.cz'>krizj@web-lab.cz</a><br>
                                                 Telefon: 731 934 429
                                             </p>
                                             
@@ -220,6 +204,12 @@ include 'include.php';
 
             </div>
             <!-- End of Content-->
+
+
+            <!-- Footer -->
+            <?php
+                footer();
+            ?>
 
         </div>
         <!-- End of Content Wrapper -->
