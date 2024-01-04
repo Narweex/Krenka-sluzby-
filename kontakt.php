@@ -5,9 +5,9 @@
 <?php
 include 'include.php';
 
-//if (!isset($_SESSION['user_token'])) {
-//    header("Location: login.php");
-//}
+if (!isset($_SESSION['user_token'])) {
+    header("Location: login.php");
+}
 
 ?>
 
