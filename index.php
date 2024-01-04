@@ -623,7 +623,7 @@ if (isset($_GET['code'])) {
                                                     <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Funkční</div>
 
                                                 </a>
-
+                                                <small class="text-gray-600">Projektory, u kterých nejsou nahlášeny závady</small>
                                                 <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in scrollable-menu" aria-labelledby="dropdownMenuLink">
 
                                                     <div class="dropdown-header">V místnostech:</div>
@@ -809,7 +809,7 @@ if (isset($_GET['code'])) {
                                                     <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Nefunkční</div>
 
                                                 </a>
-
+                                                <small class="text-gray-600">Projektory, u kterých byla nahlášena závada</small>
                                                 <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in scrollable-menu" aria-labelledby="dropdownMenuLink">
 
                                                     <div class="dropdown-header">V místnostech:</div>
@@ -991,7 +991,7 @@ if (isset($_GET['code'])) {
                                                     <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Se zavádou</div>
 
                                                 </a>
-
+                                                <small class="text-gray-600">Projektory, jejichž závada je právě řešena</small>
                                                 <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in scrollable-menu" aria-labelledby="dropdownMenuLink">
 
                                                     <div class="dropdown-header">V místnostech:</div>
