@@ -49,8 +49,8 @@ include 'footer.php';
 <?php
  $nazev_zarizeni = $_REQUEST['nazev_zarizeni'];
 $mistnost = $_REQUEST['mistnost'];
+$cislo_mistnosti = $_REQUEST['cislo_mistnosti'];
 $bezdratovy = $_REQUEST['bezdratovy'];
-
 $konektor = $_REQUEST['konektor'];
 
 //if ($konektor == '1'){
@@ -75,7 +75,7 @@ else{
 }
 
 
-$sql = "insert into projektory values ( 'NULL', '$nazev_zarizeni', '$mistnost', '$bezdratovy', '$konektor');";
+$sql = "INSERT into projektory values ( 'NULL', '$nazev_zarizeni', '$mistnost', '$cislo_mistnosti', '$bezdratovy', '$konektor');";
 
     if(mysqli_query($conn, $sql)){
 

@@ -3,11 +3,11 @@
 
 <?php
 include 'include.php';
-
+/*
 if (!isset($_SESSION['user_token'])) {
     header("Location: login.php");
 
-}
+}*/
 ?>
 
 <head>
@@ -73,9 +73,14 @@ if (!isset($_SESSION['user_token'])) {
                         <label>Název Zařízení:</label>
                         <input class="form-control mb-5" type="text" name="nazev_zarizeni">
 
-                        <!-- Input message Místnost -->
+                        <!-- Input Message Místnost -->
                         <label>Místnost:</label>
                         <input class="form-control mb-5" type="text" name="mistnost">
+
+
+                        <!-- Input Message Číslo Místnosti -->
+                        <label>Číslo místnosti</label>
+                        <input type='text' class='form-control mb-5' name='cislo_mistnosti'>
 
                         <!-- Dropdown Select Menu Bezdrátové -->
                         <div class="dropdown  mb-5">

@@ -611,7 +611,7 @@ if (isset($_GET['code'])) {
 
 
 
-                        <!--Card Nefunkční Projektory-->
+                        <!--Card Se Závadou Projektory-->
 
 
 
@@ -641,7 +641,7 @@ if (isset($_GET['code'])) {
 
                                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-                                                    <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Nefunkční</div>
+                                                    <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Se závadou</div>
 
                                                 </a>
                                                 <small class="text-gray-600">Projektory, u kterých byla nahlášena závada</small>
@@ -761,7 +761,7 @@ if (isset($_GET['code'])) {
                         </div>
 
 
-                        <!--Card- Se Závadou Projektory-->
+                        <!--Card- Probíhá oprava Projektory-->
 
 
                         <div class="col-xl-3 col-md-6 mb-4">
@@ -790,7 +790,7 @@ if (isset($_GET['code'])) {
 
                                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-                                                    <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Se zavádou</div>
+                                                    <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Probíhá oprava</div>
 
                                                 </a>
                                                 <small class="text-gray-600">Projektory, jejichž závada je právě řešena</small>
@@ -894,7 +894,7 @@ if (isset($_GET['code'])) {
 
 
                                         <div class="col-auto">
-                                            <i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
+                                            <i class="fas fa-tools fa-2x text-gray-300"></i>
                                         </div>
 
 
