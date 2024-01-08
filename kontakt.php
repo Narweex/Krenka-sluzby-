@@ -4,10 +4,10 @@
 
 <?php
 include 'include.php';
-
+/*
 if (!isset($_SESSION['user_token'])) {
     header("Location: login.php");
-}
+}*/
 
 ?>
 
@@ -86,52 +86,41 @@ if (!isset($_SESSION['user_token'])) {
                     <!-- Content Row-->
                     <div class='row justify-content-start mb-4'>
 
-                        <!-- Card Kontakt- Waldhans -->
-                        <div class="col-xl-4 col-md-6 mb-4 ">
-                            <div class='card border border-left-primary'>
-                                <div class='card-body bg-white'>
-                                    <div class='row align-items-center'>
-                                        <!--<div class='col-3 ml-1'>
-                                            <img src='img/undraw_profile.svg' class='img-fluid rounded-circle' style=''>
-                                        </div> -->
+                        <?php
+                                $sql = "SELECT * from kontakty";
+                                $result = mysqli_query($conn, $sql);
+                                $result_check = mysqli_num_rows($result);
 
-                                        <div class='col-auto'>
-                                            <h3 class='h5 text-gray-600 font-weight-bold'>Warek Maldhans</h3>
-                                            <p>
-                                                E-mail: <a href="mailto:waldhans@gmail.com">waldhans@gmail.com</a> <br>
-                                                Telefon: 000 000 000
-                                            </p>
+                                if($result_check > 0){
+                                    while ($row = mysqli_fetch_assoc($result)){
+                                        echo" 
+                                        <!-- Card Kontakt- Správce -->
+                                        <div class='col-xl-4 col-md-6 mb-4 '>
+                                        <div class='card border border-left-primary'>
+                                            <div class='card-body bg-white'>
+                                                <div class='row align-items-center'>
+                                                    
+
+                                                    <div class='col-auto'>
+                                                        <h3 class='h5 text-gray-600 font-weight-bold'>
+                                                        " . $row['jmeno'] . "&nbsp;" . $row['prijmeni'] . "</h3>
+                                                        
+                                                        
+                                                        <p>
+                                                            E-mail: <a href='mailto:" . $row['email'] . "'>" . $row['email'] . "</a><br>
+                                                            Telefon: " . $row['tel_cislo'] .
+                                                        "
+                                                        </p>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
                                             
                                         </div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-
-
-                        <!-- Card Kontakt- Example -->
-                        <div class="col-xl-4 col-md-6 mb-4 ">
-                            <div class='card border border-left-primary'>
-                                <div class='card-body bg-white'>
-                                    <div class='row align-items-center'>
-                                        <!--<div class='col-3 ml-1'>
-                                            <img src='img/undraw_profile.svg' class='img-profile rounded-circle'>
-                                        </div>-->
-
-                                        <div class='col-auto'>
-                                            <h3 class='h5 text-gray-700 font-weight-bold'>Osoba #1</h3>
-                                            <p>
-                                                E-mail: <a href='mailto: example@gmail.com'>example@gmail.com</a> <br>
-                                                Telefon: 000 000 000
-                                            </p>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
+                                    </div>";
+                                    };
+                                };
+                                ?>
 
 
                         

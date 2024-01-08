@@ -108,7 +108,7 @@ mysqli_close($conn);
                         <span class="text">Zpět na hlavní stránku</span>
                         </a>
                     
-                    <!-- Button Zpět na hlavní stránku-->
+                    <!-- Button Přidat další zařízení -->
                     <a href="pridat-zarizeni.php" class="btn btn-primary mx-auto mt-3">
                         <span class="text">Přidat další zařízení</span>
                         </a>
