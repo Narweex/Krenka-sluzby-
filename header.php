@@ -626,6 +626,23 @@ function draw_sidebar()
             </li>
 
             <!--Divider -->
+            <hr class='sidebar-divider my-1'>
+
+
+            <!-- Nav Item - Přidat Kontakt -->";
+
+    echo ($_SERVER['REQUEST_URI'] == "/pridat-kontakt.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+
+
+    echo "
+                <a class='nav-link' href='pridat-kontakt.php'>
+                    <!--<i class='fas fa-fw fa-table'></i>-->
+
+                    <span>PŘIDAT KONTAKT</span></a>
+
+            </li>
+
+            <!--Divider -->
             <hr class='sidebar-divider my-1'>";
 
             global $App_Version;
