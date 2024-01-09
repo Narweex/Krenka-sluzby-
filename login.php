@@ -60,7 +60,8 @@ if (isset($_SESSION['session_id'])) {
                         <span class='text'>Přihlásit</span>
                         </a>"
                     ?>
-                   
+
+                    
 
                 </div>
 
