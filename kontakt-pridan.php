@@ -3,6 +3,11 @@
 <html>
 <?php
 include 'include.php';
+
+if(!isset($_SESSION['user_token']) && $_SESSION['user_group'] == 1|| $_SESSION['user_group'] == 2){
+
+    header("Location: index.php");
+}
 ?>
 
 <head>
