@@ -56,36 +56,38 @@ include 'include.php';
 
 
 
-
+if(DEBUG_MODE){
+    
     echo "ID problemu " . $problem_id. "<br>";
 
-    echo "Status " . $status. "<br>";
+    echo "Cislo statusu " . $status. "<br>";
 
     echo "Popis:  " . $popis_reseni. "<br>";
-
-
-
-
-
-    if($status == '1'){
-
-        $status = "t";
-
-    }
-
-    else if($status == '2'){
-
-        $status = "f";
-
-    }
-
-    else if($status == '3'){
-
-        $status = "z";
-
-    }
-
+    
     echo "Status " . $status . "<br>";
+}
+    
+
+
+
+    switch ($status) {
+        case '1':
+            $status = "t";
+            break;
+        case '2':
+            $status = "f";
+            break;
+        case '3':
+            $status = "z";
+            break;
+        default:
+            if(DEBUG_MODE){
+                echo "nastala neočekávaná chyba, není status";
+            }
+            break;
+    }
+
+    
 
 
 

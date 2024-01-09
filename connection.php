@@ -1,5 +1,5 @@
 <?php
-$servername = "46.36.36.47";
+$servername = "localhost";
 $username = "c0dev";
 $password = "U_g9h3PzgQwMU";
 $dbName = "c0projectors";

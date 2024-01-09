@@ -3,8 +3,7 @@
 <html>
 
 <?php
-include 'connection.php';
-include 'config.php';
+include 'include.php';
 
 if(!isset($_SESSION['user_token'])){
     header("Location: login.php");
@@ -59,7 +58,7 @@ if(!isset($_SESSION['user_token'])){
     $popis = $_REQUEST['popis'];
     $uzivatel = $_SESSION['user_id'];
     $projector_id = 0;
-    echo $uzivatel;
+   
 
     $sql = "SELECT id FROM projektory p WHERE p.trida='$trida';";
 
@@ -95,7 +94,7 @@ if(!isset($_SESSION['user_token'])){
 
     if (mysqli_query($conn, $sql)) {
         if (DEBUG_MODE) {
-            echo "Stored";
+            echo "User " . $uzivatel ." reported " . $device . " Succesfully";
         }
     } else if (DEBUG_MODE) {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);

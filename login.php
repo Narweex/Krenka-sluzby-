@@ -1,7 +1,7 @@
 <?php
 
-include 'include.php';
-require_once 'config.php';
+require_once 'include.php';
+
 
 if (isset($_SESSION['session_id'])) {
 
