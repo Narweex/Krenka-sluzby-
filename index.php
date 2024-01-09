@@ -6,15 +6,7 @@
 
 <?php
 
-include 'connection.php';
-
-include 'config.php';
-
-include 'footer.php';
-
-include 'header.php';
-
-include 'modal.php';
+include 'include.php';
 
 
 
@@ -66,13 +58,15 @@ if (isset($_GET['code'])) {
 
         $token = $_SESSION['google_id'];
 
+
+
     } else {
 
-        // user is not exists
+        // user not exists
 
 
 
-        $sql = "INSERT INTO uzivatele (id, jmeno, avatar, email, google_id, session) VALUES ('', '{$userinfo['jmeno']}', '{$userinfo['avatar']}', '{$userinfo['email']}', '{$userinfo['token']}', '0')";
+        $sql = "INSERT INTO uzivatele (id, jmeno, avatar, email, google_id, session, user_group) VALUES ('', '{$userinfo['jmeno']}', '{$userinfo['avatar']}', '{$userinfo['email']}', '{$userinfo['token']}', '0', '')";
 
         $result = mysqli_query($conn, $sql);
 
@@ -96,8 +90,6 @@ if (isset($_GET['code'])) {
 
     $result = mysqli_query($conn, $sql);
 
-
-
     if (mysqli_num_rows($result) > 0) {
 
         // user exists
@@ -105,10 +97,8 @@ if (isset($_GET['code'])) {
         $UID = mysqli_fetch_assoc($result);
 
         $_SESSION['user_id'] = $UID['id'];
-
+        $_SESSION['user_group'] = $UID['user_group'];
     }
-
-
 
     $_SESSION['user_token'] = $token;
 
@@ -118,7 +108,8 @@ if (isset($_GET['code'])) {
 
     $_SESSION['user_email'] = $userinfo['email'];
 
-   
+
+
 
 
 
@@ -375,9 +366,7 @@ if (isset($_GET['code'])) {
 
                             echo $_SESSION['user_id'] . "<br>";
 
-                            
-
-
+                            echo $_SESSION['user_group'] . "<br>";
 
                         }
 

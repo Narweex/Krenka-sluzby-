@@ -3,7 +3,15 @@
 <html>
 
 <?php
+
 include 'include.php';
+
+
+
+if (!isset($_SESSION['user_token']) && ($_SESSION['user_group'] == 1 || $_SESSION['user_group'] == 2)){
+
+    header("Location: index.php");
+}
 ?>
 
 
@@ -48,44 +56,95 @@ include 'include.php';
 
 
 
+
+
+
+
+
+
     $problem_id = $_REQUEST['cislo_problemu'];
 
+
+
     $status = $_REQUEST['set_status'];
+
+
 
     $popis_reseni = $_REQUEST['popis_reseni'];
 
 
 
 
+
+
+
+if(DEBUG_MODE){
+
+    
+
     echo "ID problemu " . $problem_id. "<br>";
 
-    echo "Status " . $status. "<br>";
+
+
+    echo "Cislo statusu " . $status. "<br>";
+
+
 
     echo "Popis:  " . $popis_reseni. "<br>";
 
-
-
-
-
-    if($status == '1'){
-
-        $status = "t";
-
-    }
-
-    else if($status == '2'){
-
-        $status = "f";
-
-    }
-
-    else if($status == '3'){
-
-        $status = "z";
-
-    }
+    
 
     echo "Status " . $status . "<br>";
+
+}
+
+    
+
+
+
+
+
+
+
+    switch ($status) {
+
+        case '1':
+
+            $status = "t";
+
+            break;
+
+        case '2':
+
+            $status = "f";
+
+            break;
+
+        case '3':
+
+            $status = "z";
+
+            break;
+
+        default:
+
+            if(DEBUG_MODE){
+
+                echo "nastala neočekávaná chyba, není status";
+
+            }
+
+            break;
+
+    }
+
+
+
+    
+
+
+
+
 
 
 
@@ -95,11 +154,27 @@ include 'include.php';
 
 
 
+
+
+
+
+
+
     if (!$conn && DEBUG_MODE) {
+
+
 
         die("Connection failed: " . mysqli_connect_error());
 
+
+
     }
+
+
+
+
+
+
 
 
 
@@ -107,17 +182,35 @@ include 'include.php';
 
     if (mysqli_query($conn, $sql)) {
 
+
+
         if (DEBUG_MODE) {
+
+
 
             echo "Stored";
 
+
+
         }
+
+
 
     } else if (DEBUG_MODE) {
 
+
+
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 
+
+
     }
+
+
+
+
+
+
 
 
 

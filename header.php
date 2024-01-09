@@ -2,7 +2,6 @@
 <?php
 
 include 'config.php';
-//require_once 'index.php';
 
 
 function draw_topbar()
@@ -56,7 +55,7 @@ function draw_topbar()
                             </div>
 
 
-                        <!-- Nav Item - Upozornění 
+                        <!-- Nav Item - Upozornění
 
                         <li class='nav-item dropdown no-arrow mx-1'>
 
@@ -66,13 +65,13 @@ function draw_topbar()
 
                                 <i class='fas fa-bell fa-fw'></i>
 
-                                <!-- Counter - Upozornění 
+                                <!-- Counter - Upozornění
 
                                 <span class='badge badge-danger badge-counter'>2</span>
 
                             </a>
 
-                            <!-- Dropdown - Upozornění 
+                            <!-- Dropdown - Upozornění
 
                             <div class='dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in' aria-labelledby='alertsDropdown'>
 
@@ -152,7 +151,10 @@ function draw_topbar()
 
 function draw_sidebar()
 {
-    echo "
+
+    if ($_SESSION['user_group'] == 0) {
+
+        echo "
     <ul class='navbar-nav bg-primary sidebar sidebar-dark accordion' id='accordionSidebar'>
 
 
@@ -184,9 +186,9 @@ function draw_sidebar()
 
 
 
-    echo ($_SERVER['REQUEST_URI'] == "/index.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+        echo ($_SERVER['REQUEST_URI'] == "/index.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
 
-    echo "
+        echo "
 
                 <a class='nav-link' href='index.php'>
 
@@ -204,10 +206,10 @@ function draw_sidebar()
 
             <!-- Nav Item - Projektory -->";
 
-    echo ($_SERVER['REQUEST_URI'] == "/projektory.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+        echo ($_SERVER['REQUEST_URI'] == "/projektory.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
 
 
-    echo "
+        echo "
                 <a class='nav-link' href='projektory.php'>
                     <!--<i class='fas fa-fw fa-table'></i>-->
 
@@ -225,10 +227,10 @@ function draw_sidebar()
 
             <!-- Nav Item - Kontakt -->";
 
-    echo ($_SERVER['REQUEST_URI'] == "/kontakt.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+        echo ($_SERVER['REQUEST_URI'] == "/kontakt.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
 
 
-    echo "
+        echo "
                 <a class='nav-link' href='kontakt.php'>
                     <!--<i class='fas fa-fw fa-table'></i>-->
 
@@ -244,10 +246,10 @@ function draw_sidebar()
 
             <!-- Nav Item - Tiskárny ";
 
-    echo ($_SERVER['REQUEST_URI'] == "/tiskarny.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+        echo ($_SERVER['REQUEST_URI'] == "/tiskarny.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
 
-    global $App_Version;
-    echo "
+        global $App_Version;
+        echo "
                 <a class='nav-link' href='tiskarny.php'>
                     <!--<i class='fas fa-fw fa-table'></i>
 
@@ -255,11 +257,11 @@ function draw_sidebar()
 
             </li>
 
-            
+
 
             <li class='nav-item Show text-gray-400 text-center d-sm-inline-block'>
 
-                    <small class='version'>Verze aplikace: ". $App_Version . "</small>
+                    <small class='version'>Verze aplikace: " . $App_Version . "</small>
 
             </li>
 
@@ -439,7 +441,7 @@ function draw_sidebar()
             <!-- Verzování -->
             <li class='nav-item Show text-gray-400 text-center d-sm-inline-block'>
 
-                    <small class='version'>Verze aplikace: ". $App_Version ."</small>
+                    <small class='version'>Verze aplikace: " . $App_Version . "</small>
 
             </li>
 
@@ -471,11 +473,19 @@ function draw_sidebar()
 
 
         </ul>";
-}
 
-function draw_admin_sidebar()
-{
-    echo "
+    }
+
+
+
+
+
+
+
+
+
+    else if($_SESSION['user_group'] == 1||2){
+        echo "
     <!-- Sidebar -->
 
         <ul class='navbar-nav bg-primary sidebar sidebar-dark accordion' id='accordionSidebar'>
@@ -531,7 +541,6 @@ function draw_admin_sidebar()
             </li>
 
 
-
             <!-- Divider -->
 
             <hr class='sidebar-divider my-1'>
@@ -544,6 +553,7 @@ function draw_admin_sidebar()
                     <span>TISKÁRNY</span></a>
 
             </li>
+
 
             <!-- Divider-->
 
@@ -620,11 +630,11 @@ function draw_admin_sidebar()
 
             global $App_Version;
 
-            echo"
+        echo "
             <!-- Verzování -->
             <li class='nav-item Show text-gray-400 text-center d-sm-inline-block'>
 
-                <small class='version'>Verze aplikace: ". $App_Version ."</small>
+                <small class='version'>Verze aplikace: " . $App_Version . "</small>
 
             </li>
 
@@ -642,8 +652,11 @@ function draw_admin_sidebar()
 
         </ul>
 
-        <!-- End of Sidebar -->"
+        <!-- End of Sidebar -->";
+    }
 
-;}
+}
+
+
 
 ?>

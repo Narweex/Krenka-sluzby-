@@ -3,6 +3,11 @@
 
 <?php
 include 'include.php';
+
+if (!isset($_SESSION['user_token']) && ($_SESSION['user_group'] == 1 || $_SESSION['user_group'] == 2)) {
+
+    header("Location: index.php");
+}
 ?>
 
 <head>
@@ -148,8 +153,8 @@ include 'include.php';
                                                     <div class='dropdown  mb-5'>
                                                         <select class='custom-select' name='set_status' id=''>
                                                             <option value='1'" . ($row['status'] == 't' ? 'selected="selected"' : '') . ">Funkční</option>
-                                                            <option value='2'" . ($row['status'] == 'f' ? 'selected="selected"' : '') . ">Nefunkční</option>
-                                                            <option value='3'" . ($row['status'] == 'z' ? 'selected="selected"' : '') . ">Se závadou</option>
+                                                            <option value='2'" . ($row['status'] == 'f' ? 'selected="selected"' : '') . ">Se závadou</option>
+                                                            <option value='3'" . ($row['status'] == 'z' ? 'selected="selected"' : '') . ">Probíhá oprava</option>
                                                            
                                                         </select>
                                                     </div>  

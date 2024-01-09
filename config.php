@@ -24,7 +24,7 @@ define('DEBUG_MODE', false);
 
 /*App_Version udává verze aplikace, která je vypsáta vlevo dole v sidebaru*/
 
-$App_Version = "0.0.4 Alpha";
+$App_Version = "0.0.6";
 
 
 
