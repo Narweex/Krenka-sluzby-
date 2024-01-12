@@ -512,10 +512,10 @@ function draw_sidebar()
 
             <hr class='sidebar-divider my-1'>
 
-            <!-- Nav Item - Přehled -->
-            <li class='nav-item active'>
+            <!-- Nav Item - Přehled -->";
+            echo ($_SERVER['REQUEST_URI'] == "/index.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
 
-                <a class='nav-link' href='index.php'>
+               echo "<a class='nav-link' href='index.php'>
 
                     <!--<i class='fas fa-fw fa-table'></i>-->
 
@@ -545,9 +545,9 @@ function draw_sidebar()
 
             <hr class='sidebar-divider my-1'>
 
-            <!-- Nav Item - Tiskárny -->
-            <li class='nav-item Show'>
-                <a class='nav-link' href='tiskarny.php'>
+            <!-- Nav Item - Tiskárny -->";
+            echo ($_SERVER['REQUEST_URI'] == "/tiskarny.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+               echo "<a class='nav-link' href='tiskarny.php'>
                     <!--<i class='fas fa-fw fa-table'></i>-->
 
                     <span>TISKÁRNY</span></a>
@@ -559,9 +559,9 @@ function draw_sidebar()
 
             <hr class='sidebar-divider my-1'>
 
-            <!--Nav Item - Přidat Zařízení-->
-            <li class='nav-item Show'>
-                <a class='nav-link' href='pridat-zarizeni.php'>
+            <!--Nav Item - Přidat Zařízení-->";
+            echo ($_SERVER['REQUEST_URI'] == "/pridat-zarizeni.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+              echo  "<a class='nav-link' href='pridat-zarizeni.php'>
                     <!--<i class='fas fa-fw fa-table'></i>-->
 
                     <span>PŘIDAT ZAŘÍZENÍ</span></a>
@@ -572,9 +572,9 @@ function draw_sidebar()
 
             <hr class='sidebar-divider my-1'>
 
-            <!--Nav Item - Panel-->
-            <li class='nav-item Show'>
-                <a class='nav-link' href='panel.php'>
+            <!--Nav Item - Panel-->";
+            echo ($_SERVER['REQUEST_URI'] == "/panel.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+              echo  "<a class='nav-link' href='panel.php'>
                     <!--<i class='fas fa-fw fa-table'></i>-->
 
                     <span>PANEL</span></a>
@@ -585,9 +585,9 @@ function draw_sidebar()
 
             <hr class='sidebar-divider my-1'>
 
-            <!--Nav Item - Dokumentace-->
-            <li class='nav-item Show'>
-                <a class='nav-link' href='dokumentace.php'>
+            <!--Nav Item - Dokumentace-->";
+            echo ($_SERVER['REQUEST_URI'] == "/dokumentace.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+             echo   "<a class='nav-link' href='dokumentace.php'>
                     <!--<i class='fas fa-fw fa-table'></i>-->
 
                     <span>DOKUMENTACE</span></a>
@@ -598,9 +598,9 @@ function draw_sidebar()
 
             <hr class='sidebar-divider my-1'>
 
-            <!--Nav Item - Dokumentace-->
-            <li class='nav-item Show'>
-                <a class='nav-link' href='oznameni.php'>
+            <!--Nav Item - Oznámení-->";
+            echo ($_SERVER['REQUEST_URI'] == "/oznameni.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+              echo  "<a class='nav-link' href='oznameni.php'>
                     <!--<i class='fas fa-fw fa-table'></i>-->
 
                     <span>OZNÁMENÍ</span></a>
