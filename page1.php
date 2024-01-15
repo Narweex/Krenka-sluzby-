@@ -61,7 +61,7 @@ include 'include.php';
 
         <?php
 
-        draw_admin_sidebar();
+        draw_sidebar(); 
 
         ?>
 

@@ -76,21 +76,21 @@ if (!isset($_SESSION['user_token']) && ($_SESSION['user_group'] == 1 || $_SESSIO
 
                         <!-- Input Message Název Zařízení -->
                         <label>Název Zařízení:</label>
-                        <input class="form-control mb-5" type="text" name="nazev_zarizeni">
+                        <input class="form-control mb-5" type="text" name="nazev_zarizeni" required>
 
                         <!-- Input Message Místnost -->
                         <label>Místnost:</label>
-                        <input class="form-control mb-5" type="text" name="mistnost">
+                        <input class="form-control mb-5" type="text" name="mistnost" required>
 
 
                         <!-- Input Message Číslo Místnosti -->
                         <label>Číslo místnosti</label>
-                        <input type='text' class='form-control mb-5' name='cislo_mistnosti'>
+                        <input type='text' class='form-control mb-5' name='cislo_mistnosti' required>
 
                         <!-- Dropdown Select Menu Bezdrátové -->
                         <div class="dropdown  mb-5">
                             <label for="" class="mb-1">Bezdrátové:</label>
-                            <select class="custom-select" name="bezdratovy">
+                            <select class="custom-select" name="bezdratovy" required>
                                 <option value="1">Ano</option>
                                 <option value="2">Ne</option>   
                             </select>
@@ -101,7 +101,7 @@ if (!isset($_SESSION['user_token']) && ($_SESSION['user_group'] == 1 || $_SESSIO
 
                         <div class="dropdown  mb-5">
                             <label for="" class="mb-1">Konektor:</label>
-                            <select class="custom-select" name="konektor">
+                            <select class="custom-select" name="konektor" required>
                                 <option value="1">HDMI </option>
                                 <option value="2">VGA</option>
                                 <option value="3">HDMI + VGA</option>    

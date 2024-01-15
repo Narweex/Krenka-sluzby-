@@ -81,7 +81,7 @@ if (!isset($_SESSION['user_token'])) {
 
                             if (mysqli_num_rows($result) > 0) {
 
-                                echo "<select class='custom-select' name='trida'>";
+                                echo "<select class='custom-select' name='trida' required>";
 
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     echo "<option>" . $row['trida'] . "</option>";
@@ -102,7 +102,7 @@ if (!isset($_SESSION['user_token'])) {
                         <!-- Dropdown Select Menu Zařízení -->
                         <div class="dropdown  mb-5">
                             <label for="NahlasitProblemZarizeni" class="mb-1">Vyberte prosím zařízení, u&#160kterého se vyskytl problém:</label>
-                            <select class="custom-select" name="zarizeni" id="NahlasitProblemZarizeni">
+                            <select class="custom-select" name="zarizeni" id="NahlasitProblemZarizeni" required>
                                 <option value="1">Projektor</option>
                                 <!--<option value="2">Tiskárna</option>-->
                             </select>
@@ -111,7 +111,7 @@ if (!isset($_SESSION['user_token'])) {
                         <!--Input Message Popište Problém-->
                         <div class='form-group'>
                             <label for='NahlasitProblemPopisteProblem' class='mb-1'>Popište prosím problém se&#160zařízením:</label>
-                            <textarea type='text' class='form-control' name='popis' id='NahlasitProblemPopisteProblem' rows='7'></textarea>
+                            <textarea type='text' class='form-control' name='popis' id='NahlasitProblemPopisteProblem' rows='7' required></textarea>
                         </div>
 
                         <!--Button Odeslat-->
