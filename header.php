@@ -1,8 +1,9 @@
 
+
 <?php
 
 include 'config.php';
-//require_once 'index.php';
+include 'connection.php';
 
 
 function draw_topbar()
@@ -31,6 +32,15 @@ function draw_topbar()
                         <span class='text'>Nahlásit problém</span>
                     </a>
 
+                    ";
+    if (DEVELOPER_MODE) {
+        echo " <h2 class='nav-item '>DEVELOPER ENVIRONMENT</h2>";
+
+    }
+
+
+                           echo"
+
 
 
                     <!-- Topbar Navbar -->
@@ -56,7 +66,7 @@ function draw_topbar()
                             </div>
 
 
-                        <!-- Nav Item - Upozornění 
+                        <!-- Nav Item - Upozornění -->
 
                         <li class='nav-item dropdown no-arrow mx-1'>
 
@@ -66,47 +76,80 @@ function draw_topbar()
 
                                 <i class='fas fa-bell fa-fw'></i>
 
-                                <!-- Counter - Upozornění 
+                                <!-- Counter - Upozornění
 
                                 <span class='badge badge-danger badge-counter'>2</span>
 
                             </a>
 
-                            <!-- Dropdown - Upozornění 
+                            <!-- Dropdown - Upozornění -->
 
-                            <div class='dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in' aria-labelledby='alertsDropdown'>
+                            <div class='dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in' aria-labelledby='alertsDropdown'>";
+
+    global $conn;
+
+                        if(!$conn){
+                           die("Could not establish connection");
+                        }
+
+                        $sql = "SELECT * FROM oznameni o LEFT JOIN problemy p ON o.id_problemu = p.id_problemu LEFT JOIN projektory pr ON p.id_projektor = pr.id ORDER BY o.id DESC;";
+
+                        $result = mysqli_query($conn, $sql);
+
+                        if(!$result){
+                            if (DEBUG_MODE) {
+
+                                die("Query failed: " . mysqli_error($conn));
+
+                            }
+                        }
+
+                        $result_check = mysqli_num_rows($result);
+                        if($result_check > 0){
+                           while($row = mysqli_fetch_assoc($result)){
+
+                               switch($row['zmena']){
+
+                                   case "t":
+                                        $row['zmena'] = "Funkční";
+                                        break;
+                                   case "z":
+                                        $row['zmena'] = "V opravě";
+                                        break;
+                                   case "f":
+                                        $row['zmena'] = "Nefunkční";
+                                        break;
+                                   default:
+                                        $row['zmena'] = "Chyba";
+                                        break;
+                               }
 
 
-                                <h6 class='dropdown-header'>
-                                    Oznámení
-                                </h6>
-
+                                echo "
                                 <a class='dropdown-item d-flex align-items-center' href='#'>
 
                                     <div>
 
                                         <div class='d-flex w-100 justify-content-between'>
-                                            <small class='text-muted'>10.11. 2023</small>
+                                            <small class='text-muted'>" .$row['cas'] . "</small>
                                         </div>
-                                        <p class='mb-1'>Zařízení <u>Projektor</u> v&#160místnosti <u>1.A</u> bylo označeno jako <b style='color:#1cc88a;'>funkční</b></p>
+                                        <p class='mb-1'>Zařízení <u>" . $row['typ'] . "</u> v&#160místnosti <u>". $row['trida'] ."</u> bylo označeno jako <b>" . $row['zmena'] . "</b></p>
 
                                     </div>
 
-                                </a>
+                                </a>";
 
-                                <a class='dropdown-item d-flex align-items-center' href='#'>
+                           }
+                        }
 
 
-                                    <div>
 
-                                        <div class='d-flex w-100 justify-content-between'>
-                                            <small class='text-muted'>11.11. 2023</small>
-                                        </div>
-                                        <p class='mb-1'>Zařízení <u>Tiskárna</u> v&#160místnosti <u>Kabinet AJ</u> bylo označeno jako <b style='color: #e74a3b;'>nefunkční</b> </p>
 
-                                    </div>
 
-                                </a>
+
+
+
+                               echo"
                                 <a class='dropdown-item text-center small text-gray-500' href='oznameni.php'>Všechna oznámení</a>
                             </div>
 
@@ -152,7 +195,10 @@ function draw_topbar()
 
 function draw_sidebar()
 {
-    echo "
+
+    if ($_SESSION['user_group'] == 0) {
+
+        echo "
     <ul class='navbar-nav bg-primary sidebar sidebar-dark accordion' id='accordionSidebar'>
 
 
@@ -184,9 +230,9 @@ function draw_sidebar()
 
 
 
-    echo ($_SERVER['REQUEST_URI'] == "/index.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+        echo ($_SERVER['REQUEST_URI'] == "/index.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
 
-    echo "
+        echo "
 
                 <a class='nav-link' href='index.php'>
 
@@ -204,10 +250,10 @@ function draw_sidebar()
 
             <!-- Nav Item - Projektory -->";
 
-    echo ($_SERVER['REQUEST_URI'] == "/projektory.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+        echo ($_SERVER['REQUEST_URI'] == "/projektory.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
 
 
-    echo "
+        echo "
                 <a class='nav-link' href='projektory.php'>
                     <!--<i class='fas fa-fw fa-table'></i>-->
 
@@ -225,10 +271,10 @@ function draw_sidebar()
 
             <!-- Nav Item - Kontakt -->";
 
-    echo ($_SERVER['REQUEST_URI'] == "/kontakt.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+        echo ($_SERVER['REQUEST_URI'] == "/kontakt.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
 
 
-    echo "
+        echo "
                 <a class='nav-link' href='kontakt.php'>
                     <!--<i class='fas fa-fw fa-table'></i>-->
 
@@ -244,10 +290,10 @@ function draw_sidebar()
 
             <!-- Nav Item - Tiskárny ";
 
-    echo ($_SERVER['REQUEST_URI'] == "/tiskarny.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+        echo ($_SERVER['REQUEST_URI'] == "/tiskarny.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
 
-    global $App_Version;
-    echo "
+        global $App_Version;
+        echo "
                 <a class='nav-link' href='tiskarny.php'>
                     <!--<i class='fas fa-fw fa-table'></i>
 
@@ -255,11 +301,11 @@ function draw_sidebar()
 
             </li>
 
-            
+
 
             <li class='nav-item Show text-gray-400 text-center d-sm-inline-block'>
 
-                    <small class='version'>Verze aplikace: ". $App_Version . "</small>
+                    <small class='version'>Verze aplikace: " . $App_Version . "</small>
 
             </li>
 
@@ -439,7 +485,7 @@ function draw_sidebar()
             <!-- Verzování -->
             <li class='nav-item Show text-gray-400 text-center d-sm-inline-block'>
 
-                    <small class='version'>Verze aplikace: ". $App_Version ."</small>
+                    <small class='version'>Verze aplikace: " . $App_Version . "</small>
 
             </li>
 
@@ -471,11 +517,19 @@ function draw_sidebar()
 
 
         </ul>";
-}
 
-function draw_admin_sidebar()
-{
-    echo "
+    }
+
+
+
+
+
+
+
+
+
+    else if($_SESSION['user_group'] == 1||2){
+        echo "
     <!-- Sidebar -->
 
         <ul class='navbar-nav bg-primary sidebar sidebar-dark accordion' id='accordionSidebar'>
@@ -502,10 +556,10 @@ function draw_admin_sidebar()
 
             <hr class='sidebar-divider my-1'>
 
-            <!-- Nav Item - Přehled -->
-            <li class='nav-item active'>
+            <!-- Nav Item - Přehled -->";
+            echo ($_SERVER['REQUEST_URI'] == "/index.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
 
-                <a class='nav-link' href='index.php'>
+               echo "<a class='nav-link' href='index.php'>
 
                     <!--<i class='fas fa-fw fa-table'></i>-->
 
@@ -531,27 +585,27 @@ function draw_admin_sidebar()
             </li>
 
 
-
             <!-- Divider -->
 
             <hr class='sidebar-divider my-1'>
 
-            <!-- Nav Item - Tiskárny -->
-            <li class='nav-item Show'>
-                <a class='nav-link' href='tiskarny.php'>
+            <!-- Nav Item - Tiskárny -->";
+            echo ($_SERVER['REQUEST_URI'] == "/tiskarny.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+               echo "<a class='nav-link' href='tiskarny.php'>
                     <!--<i class='fas fa-fw fa-table'></i>-->
 
                     <span>TISKÁRNY</span></a>
 
             </li>
 
+
             <!-- Divider-->
 
             <hr class='sidebar-divider my-1'>
 
-            <!--Nav Item - Přidat Zařízení-->
-            <li class='nav-item Show'>
-                <a class='nav-link' href='pridat-zarizeni.php'>
+            <!--Nav Item - Přidat Zařízení-->";
+            echo ($_SERVER['REQUEST_URI'] == "/pridat-zarizeni.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+              echo  "<a class='nav-link' href='pridat-zarizeni.php'>
                     <!--<i class='fas fa-fw fa-table'></i>-->
 
                     <span>PŘIDAT ZAŘÍZENÍ</span></a>
@@ -562,9 +616,9 @@ function draw_admin_sidebar()
 
             <hr class='sidebar-divider my-1'>
 
-            <!--Nav Item - Panel-->
-            <li class='nav-item Show'>
-                <a class='nav-link' href='panel.php'>
+            <!--Nav Item - Panel-->";
+            echo ($_SERVER['REQUEST_URI'] == "/panel.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+              echo  "<a class='nav-link' href='panel.php'>
                     <!--<i class='fas fa-fw fa-table'></i>-->
 
                     <span>PANEL</span></a>
@@ -575,9 +629,9 @@ function draw_admin_sidebar()
 
             <hr class='sidebar-divider my-1'>
 
-            <!--Nav Item - Dokumentace-->
-            <li class='nav-item Show'>
-                <a class='nav-link' href='dokumentace.php'>
+            <!--Nav Item - Dokumentace-->";
+            echo ($_SERVER['REQUEST_URI'] == "/dokumentace.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+             echo   "<a class='nav-link' href='dokumentace.php'>
                     <!--<i class='fas fa-fw fa-table'></i>-->
 
                     <span>DOKUMENTACE</span></a>
@@ -588,9 +642,9 @@ function draw_admin_sidebar()
 
             <hr class='sidebar-divider my-1'>
 
-            <!--Nav Item - Dokumentace-->
-            <li class='nav-item Show'>
-                <a class='nav-link' href='oznameni.php'>
+            <!--Nav Item - Oznámení-->";
+            echo ($_SERVER['REQUEST_URI'] == "/oznameni.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+              echo  "<a class='nav-link' href='oznameni.php'>
                     <!--<i class='fas fa-fw fa-table'></i>-->
 
                     <span>OZNÁMENÍ</span></a>
@@ -616,15 +670,32 @@ function draw_admin_sidebar()
             </li>
 
             <!--Divider -->
+            <hr class='sidebar-divider my-1'>
+
+
+            <!-- Nav Item - Přidat Kontakt -->";
+
+    echo ($_SERVER['REQUEST_URI'] == "/pridat-kontakt.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+
+
+    echo "
+                <a class='nav-link' href='pridat-kontakt.php'>
+                    <!--<i class='fas fa-fw fa-table'></i>-->
+
+                    <span>PŘIDAT KONTAKT</span></a>
+
+            </li>
+
+            <!--Divider -->
             <hr class='sidebar-divider my-1'>";
 
             global $App_Version;
 
-            echo"
+        echo "
             <!-- Verzování -->
             <li class='nav-item Show text-gray-400 text-center d-sm-inline-block'>
 
-                <small class='version'>Verze aplikace: ". $App_Version ."</small>
+                <small class='version'>Verze aplikace: " . $App_Version . "</small>
 
             </li>
 
@@ -642,8 +713,11 @@ function draw_admin_sidebar()
 
         </ul>
 
-        <!-- End of Sidebar -->"
+        <!-- End of Sidebar -->";
+    }
 
-;}
+}
+
+
 
 ?>

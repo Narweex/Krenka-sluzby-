@@ -1,9 +1,6 @@
 <?php
 
 
-
-
-
 /*
 *
 *
@@ -17,6 +14,7 @@ Standardnì vypisuje chyby vpravo nahoøe pomocí echo.
 */
 
 define('DEBUG_MODE', false);
+define('DEVELOPER_MODE', true);
 
 
 
@@ -24,7 +22,7 @@ define('DEBUG_MODE', false);
 
 /*App_Version udává verze aplikace, která je vypsáta vlevo dole v sidebaru*/
 
-$App_Version = "0.0.4 Alpha";
+$App_Version = "0.0.6";
 
 
 
@@ -61,8 +59,8 @@ session_start();
 
 // init configuration
 
-$clientID = '1095113327096-9u45f7fgkgap3fad16jt0tvlolanc15u.apps.googleusercontent.com';
-$clientSecret = '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';
+$clientID = '527509168314-9ni56iv2nrpn2oj35k3hvb2sbb4eomos.apps.googleusercontent.com';
+$clientSecret = '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';
 $redirectUri = 'https://dev.web-lab.cz/index.php';
 // create Client Request to access Google API
 $client = new Google_Client();
@@ -72,7 +70,7 @@ $client->setRedirectUri($redirectUri);
 $client->setApplicationName("Køenka Služby");
 $client->addScope("email");
 $client->addScope("profile");
-$client->addScope("https://www.googleapis.com/auth/admin.directory.domain");
+//$client->addScope("https://www.googleapis.com/auth/admin.directory.domain");
 
 
 

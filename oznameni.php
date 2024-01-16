@@ -3,8 +3,7 @@
 
 <?php
 
-include 'header.php';
-include 'footer.php';
+include 'include.php';
 
 ?>
 
@@ -65,18 +64,63 @@ include 'footer.php';
 
                     <!-- List Oznámení-->
                     <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                            <div class="d-flex w-100 justify-content-between">
-                                <small class="text-muted">10.11. 2023</small>
-                            </div>
-                            <p class="mb-1">Zařízení <u>Projektor</u> v&#160místnosti <u>1.A</u> bylo označeno jako <b style="color:#1cc88a;">funkční</b></p>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                            <div class="d-flex w-100 justify-content-between">
-                                <small class="text-muted">11.11. 2023</small>
-                            </div>
-                            <p class="mb-1">Zařízení <u>Tiskárna</u> v&#160místnosti <u>Kabinet AJ</u> bylo označeno jako <b style="color: #e74a3b;">nefunkční</b> </p>
-                        </a>
+
+                        <?php
+
+                        if(!$conn){
+                            die("Could not establish connection");
+                        }
+
+                        $sql = "SELECT * FROM oznameni o LEFT JOIN problemy p ON o.id_problemu = p.id_problemu LEFT JOIN projektory pr ON p.id_projektor = pr.id ORDER BY o.id DESC;";
+
+                        $result = mysqli_query($conn, $sql);
+
+                        if(!$result){
+                            if (DEBUG_MODE) {
+
+                                die("Query failed: " . mysqli_error($conn));
+
+                            }
+                        }
+
+                        $result_check = mysqli_num_rows($result);
+                        if($result_check > 0){
+                           while($row = mysqli_fetch_assoc($result)){
+
+                               switch($row['zmena']){
+
+                                   case "t":
+                                        $row['zmena'] = "Funkční";
+                                        break;
+                                   case "z":
+                                        $row['zmena'] = "V opravě";
+                                        break;
+                                   case "f":
+                                        $row['zmena'] = "Nefunkční";
+                                        break;
+                                   default:
+                                        $row['zmena'] = "Chyba";
+                                        break;
+                               }
+
+                                echo "
+                                         <a href='#' class='list-group-item list-group-item-action flex-column align-items-start'>
+                                        <div class='d-flex w-100 justify-content-between'>
+                                        <small class='text-muted'>" . $row['cas'] . "</small>
+                                         </div>
+
+                                         <p class='mb-1'>Zařízení <u>" . $row['typ'] . " </u> v <u>" . $row['trida'] . "</u> bylo označeno jako <b>" . $row['zmena'] . "</b> </p>
+                                        </a>";
+
+                           }
+                        }
+
+
+
+
+                        ?>
+
+
                     </div>
 
                 </div>
@@ -88,7 +132,7 @@ include 'footer.php';
             <?php
 
                      footer();
-                
+
                 ?>
             <!-- End of Footer -->
 
@@ -103,24 +147,9 @@ include 'footer.php';
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php
+        draw_modal();
+                        ?>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>

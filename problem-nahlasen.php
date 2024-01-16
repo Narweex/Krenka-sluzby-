@@ -3,8 +3,7 @@
 <html>
 
 <?php
-include 'connection.php';
-include 'config.php';
+include 'include.php';
 
 if(!isset($_SESSION['user_token'])){
     header("Location: login.php");
@@ -54,23 +53,36 @@ if(!isset($_SESSION['user_token'])){
     session_start();
 
 
+    /*
+     *
+     *
+     * Přidání do tabulky problemy
+     *
+     *
+     */
+
+    //ziskani informaci z formuláře
     $trida = $_REQUEST['trida'];
     $device = $_REQUEST['zarizeni'];
     $popis = $_REQUEST['popis'];
     $uzivatel = $_SESSION['user_id'];
     $projector_id = 0;
-    echo $uzivatel;
 
+    //SQL string bude potřeba zabazpečit
     $sql = "SELECT id FROM projektory p WHERE p.trida='$trida';";
 
 
-
+    //Vyhodí chybu když je debug mode
     if (!$conn && DEBUG_MODE) {
         die("Connection failed: " . mysqli_connect_error());
     }
 
+
+    //odpověď z databáze
     $result = mysqli_query($conn, $sql);
 
+
+    //pokud je odpověď nulová vyhodí chybu
     if ($result) {
         while ($row = mysqli_fetch_assoc($result)) {
             $projector_id = $row['id'];
@@ -95,11 +107,44 @@ if(!isset($_SESSION['user_token'])){
 
     if (mysqli_query($conn, $sql)) {
         if (DEBUG_MODE) {
-            echo "Stored";
+            echo "User " . $uzivatel ." reported " . $device . " Succesfully";
         }
     } else if (DEBUG_MODE) {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////
+    /*
+     *
+     *
+     * Přidání do tabulky oznameni
+     *
+     *
+     */
+    $sql = "select * from problemy p where p.id_projektor='$projector_id' AND p.status='f' order by p.id_problemu DESC limit 1;";
+
+    $result = mysqli_query($conn, $sql);
+    if($result){
+        while ($row = mysqli_fetch_assoc($result))
+
+           $id_problemu = $row['id_problemu'];
+
+
+    }
+
+
+
+
+    $sql = "INSERT INTO `oznameni` (`id`, `id_problemu`, `typ`, `zmena`, `cas`) VALUES (NULL, '$id_problemu', 'projektor', 'f', current_timestamp());";
+
+    $result = mysqli_query($conn, $sql);
+
+    if(!DEBUG_MODE){
+       sleep(5);
+    header("Location: index.php");
+    }
+
+
 
     ?>
 
