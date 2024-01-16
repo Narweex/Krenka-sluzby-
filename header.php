@@ -1,7 +1,9 @@
 
+
 <?php
 
 include 'config.php';
+include 'connection.php';
 
 
 function draw_topbar()
@@ -30,6 +32,15 @@ function draw_topbar()
                         <span class='text'>Nahlásit problém</span>
                     </a>
 
+                    ";
+    if (DEVELOPER_MODE) {
+        echo " <h2 class='nav-item '>DEVELOPER ENVIRONMENT</h2>";
+
+    }
+
+
+                           echo"
+
 
 
                     <!-- Topbar Navbar -->
@@ -55,7 +66,7 @@ function draw_topbar()
                             </div>
 
 
-                        <!-- Nav Item - Upozornění
+                        <!-- Nav Item - Upozornění -->
 
                         <li class='nav-item dropdown no-arrow mx-1'>
 
@@ -71,41 +82,74 @@ function draw_topbar()
 
                             </a>
 
-                            <!-- Dropdown - Upozornění
+                            <!-- Dropdown - Upozornění -->
 
-                            <div class='dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in' aria-labelledby='alertsDropdown'>
+                            <div class='dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in' aria-labelledby='alertsDropdown'>";
+
+    global $conn;
+
+                        if(!$conn){
+                           die("Could not establish connection");
+                        }
+
+                        $sql = "SELECT * FROM oznameni o LEFT JOIN problemy p ON o.id_problemu = p.id_problemu LEFT JOIN projektory pr ON p.id_projektor = pr.id ORDER BY o.id DESC;";
+
+                        $result = mysqli_query($conn, $sql);
+
+                        if(!$result){
+                            if (DEBUG_MODE) {
+
+                                die("Query failed: " . mysqli_error($conn));
+
+                            }
+                        }
+
+                        $result_check = mysqli_num_rows($result);
+                        if($result_check > 0){
+                           while($row = mysqli_fetch_assoc($result)){
+
+                               switch($row['zmena']){
+
+                                   case "t":
+                                        $row['zmena'] = "Funkční";
+                                        break;
+                                   case "z":
+                                        $row['zmena'] = "V opravě";
+                                        break;
+                                   case "f":
+                                        $row['zmena'] = "Nefunkční";
+                                        break;
+                                   default:
+                                        $row['zmena'] = "Chyba";
+                                        break;
+                               }
 
 
-                                <h6 class='dropdown-header'>
-                                    Oznámení
-                                </h6>
-
+                                echo "
                                 <a class='dropdown-item d-flex align-items-center' href='#'>
 
                                     <div>
 
                                         <div class='d-flex w-100 justify-content-between'>
-                                            <small class='text-muted'>10.11. 2023</small>
+                                            <small class='text-muted'>" .$row['cas'] . "</small>
                                         </div>
-                                        <p class='mb-1'>Zařízení <u>Projektor</u> v&#160místnosti <u>1.A</u> bylo označeno jako <b style='color:#1cc88a;'>funkční</b></p>
+                                        <p class='mb-1'>Zařízení <u>" . $row['typ'] . "</u> v&#160místnosti <u>". $row['trida'] ."</u> bylo označeno jako <b>" . $row['zmena'] . "</b></p>
 
                                     </div>
 
-                                </a>
+                                </a>";
 
-                                <a class='dropdown-item d-flex align-items-center' href='#'>
+                           }
+                        }
 
 
-                                    <div>
 
-                                        <div class='d-flex w-100 justify-content-between'>
-                                            <small class='text-muted'>11.11. 2023</small>
-                                        </div>
-                                        <p class='mb-1'>Zařízení <u>Tiskárna</u> v&#160místnosti <u>Kabinet AJ</u> bylo označeno jako <b style='color: #e74a3b;'>nefunkční</b> </p>
 
-                                    </div>
 
-                                </a>
+
+
+
+                               echo"
                                 <a class='dropdown-item text-center small text-gray-500' href='oznameni.php'>Všechna oznámení</a>
                             </div>
 

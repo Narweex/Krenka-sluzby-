@@ -368,6 +368,8 @@ if (isset($_GET['code'])) {
 
                             echo $_SESSION['user_group'] . "<br>";
 
+                            echo $_SERVER['SERVER_NAME'] . "<br>";
+
                         }
 
 

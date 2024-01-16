@@ -84,19 +84,19 @@ if (!isset($_SESSION['user_token']) && ($_SESSION['user_group'] == 1 || $_SESSIO
                         
                         <!-- Input Msg Jméno -->
                         <label>Jméno</label>
-                        <input type='text' name='jmeno' class='form-control mb-4' required>
+                        <input type='text' name='jmeno' class='form-control mb-4'>
 
                         <!-- Input Msg Příjmení -->
                         <label>Příjmení</label>
-                        <input type='text' name='prijmeni' class='form-control mb-4' required>
+                        <input type='text' name='prijmeni' class='form-control mb-4'>
 
                         <!-- Input Msg Email -->
                         <label>E-mail</label>
-                        <input type='email' name='email' class='form-control mb-4' required>
+                        <input type='email' name='email' class='form-control mb-4'>
 
                         <!-- Input Msg Tel. cislo -->
                         <label>Telefonní číslo</label>
-                        <input type='text' name='tel_cislo' class='form-control mb-3' placeholder="123 456 789" required>
+                        <input type='text' name='tel_cislo' class='form-control mb-3' placeholder="123 456 789">
 
                         <!-- Submit Button Odeslat -->
                         <button class='btn btn-primary mb-4' type='submit'>Odeslat</button>
