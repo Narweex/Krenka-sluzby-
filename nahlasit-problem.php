@@ -2,10 +2,12 @@
 <html lang="en">
 
 <?php
-include 'connection.php';
-include 'config.php';
-include 'footer.php';
-include 'header.php';
+include 'include.php';
+
+if (!isset($_SESSION['user_token'])) {
+    header("Location: login.php");
+
+}
 ?>
 
 <head>
@@ -79,7 +81,7 @@ include 'header.php';
 
                             if (mysqli_num_rows($result) > 0) {
 
-                                echo "<select class='custom-select' name='trida'>";
+                                echo "<select class='custom-select' name='trida' required>";
 
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     echo "<option>" . $row['trida'] . "</option>";
@@ -100,7 +102,7 @@ include 'header.php';
                         <!-- Dropdown Select Menu Zařízení -->
                         <div class="dropdown  mb-5">
                             <label for="NahlasitProblemZarizeni" class="mb-1">Vyberte prosím zařízení, u&#160kterého se vyskytl problém:</label>
-                            <select class="custom-select" name="zarizeni" id="NahlasitProblemZarizeni">
+                            <select class="custom-select" name="zarizeni" id="NahlasitProblemZarizeni" required>
                                 <option value="1">Projektor</option>
                                 <!--<option value="2">Tiskárna</option>-->
                             </select>
@@ -109,7 +111,7 @@ include 'header.php';
                         <!--Input Message Popište Problém-->
                         <div class='form-group'>
                             <label for='NahlasitProblemPopisteProblem' class='mb-1'>Popište prosím problém se&#160zařízením:</label>
-                            <textarea type='text' class='form-control' name='popis' id='NahlasitProblemPopisteProblem' rows='7'></textarea>
+                            <textarea type='text' class='form-control' name='popis' id='NahlasitProblemPopisteProblem' rows='7' required></textarea>
                         </div>
 
                         <!--Button Odeslat-->
@@ -147,24 +149,10 @@ include 'header.php';
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php
+        draw_modal();
+    ?>
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>

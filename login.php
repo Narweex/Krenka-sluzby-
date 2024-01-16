@@ -1,11 +1,11 @@
 <?php
 
-include 'include.php';
-require_once 'config.php';
+require_once 'include.php';
+
 
 if (isset($_SESSION['session_id'])) {
 
-    header("Location: main.php");
+    header("Location: index.php");
 
 } 
 ?>
@@ -60,7 +60,8 @@ if (isset($_SESSION['session_id'])) {
                         <span class='text'>Přihlásit</span>
                         </a>"
                     ?>
-                   
+
+                    
 
                 </div>
 

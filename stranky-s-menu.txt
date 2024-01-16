@@ -18,11 +18,12 @@ zmenit status*
 
 ODHLASOVACI MODALY:
 index*
+projektory*
 tiskarny*
-nahlasit problem
+nahlasit problem*
 dokumentace*
-oznameni
-pridat zarizeni
+oznameni*
+pridat zarizeni*
 panel*
 
 * -> pridan dynamicky odhlasovaci modal

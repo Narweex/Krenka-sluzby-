@@ -3,9 +3,12 @@
 <html>
 
 <?php
-include 'config.php';
-include 'connection.php';
-include 'footer.php';
+include 'include.php';
+
+if(!isset($_SESSION['user_token']) && $_SESSION['user_group'] == 1|| $_SESSION['user_group'] == 2){
+
+    header("Location: index.php");
+}
 ?>
 
 <head>
@@ -49,8 +52,8 @@ include 'footer.php';
 <?php
  $nazev_zarizeni = $_REQUEST['nazev_zarizeni'];
 $mistnost = $_REQUEST['mistnost'];
+$cislo_mistnosti = $_REQUEST['cislo_mistnosti'];
 $bezdratovy = $_REQUEST['bezdratovy'];
-
 $konektor = $_REQUEST['konektor'];
 
 //if ($konektor == '1'){
@@ -75,7 +78,7 @@ else{
 }
 
 
-$sql = "insert into projektory values ( 'NULL', '$nazev_zarizeni', '$mistnost', '$bezdratovy', '$konektor');";
+$sql = "INSERT into projektory values ( 'NULL', '$nazev_zarizeni', '$mistnost', '$cislo_mistnosti', '$bezdratovy', '$konektor');";
 
     if(mysqli_query($conn, $sql)){
 
@@ -108,7 +111,7 @@ mysqli_close($conn);
                         <span class="text">Zpět na hlavní stránku</span>
                         </a>
                     
-                    <!-- Button Zpět na hlavní stránku-->
+                    <!-- Button Přidat další zařízení -->
                     <a href="pridat-zarizeni.php" class="btn btn-primary mx-auto mt-3">
                         <span class="text">Přidat další zařízení</span>
                         </a>
