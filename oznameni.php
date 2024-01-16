@@ -23,7 +23,7 @@ include 'include.php';
           rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/sb-admin-2.css" rel="stylesheet">
 
 </head>
 
@@ -90,13 +90,13 @@ include 'include.php';
                                switch($row['zmena']){
 
                                    case "t":
-                                        $row['zmena'] = "Funkční";
+                                        $row['zmena'] = "<b class='text-success'>Funkční</b>";
                                         break;
                                    case "z":
-                                        $row['zmena'] = "V opravě";
+                                        $row['zmena'] = "<em class='text-warning'>V opravě</em>";
                                         break;
                                    case "f":
-                                        $row['zmena'] = "Nefunkční";
+                                        $row['zmena'] = "<b class='text-danger'>Nefunkční</b>";
                                         break;
                                    default:
                                         $row['zmena'] = "Chyba";
@@ -109,7 +109,7 @@ include 'include.php';
                                         <small class='text-muted'>" . $row['cas'] . "</small>
                                          </div>
 
-                                         <p class='mb-1'>Zařízení <u>" . $row['typ'] . " </u> v <u>" . $row['trida'] . "</u> bylo označeno jako <b>" . $row['zmena'] . "</b> </p>
+                                         <p class='mb-1'>Zařízení <u>" . $row['typ'] . "</u> v <u>" . $row['trida'] . "</u> bylo označeno jako <b>" . $row['zmena'] . "</b> </p>
                                         </a>";
 
                            }

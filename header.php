@@ -76,7 +76,7 @@ function draw_topbar()
 
                                 <i class='fas fa-bell fa-fw'></i>
 
-                                <!-- Counter - Upozornění
+                                <!-- Counter - Upozornění -->
 
                                 <span class='badge badge-danger badge-counter'>2</span>
 
@@ -111,13 +111,13 @@ function draw_topbar()
                                switch($row['zmena']){
 
                                    case "t":
-                                        $row['zmena'] = "Funkční";
+                                        $row['zmena'] = "<b class='text-success'>Funkční</b>";
                                         break;
                                    case "z":
-                                        $row['zmena'] = "V opravě";
+                                        $row['zmena'] = "<b class='text-warning'>V opravě</b>";
                                         break;
                                    case "f":
-                                        $row['zmena'] = "Nefunkční";
+                                        $row['zmena'] = "<b class='text-danger'>Nefunkční</b>";
                                         break;
                                    default:
                                         $row['zmena'] = "Chyba";
@@ -133,7 +133,7 @@ function draw_topbar()
                                         <div class='d-flex w-100 justify-content-between'>
                                             <small class='text-muted'>" .$row['cas'] . "</small>
                                         </div>
-                                        <p class='mb-1'>Zařízení <u>" . $row['typ'] . "</u> v&#160místnosti <u>". $row['trida'] ."</u> bylo označeno jako <b>" . $row['zmena'] . "</b></p>
+                                        <p class='mb-1'>Zařízení <u>" . $row['typ'] . "</u> v&#160místnosti <u>". $row['trida'] ."</u> bylo označeno jako " . $row['zmena'] . "</p>
 
                                     </div>
 

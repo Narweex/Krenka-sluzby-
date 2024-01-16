@@ -11,9 +11,9 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
- .font-weight-semibold{
-  font-weight: 600 !important; 
- } 
+ em{
+  font-style:normal !important;
+ }
 
  .version {
   display: block;
@@ -9604,10 +9604,6 @@ button.bg-dark:focus {
 .font-weight-bold {
   font-weight: 700 !important;
 }
-
-.font-weight-semibold{
-  font-weight: 100 !important; 
-} 
 
 .font-weight-bolder {
   font-weight: bolder !important;

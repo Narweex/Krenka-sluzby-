@@ -8,9 +8,11 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
- .font-weight-semibold{
-  font-weight: 500 !important; 
- } 
+
+ em{
+  font-style: normal !important;
+ }
+
  .version{
     display: block;
     padding: 0.5rem 1rem;
