@@ -32,22 +32,24 @@ function draw_topbar()
                         <span class='text'>Nahlásit problém</span>
                     </a>
 
-                    ";
-    if (DEVELOPER_MODE) {
-        echo " <h2 class='nav-item '>DEVELOPER ENVIRONMENT</h2>";
-
-    }
-
-
-                           echo"
-
-
+                        
 
                     <!-- Topbar Navbar -->
-                    <ul class='navbar-nav ml-auto'>
+                    <ul class='navbar-nav ml-auto'>";
 
+                    if (DEVELOPER_MODE) {
+                        echo " 
+                                <!--Heading Dev Environment-->
+                                <div class='d-none d-sm-block nav-item'>
+                                    <p class='nav-link text-gray-600'>Dev Environment</p>
+                                    
+                                </div>";
+                
+                    }
 
-                        <!-- Link Potřebujete poradit? -->
+                    echo
+
+                        "<!-- Link Potřebujete poradit? -->
                         <div class='d-none d-sm-inline-block nav-item dropdown no-arrow'>
 
                             <a class='text-gray-600 nav-link dropdown-toggle' href='dokumentace.php'>
