@@ -61,7 +61,7 @@ include 'include.php';
 
         <?php
 
-        draw_sidebar(); 
+        draw_sidebar();
 
         ?>
 

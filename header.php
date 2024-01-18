@@ -40,8 +40,8 @@ function draw_topbar()
                     if (DEVELOPER_MODE) {
                         echo " 
                                 <!--Heading Dev Environment-->
-                                <div class='d-none d-sm-block nav-item'>
-                                    <p class='nav-link text-gray-600'>Dev Environment</p>
+                                <div class='d-none d-sm-inline-block nav-item'>
+                                    <div class='nav-link text-gray-600'>Dev Environment</div>
                                     
                                 </div>";
                 
@@ -86,8 +86,11 @@ function draw_topbar()
 
                             <!-- Dropdown - Upozornění -->
 
-                            <div class='dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in' aria-labelledby='alertsDropdown'>";
+                            <div class='dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in' aria-labelledby='alertsDropdown'>
 
+                            <h6 class='dropdown-header'>
+                                        Oznámení
+                                    </h6>";
     global $conn;
 
                         if(!$conn){
@@ -127,7 +130,9 @@ function draw_topbar()
                                }
 
 
-                                echo "
+                                echo  
+                                "
+
                                 <a class='dropdown-item d-flex align-items-center' href='#'>
 
                                     <div>
@@ -139,7 +144,11 @@ function draw_topbar()
 
                                     </div>
 
-                                </a>";
+                                </a>
+                                
+                                    ";
+
+                                
 
                            }
                         }
@@ -156,6 +165,7 @@ function draw_topbar()
                             </div>
 
                         </li>
+
 
                         <!-- Nav Item - Informace o uživateli -->
                         <li class='nav-item dropdown no-arrow'>
