@@ -133,7 +133,7 @@ if (isset($_GET['code'])) {
 ?>
 <head>
 
-
+    <link href='https://svatkyapi.cz/api/day'>
 
 
 
@@ -381,6 +381,8 @@ if (isset($_GET['code'])) {
 
 
                         echo "Dnes je $today";
+
+                        echo $name;
 
                         ?>
 
