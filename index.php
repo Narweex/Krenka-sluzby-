@@ -330,14 +330,6 @@ if (isset($_GET['code'])) {
 
 
 
-                        $conn = mysqli_connect($servername, $username, $password, $dbName);
-
-
-
-
-
-
-
 
 
                         if (!$conn) {
@@ -380,9 +372,9 @@ if (isset($_GET['code'])) {
 
 
 
-                        echo "Dnes je $today";
+                        echo "Dnes je " . $today . "<br>";
 
-                        echo $name;
+                        echo  "Svátek má: " . $api_svatek;
 
                         ?>
 

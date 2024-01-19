@@ -2,14 +2,14 @@
 
 $api_url = 'https://svatky.adresa.info/txt';
 
-
+//zkonvertovat txt to stringu
 $api_content = file_get_contents($api_url);
 
-//echo $api_content
-
+//vzít jen část stringu se jménem
 $api_svatek = substr($api_content, strpos($api_content, ";") +1 );
 
-echo "Dnes má svátek: " . $api_svatek;
+//vypsat dnešní svátek
+//echo "Dnes má svátek: " . $api_svatek;
 
 
 ?>
