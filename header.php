@@ -97,7 +97,7 @@ function draw_topbar()
                            die("Could not establish connection");
                         }
 
-                        $sql = "SELECT * FROM oznameni o LEFT JOIN problemy p ON o.id_problemu = p.id_problemu LEFT JOIN projektory pr ON p.id_projektor = pr.id ORDER BY o.id DESC;";
+                        $sql = "SELECT * FROM oznameni o LEFT JOIN problemy p ON o.id_problemu = p.id_problemu LEFT JOIN projektory pr ON p.id_projektor = pr.id ORDER BY o.id DESC limit 3;";
 
                         $result = mysqli_query($conn, $sql);
 
@@ -110,8 +110,11 @@ function draw_topbar()
                         }
 
                         $result_check = mysqli_num_rows($result);
+
                         if($result_check > 0){
-                           while($row = mysqli_fetch_assoc($result)){
+                           
+
+                           while($row = mysqli_fetch_assoc($result) ){
 
                                switch($row['zmena']){
 
