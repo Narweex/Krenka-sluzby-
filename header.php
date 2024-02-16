@@ -78,9 +78,41 @@ function draw_topbar()
 
                                 <i class='fas fa-bell fa-fw'></i>
 
-                                <!-- Counter - Upozornění -->
+                                <!-- Counter - Upozornění -->";
 
-                                <span class='badge badge-danger badge-counter'>2</span>
+                                global $conn;
+
+                        if(!$conn){
+                           die("Could not establish connection");
+                        }
+
+                        $sql = "SELECT * FROM oznameni o LEFT JOIN problemy p ON o.id_problemu = p.id_problemu LEFT JOIN projektory pr ON p.id_projektor = pr.id ORDER BY o.id DESC ;";
+
+                        $result = mysqli_query($conn, $sql);
+
+                        if(!$result){
+                            if (DEBUG_MODE) {
+
+                                die("Query failed: " . mysqli_error($conn));
+
+                            }
+                        }
+
+                        $result_check = mysqli_num_rows($result);
+
+                        if($result_check <= 3){
+                            $counter_number = $result_check;
+                        }
+                        else if($result_check > 3){
+                            $counter_number = "3+";
+                        };
+                        
+
+
+                        
+                        
+                        echo"
+                                <span class='badge badge-danger badge-counter'>" . $counter_number . "</span>
 
                             </a>
 
