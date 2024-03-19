@@ -32,19 +32,19 @@ function draw_topbar()
                         <span class='text'>Nahlásit problém</span>
                     </a>
 
-                        
+
 
                     <!-- Topbar Navbar -->
                     <ul class='navbar-nav ml-auto'>";
 
                     if (DEVELOPER_MODE) {
-                        echo " 
+                        echo "
                                 <!--Heading Dev Environment-->
                                 <div class='d-none d-sm-inline-block nav-item'>
                                     <div class='nav-link text-gray-600'>Dev Environment</div>
-                                    
+
                                 </div>";
-                
+
                     }
 
                     echo
@@ -106,11 +106,11 @@ function draw_topbar()
                         else if($result_check > 3){
                             $counter_number = "3+";
                         };
-                        
 
 
-                        
-                        
+
+
+
                         echo"
                                 <span class='badge badge-danger badge-counter'>" . $counter_number . "</span>
 
@@ -144,7 +144,7 @@ function draw_topbar()
                         $result_check = mysqli_num_rows($result);
 
                         if($result_check > 0){
-                           
+
 
                            while($row = mysqli_fetch_assoc($result) ){
 
@@ -165,7 +165,7 @@ function draw_topbar()
                                }
 
 
-                                echo  
+                                echo
                                 "
 
                                 <a class='dropdown-item d-flex align-items-center' href='#'>
@@ -180,10 +180,10 @@ function draw_topbar()
                                     </div>
 
                                 </a>
-                                
+
                                     ";
 
-                                
+
 
                            }
                         }
@@ -337,7 +337,7 @@ function draw_sidebar()
 
             </li>
 
-            
+
 
             <!-- Divider -->
 
@@ -378,7 +378,7 @@ function draw_sidebar()
 
 
 
-            
+
 
 
 
@@ -508,8 +508,8 @@ function draw_sidebar()
             <hr class='sidebar-divider my-1'>
 
             <!--Nav Item - Panel-->";
-            echo ($_SERVER['REQUEST_URI'] == "/panel.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
-              echo  "<a class='nav-link' href='panel.php'>
+            echo ($_SERVER['REQUEST_URI'] == "/admin-panel/www/") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+              echo  "<a class='nav-link' href='/admin-panel/www/'>
                     <!--<i class='fas fa-fw fa-table'></i>-->
 
                     <span>PANEL</span></a>
