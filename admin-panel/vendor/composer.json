@@ -1,0 +1,6 @@
+{
+    "require": {
+        "ublaboo/datagrid": "^6.9",
+        "ublaboo/datagrid-nette-database-data-source": "^2.1"
+    }
+}

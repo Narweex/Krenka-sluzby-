@@ -5,7 +5,7 @@
 <?php
 include 'include.php';
 
-if(!isset($_SESSION['user_token'])){
+if (!isset($_SESSION['user_token'])) {
     header("Location: login.php");
 }
 
@@ -68,6 +68,8 @@ if(!isset($_SESSION['user_token'])){
     $uzivatel = $_SESSION['user_id'];
     $projector_id = 0;
 
+
+
     //SQL string bude potřeba zabazpečit
     $sql = "SELECT id FROM projektory p WHERE p.trida='$trida';";
 
@@ -96,8 +98,8 @@ if(!isset($_SESSION['user_token'])){
 
 
 
-    $sql = "INSERT INTO problemy (id_uzivatel, id_projektor, chyba, cas_opravy, status, popis_reseni, vytvoreno)
-              VALUES ('$uzivatel', '$projector_id', '$popis', '', 'f', '', current_timestamp());";
+    $sql = "INSERT INTO problemy (id_problemu, id_uzivatel, id_projektor, chyba, cas_opravy, status, popis_reseni, vytvoreno, zobrazen_na_discordu)
+              VALUES ('', '$uzivatel', '$projector_id', '$popis', '', 'f', '', current_timestamp(), '');";
 
 
 
@@ -107,7 +109,7 @@ if(!isset($_SESSION['user_token'])){
 
     if (mysqli_query($conn, $sql)) {
         if (DEBUG_MODE) {
-            echo "User " . $uzivatel ." reported " . $device . " Succesfully";
+            echo "User " . $uzivatel . " reported " . $device . " Succesfully";
         }
     } else if (DEBUG_MODE) {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -124,10 +126,10 @@ if(!isset($_SESSION['user_token'])){
     $sql = "select * from problemy p where p.id_projektor='$projector_id' AND p.status='f' order by p.id_problemu DESC limit 1;";
 
     $result = mysqli_query($conn, $sql);
-    if($result){
+    if ($result) {
         while ($row = mysqli_fetch_assoc($result))
 
-           $id_problemu = $row['id_problemu'];
+            $id_problemu = $row['id_problemu'];
 
 
     }
@@ -135,14 +137,14 @@ if(!isset($_SESSION['user_token'])){
 
 
 
-    $sql = "INSERT INTO `oznameni` (`id`, `id_problemu`, `typ`, `zmena`, `cas`) VALUES (NULL, '$id_problemu', 'projektor', 'f', current_timestamp());";
+    $sql = "INSERT INTO `oznameni` (`id`, `id_problemu`, `typ`, `zmena`, `cas`) VALUES ('', '$id_problemu', 'projektor', 'f', current_timestamp());";
 
     $result = mysqli_query($conn, $sql);
 
-    if(!DEBUG_MODE){
+    /*if(!DEBUG_MODE){
        sleep(5);
     header("Location: index.php");
-    }
+    }*/
 
 
 
@@ -160,6 +162,17 @@ if(!isset($_SESSION['user_token'])){
                 <h1 class="h3 mb-0 text-gray-800 text-center"> Děkujeme za nahlášení problému</h1>
             </div>
 
+            <?php
+            if (DEBUG_MODE) {
+
+                echo $trida;
+                echo $device;
+                echo $popis;
+                echo $uzivatel;
+            }
+
+            ?>
+
             <div class="my-4 text-center">
 
                 <!-- Button Zpět na hlavní stránku-->
@@ -175,7 +188,7 @@ if(!isset($_SESSION['user_token'])){
                     <div class="copyright text-center my-auto">
 
                         <span>Copyright &copy; <a href="https://web-lab.cz/">Web-Lab.cz</a> & Seminář IVT 2023/24 </span>
-                        
+
 
                     </div>
 
@@ -187,6 +200,26 @@ if(!isset($_SESSION['user_token'])){
 
         </div>
     </div>
+
+
+    <script>
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function demo() {
+            for (let i = 0; i < 3; i++) {
+                console.log(`Waiting ${i} seconds...`);
+                await sleep(i * 1000);
+            }
+            console.log('Done');
+
+            //redirect to index
+            window.location.replace("index.php");
+        }
+
+        demo();
+    </script>
 
 
 </body>

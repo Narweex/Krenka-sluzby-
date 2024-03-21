@@ -133,7 +133,7 @@ if (isset($_GET['code'])) {
 ?>
 <head>
 
-
+    <link href='https://svatkyapi.cz/api/day'>
 
 
 
@@ -330,14 +330,6 @@ if (isset($_GET['code'])) {
 
 
 
-                        $conn = mysqli_connect($servername, $username, $password, $dbName);
-
-
-
-
-
-
-
 
 
                         if (!$conn) {
@@ -358,17 +350,17 @@ if (isset($_GET['code'])) {
 
                             echo "Připojeno k databázi <br>";
 
-                            echo $_SESSION['user_avatar'] . "<br>";
+                            echo "Avatar: " . $_SESSION['user_avatar'] . "<br>";
 
-                            echo $_SESSION['user_name'] . "<br>";
+                            echo "Jméno: " . $_SESSION['user_name'] . "<br>";
 
-                            echo $_SESSION['user_email'] . "<br>";
+                            echo "Email: " . $_SESSION['user_email'] . "<br>";
 
-                            echo $_SESSION['user_id'] . "<br>";
+                            echo "ID uživatele: " . $_SESSION['user_id'] . "<br>";
 
-                            echo $_SESSION['user_group'] . "<br>";
+                            echo "Práva uživatele: " . $_SESSION['user_group'] . "<br>";
 
-                            echo $_SERVER['SERVER_NAME'] . "<br>";
+                            echo "Server name: " . $_SERVER['SERVER_NAME'] . "<br>";
 
                         }
 
@@ -380,7 +372,9 @@ if (isset($_GET['code'])) {
 
 
 
-                        echo "Dnes je $today";
+                        echo "Dnes je " . $today . "<br>";
+
+                        echo  "Svátek má: " . $api_svatek;
 
                         ?>
 

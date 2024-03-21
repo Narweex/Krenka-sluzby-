@@ -102,7 +102,7 @@ if (!isset($_SESSION['user_token'])) {
                                         <?php
                                       
                                         
-                                        $sql = "SELECT * FROM projektory pr LEFT JOIN problemy p ON p.id_projektor = pr.id left join konektory k on pr.konektor=k.id GROUP BY pr.id;;";
+                                        $sql = "SELECT * FROM projektory pr LEFT JOIN problemy p ON p.id_projektor = pr.id left join konektory k on pr.konektor=k.id GROUP BY pr.id order by vytvoreno DESC;";
                                         $result = mysqli_query($conn, $sql); // Use mysqli_query instead of mysql_query
                                         
                                         if (!$result) {

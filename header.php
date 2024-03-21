@@ -32,22 +32,24 @@ function draw_topbar()
                         <span class='text'>Nahlásit problém</span>
                     </a>
 
-                    ";
-    if (DEVELOPER_MODE) {
-        echo " <h2 class='nav-item '>DEVELOPER ENVIRONMENT</h2>";
-
-    }
-
-
-                           echo"
-
 
 
                     <!-- Topbar Navbar -->
-                    <ul class='navbar-nav ml-auto'>
+                    <ul class='navbar-nav ml-auto'>";
 
+                    if (DEVELOPER_MODE) {
+                        echo "
+                                <!--Heading Dev Environment-->
+                                <div class='d-none d-sm-inline-block nav-item'>
+                                    <div class='nav-link text-gray-600'>Dev Environment</div>
 
-                        <!-- Link Potřebujete poradit? -->
+                                </div>";
+
+                    }
+
+                    echo
+
+                        "<!-- Link Potřebujete poradit? -->
                         <div class='d-none d-sm-inline-block nav-item dropdown no-arrow'>
 
                             <a class='text-gray-600 nav-link dropdown-toggle' href='dokumentace.php'>
@@ -76,23 +78,15 @@ function draw_topbar()
 
                                 <i class='fas fa-bell fa-fw'></i>
 
-                                <!-- Counter - Upozornění
+                                <!-- Counter - Upozornění -->";
 
-                                <span class='badge badge-danger badge-counter'>2</span>
-
-                            </a>
-
-                            <!-- Dropdown - Upozornění -->
-
-                            <div class='dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in' aria-labelledby='alertsDropdown'>";
-
-    global $conn;
+                                global $conn;
 
                         if(!$conn){
                            die("Could not establish connection");
                         }
 
-                        $sql = "SELECT * FROM oznameni o LEFT JOIN problemy p ON o.id_problemu = p.id_problemu LEFT JOIN projektory pr ON p.id_projektor = pr.id ORDER BY o.id DESC;";
+                        $sql = "SELECT * FROM oznameni o LEFT JOIN problemy p ON o.id_problemu = p.id_problemu LEFT JOIN projektory pr ON p.id_projektor = pr.id ORDER BY o.id DESC ;";
 
                         $result = mysqli_query($conn, $sql);
 
@@ -105,19 +99,65 @@ function draw_topbar()
                         }
 
                         $result_check = mysqli_num_rows($result);
+
+                        if($result_check <= 3){
+                            $counter_number = $result_check;
+                        }
+                        else if($result_check > 3){
+                            $counter_number = "3+";
+                        };
+
+
+
+
+
+                        echo"
+                                <span class='badge badge-danger badge-counter'>" . $counter_number . "</span>
+
+                            </a>
+
+                            <!-- Dropdown - Upozornění -->
+
+                            <div class='dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in' aria-labelledby='alertsDropdown'>
+
+                            <h6 class='dropdown-header'>
+                                        Oznámení
+                                    </h6>";
+    global $conn;
+
+                        if(!$conn){
+                           die("Could not establish connection");
+                        }
+
+                        $sql = "SELECT * FROM oznameni o LEFT JOIN problemy p ON o.id_problemu = p.id_problemu LEFT JOIN projektory pr ON p.id_projektor = pr.id ORDER BY o.id DESC limit 3;";
+
+                        $result = mysqli_query($conn, $sql);
+
+                        if(!$result){
+                            if (DEBUG_MODE) {
+
+                                die("Query failed: " . mysqli_error($conn));
+
+                            }
+                        }
+
+                        $result_check = mysqli_num_rows($result);
+
                         if($result_check > 0){
-                           while($row = mysqli_fetch_assoc($result)){
+
+
+                           while($row = mysqli_fetch_assoc($result) ){
 
                                switch($row['zmena']){
 
                                    case "t":
-                                        $row['zmena'] = "Funkční";
+                                        $row['zmena'] = "<b class='text-success'>Funkční</b>";
                                         break;
                                    case "z":
-                                        $row['zmena'] = "V opravě";
+                                        $row['zmena'] = "<b class='text-warning'>V opravě</b>";
                                         break;
                                    case "f":
-                                        $row['zmena'] = "Nefunkční";
+                                        $row['zmena'] = "<b class='text-danger'>Nefunkční</b>";
                                         break;
                                    default:
                                         $row['zmena'] = "Chyba";
@@ -125,7 +165,9 @@ function draw_topbar()
                                }
 
 
-                                echo "
+                                echo
+                                "
+
                                 <a class='dropdown-item d-flex align-items-center' href='#'>
 
                                     <div>
@@ -133,11 +175,15 @@ function draw_topbar()
                                         <div class='d-flex w-100 justify-content-between'>
                                             <small class='text-muted'>" .$row['cas'] . "</small>
                                         </div>
-                                        <p class='mb-1'>Zařízení <u>" . $row['typ'] . "</u> v&#160místnosti <u>". $row['trida'] ."</u> bylo označeno jako <b>" . $row['zmena'] . "</b></p>
+                                        <p class='mb-1'>Zařízení <u>" . $row['typ'] . "</u> v&#160místnosti <u>". $row['trida'] ."</u> bylo označeno jako " . $row['zmena'] . "</p>
 
                                     </div>
 
-                                </a>";
+                                </a>
+
+                                    ";
+
+
 
                            }
                         }
@@ -154,6 +200,7 @@ function draw_topbar()
                             </div>
 
                         </li>
+
 
                         <!-- Nav Item - Informace o uživateli -->
                         <li class='nav-item dropdown no-arrow'>
@@ -262,6 +309,34 @@ function draw_sidebar()
             </li>
 
 
+            <!-- Divider -->
+
+            <hr class='sidebar-divider my-1'>
+
+
+            <!--Nav Item - Oznámení-->";
+            echo ($_SERVER['REQUEST_URI'] == "/oznameni.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+              echo  "<a class='nav-link' href='oznameni.php'>
+                    <!--<i class='fas fa-fw fa-table'></i>-->
+
+                    <span>OZNÁMENÍ</span></a>
+
+            </li>
+
+
+            <!-- Divider-->
+
+            <hr class='sidebar-divider my-1'>
+
+            <!--Nav Item - Dokumentace-->";
+            echo ($_SERVER['REQUEST_URI'] == "/dokumentace.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+             echo   "<a class='nav-link' href='dokumentace.php'>
+                    <!--<i class='fas fa-fw fa-table'></i>-->
+
+                    <span>DOKUMENTACE</span></a>
+
+            </li>
+
 
 
             <!-- Divider -->
@@ -299,185 +374,15 @@ function draw_sidebar()
 
                     <span>TISKÁRNY</span></a>
 
-            </li>
+            </li>-->
 
 
 
-            <li class='nav-item Show text-gray-400 text-center d-sm-inline-block'>
 
-                    <small class='version'>Verze aplikace: " . $App_Version . "</small>
 
-            </li>
 
 
-
-            <!-- Heading
-
-            <div class='sidebar-heading'>
-
-                Interface
-
-            </div>
-
-
-
-             Nav Item - Pages Collapse Menu
-
-            <li class='nav-item'>
-
-                <a class='nav-link collapsed' href='#' data-toggle='collapse' data-target='#collapseTwo'
-
-                    aria-expanded='true' aria-controls='collapseTwo'>
-
-                    <i class='fas fa-fw fa-cog'></i>
-
-                    <span>Components</span>
-
-                </a>
-
-                <div id='collapseTwo' class='collapse' aria-labelledby='headingTwo' data-parent='#accordionSidebar'>
-
-                    <div class='bg-white py-2 collapse-inner rounded'>
-
-                        <h6 class='collapse-header'>Custom Components:</h6>
-
-                        <a class='collapse-item' href='buttons.html'>Buttons</a>
-
-                        <a class='collapse-item' href='cards.html'>Cards</a>
-
-                    </div>
-
-                </div>
-
-            </li>
-
-
-
-             Nav Item - Utilities Collapse Menu
-
-            <li class='nav-item'>
-
-                <a class='nav-link collapsed' href='#' data-toggle='collapse' data-target='#collapseUtilities'
-
-                    aria-expanded='true' aria-controls='collapseUtilities'>
-
-                    <i class='fas fa-fw fa-wrench'></i>
-
-                    <span>Utilities</span>
-
-                </a>
-
-                <div id='collapseUtilities' class='collapse' aria-labelledby='headingUtilities'
-
-                    data-parent='#accordionSidebar'>
-
-                    <div class='bg-white py-2 collapse-inner rounded'>
-
-                        <h6 class='collapse-header'>Custom Utilities:</h6>
-
-                        <a class='collapse-item' href='utilities-color.html'>Colors</a>
-
-                        <a class='collapse-item' href='utilities-border.html'>Borders</a>
-
-                        <a class='collapse-item' href='utilities-animation.html'>Animations</a>
-
-                        <a class='collapse-item' href='utilities-other.html'>Other</a>
-
-                    </div>
-
-                </div>
-
-            </li>
-
-
-
-             Divider
-
-            <hr class='sidebar-divider'>
-
-
-
-             Heading
-
-            <div class='sidebar-heading'>
-
-                Addons
-
-            </div>
-
-
-
-             Nav Item - Pages Collapse Menu
-
-            <li class='nav-item'>
-
-                <a class='nav-link collapsed' href='#' data-toggle='collapse' data-target='#collapsePages'
-
-                    aria-expanded='true' aria-controls='collapsePages'>
-
-                    <i class='fas fa-fw fa-folder'></i>
-
-                    <span>Pages</span>
-
-                </a>
-
-                <div id='collapsePages' class='collapse' aria-labelledby='headingPages' data-parent='#accordionSidebar'>
-
-                    <div class='bg-white py-2 collapse-inner rounded'>
-
-                        <h6 class='collapse-header'>Login Screens:</h6>
-
-                        <a class='collapse-item' href='login.html'>Login</a>
-
-                        <a class='collapse-item' href='register.html'>Register</a>
-
-                        <a class='collapse-item' href='forgot-password.html'>Forgot Password</a>
-
-                        <div class='collapse-divider'></div>
-
-                        <h6 class='collapse-header'>Other Pages:</h6>
-
-                        <a class='collapse-item' href='404.html'>404 Page</a>
-
-                        <a class='collapse-item' href='blank.html'>Blank Page</a>
-
-                    </div>
-
-                </div>
-
-            </li>
-
-
-
-             Nav Item - Charts
-
-            <li class='nav-item'>
-
-                <a class='nav-link' href='charts.html'>
-
-                    <i class='fas fa-fw fa-chart-area'></i>
-
-                    <span>Charts</span></a>
-
-            </li>
-
-
-
-             Nav Item - Tables
-
-            <li class='nav-item'>
-
-                <a class='nav-link' href='tables.html'>
-
-                    <i class='fas fa-fw fa-table'></i>
-
-                    <span>Tables</span></a>
-
-            </li>
-
-
-
-             Divider -->
+             <!--Divider -->
 
              <hr class='sidebar-divider my-1'>
 
@@ -497,20 +402,6 @@ function draw_sidebar()
                 <button class='rounded-circle border-0' id='sidebarToggle'></button>
 
             </div>
-
-
-
-            <!-- Sidebar Message
-
-            <div class='sidebar-card d-none d-lg-flex'>
-
-                <img class='sidebar-card-illustration mb-2' src='img/undraw_rocket.svg' alt='...'>
-
-                <p class='text-center mb-2'><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-
-                <a class='btn btn-success btn-sm' href='https://startbootstrap.com/theme/sb-admin-pro'>Upgrade to Pro!</a>
-
-            </div> -->
 
 
 
@@ -617,8 +508,8 @@ function draw_sidebar()
             <hr class='sidebar-divider my-1'>
 
             <!--Nav Item - Panel-->";
-            echo ($_SERVER['REQUEST_URI'] == "/panel.php") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
-              echo  "<a class='nav-link' href='panel.php'>
+            echo ($_SERVER['REQUEST_URI'] == "/admin-panel/www/") ? "<li class='nav-item active'>" : "<li class='nav-item show'>";
+              echo  "<a class='nav-link' href='/admin-panel/www/'>
                     <!--<i class='fas fa-fw fa-table'></i>-->
 
                     <span>PANEL</span></a>

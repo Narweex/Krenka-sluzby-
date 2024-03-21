@@ -1,28 +1,65 @@
 <?php
 
 
-/*
-*
-*
-*
-DEBUG MODE vypíše chybové zprávy ve frontendu. Nepoužívejte jej v release verzích.
 
-Standardnì vypisuje chyby vpravo nahoøe pomocí echo.
+
+
+/*
+
 *
+
 *
+
 *
+
+DEBUG MODE vypï¿½e chybovï¿½ zprï¿½vy ve frontendu. Nepouï¿½ï¿½vejte jej v release verzï¿½ch.
+
+
+
+Standardnï¿½ vypisuje chyby vpravo nahoï¿½e pomocï¿½ echo.
+
+*
+
+*
+
+*
+
 */
 
+
+
 define('DEBUG_MODE', false);
-define('DEVELOPER_MODE', true);
+
+define('DEVELOPER_MODE', false);
 
 
 
 
 
-/*App_Version udává verze aplikace, která je vypsáta vlevo dole v sidebaru*/
 
-$App_Version = "0.0.6";
+
+
+
+
+
+/*App_Version udï¿½vï¿½ verze aplikace, kterï¿½ je vypsï¿½ta vlevo dole v sidebaru*/
+
+
+
+$App_Version = "0.1.0";
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -36,46 +73,93 @@ $App_Version = "0.0.6";
 
 
 /*
- * 
- * 
- * 
- * 
- * 
- * 
- * POD TÍMTO VAROVÁNÍM NIC NEUPRAVUJTE POKUD SI NEJSTE JISTI, CO DÌLÁTE
- * 
- * 
- * 
- * 
- * 
- * 
+
+ *
+
+ *
+
+ *
+
+ *
+
+ *
+
+ *
+
+ * POD Tï¿½MTO VAROVï¿½Nï¿½M NIC NEUPRAVUJTE POKUD SI NEJSTE JISTI, CO Dï¿½Lï¿½TE
+
+ *
+
+ *
+
+ *
+
+ *
+
+ *
+
+ *
+
  * */
+
+
+
+
 
 
 
 require_once 'vendor/autoload.php';
 
+
+
 session_start();
+
+
 
 // init configuration
 
+
+
 $clientID = '527509168314-9ni56iv2nrpn2oj35k3hvb2sbb4eomos.apps.googleusercontent.com';
+
 $clientSecret = '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';
+
 $redirectUri = 'https://dev.web-lab.cz/index.php';
+
 // create Client Request to access Google API
+
 $client = new Google_Client();
+
 $client->setClientId($clientID);
+
 $client->setClientSecret($clientSecret);
+
 $client->setRedirectUri($redirectUri);
-$client->setApplicationName("Køenka Služby");
+
+$client->setApplicationName("Kï¿½enka Sluï¿½by");
+
 $client->addScope("email");
+
 $client->addScope("profile");
+
 //$client->addScope("https://www.googleapis.com/auth/admin.directory.domain");
 
 
 
+
+
+
+
 if(DEBUG_MODE){
+
     error_reporting(E_ALL);
+
     ini_set('display_errors', 1);
+
+    
+
 }
+
+
+
 ?>
