@@ -31,7 +31,7 @@ class HomePresenter extends Nette\Application\UI\Presenter
 
         $grid->setItemsPerPageList([10, 50, 100]);
 
-        $grid->setColumnsHideable(FALSE);
+        
 
         $grid->setDataSource($this->database->query('SELECT p.id_problemu AS `id`, p.chyba, p.status, p.vytvoreno, p.popis_reseni, pr.trida, pr.id AS `projektor_id`, u.jmeno FROM `problemy` p LEFT JOIN projektory pr ON p.id_projektor = pr.id LEFT JOIN uzivatele u ON p.id_uzivatel = u.id ORDER BY p.id_problemu DESC;')->fetchAll());
 
@@ -39,7 +39,7 @@ class HomePresenter extends Nette\Application\UI\Presenter
 
         $grid->addColumnNumber('id', 'id')->SetSortable();
         $grid->addColumnText('trida', 'Třída');
-        $grid->addColumnText('jmeno', 'Uzivatel');
+        $grid->addColumnText('jmeno', 'Uživatel');
 
         $grid->addColumnText('chyba', 'Popis problému');
         $grid->addColumnText('popis_reseni', 'Řešení')
@@ -97,7 +97,7 @@ class HomePresenter extends Nette\Application\UI\Presenter
             };
 
 
-        $grid->addColumnDateTime('vytvoreno', 'Vytvoreno')
+        $grid->addColumnDateTime('vytvoreno', 'Vytvořeno')
 
             ->setFormat('d.m h:i');
 

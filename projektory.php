@@ -78,7 +78,7 @@ if (!isset($_SESSION['user_token'])) {
                                     <thead>
                                         <tr>
                                             <th>Učebna</th>
-                                            <th>Funkční</th>
+                                            <th>Status</th>
                                             <th>Chybové hlášení</th>
                                             <th>Řešení</th>
                                             <th>Datum nahlášení problému</th>
@@ -89,7 +89,7 @@ if (!isset($_SESSION['user_token'])) {
                                     <tfoot>
                                         <tr>
                                             <th>Učebna</th>
-                                            <th>Funkční</th>
+                                            <th>Status</th>
                                             <th>Chybové hlášení</th>
                                             <th>Řešení</th>
                                             <th>Datum nahlášení problému</th>
