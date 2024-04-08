@@ -120,9 +120,9 @@ session_start();
 
 
 
-$clientID = '527509168314-9ni56iv2nrpn2oj35k3hvb2sbb4eomos.apps.googleusercontent.com';
+$clientID = '';
 
-$clientSecret = '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';
+$clientSecret = '';
 
 $redirectUri = 'https://dev.web-lab.cz/index.php';
 
