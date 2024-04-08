@@ -2,6 +2,6 @@ parameters:
 
 
 database:
-	dsn: 'mysql:host=localhost;dbname=c0_projektory'
-	user: 'c0_projektory'
-	password: 's3r!J2dNcA'
+	dsn: ''
+	user: ''
+	password: ''
