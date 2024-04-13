@@ -302,143 +302,34 @@ if (isset($_GET['code'])) {
 
                         <?php
 
-
-
-
-
-
-
-
-
-
-
-                        if (!$conn) {
-
-
-
-                            if (DEBUG_MODE) {
-
-
-
-                                die("Spojení selhalo: " . mysqli_connect_error());
-
-
-
-                            }
-
-
-
-                            die();
-
-
-
-                        }
-
-
-
-
-
-
-
                         if (DEBUG_MODE) {
 
+                            if (!$conn) {
 
+                                die("Spojení selhalo: " . mysqli_connect_error());
+                            }
 
                             echo "Připojeno k databázi <br>";
 
-
-
                             echo "Avatar: " . $_SESSION['user_avatar'] . "<br>";
-
-
 
                             echo "Jméno: " . $_SESSION['user_name'] . "<br>";
 
-
-
                             echo "Email: " . $_SESSION['user_email'] . "<br>";
-
-
 
                             echo "ID uživatele: " . $_SESSION['user_id'] . "<br>";
 
-
-
                             echo "Práva uživatele: " . $_SESSION['user_group'] . "<br>";
 
-
-
                             echo "Server name: " . $_SERVER['SERVER_NAME'] . "<br>";
-
-
-
                         }
-
-
-
-
-
-
-
-
-
-
-
-                        $today = date("d.m.Y");
-
-
-
-
-
-
-
-                        echo "Dnes je " . $today . "<br>";
-
-
+                      
+                        echo "Dnes je " . date("d.m.Y") . "<br>";
 
                         echo "Svátek má: " . $api_svatek;
 
 
-
                         ?>
-
-                        <!--<img src="<?= $_SESSION['user_avatar'] ?>" alt="" width="90px" height="90px" />
-
-                        <ul>
-
-                            <li>Full Name: <?= $_SESSION['user_name'] ?></li>
-
-                            <li>Email Address: <?= $_SESSION['user_email'] ?></li>
-
-                            <li>Email Address: <?= $_SESSION['id'] ?></li>
-
-                           
-
-                            <li><a href="logout.php">Logout</a></li>
-
-                        </ul>-->
-
-                        <!--</div>-->
-
-
-
-
-
-
-
-
-
-
-
-                        <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"><i
-
-                            class="fas fa-envelope fa-sm text-white-50"></i> Nahlásit problém</a>-->
-
-
-
-
-
-
 
                     </div>
 
