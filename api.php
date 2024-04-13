@@ -12,5 +12,6 @@ $api_svatek = substr($api_content, strpos($api_content, ";") +1 );
 //echo "Dnes má svátek: " . $api_svatek;
 
 
+
 ?>
 
