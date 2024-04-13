@@ -8,21 +8,16 @@
 
 include 'include.php';
 
-
-
-// authenticate code from Google OAuth Flow
-
+// Kontrola zda web dostal "code" od google api
 if (isset($_GET['code'])) {
 
-    $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+    $token = $client->fetchAccessTokenWithAuthCode($_GET['code']); //access token pro uživatele
 
     $client->setAccessToken($token['access_token']);
 
-    $_SESSION['user_token'] = $token;
+    $_SESSION['user_token'] = $token; // uložení access token od uživatele do session
 
-
-
-    // get profile info
+    // Načtení informací o uživateli z google
 
     $google_oauth = new Google_Service_Oauth2($client);
 
@@ -40,31 +35,22 @@ if (isset($_GET['code'])) {
 
         'token' => $google_account_info['id'],
 
-
-
     ];
 
-
-
-    $sql = "SELECT * FROM uzivatele WHERE email ='{$userinfo['email']}'";
+    $sql = "SELECT * FROM uzivatele WHERE email ='{$userinfo['email']}'";   //kontrole jestli uživatel není zaregistrovaný pod mailem
 
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
 
-        // user exists
+        // uživatel existuje
 
         $_SESSION = mysqli_fetch_assoc($result);
 
-        $token = $_SESSION['google_id'];
-
-
+        $token = $_SESSION['google_id']; //načtení google ID uživatele do session
 
     } else {
-
-        // user not exists
-
-
+        // uživatel neexistuje zapíšeme jej do databáze
 
         $sql = "INSERT INTO uzivatele (id, jmeno, avatar, email, google_id, session, user_group) VALUES ('', '{$userinfo['jmeno']}', '{$userinfo['avatar']}', '{$userinfo['email']}', '{$userinfo['token']}', '0', '')";
 
@@ -79,20 +65,14 @@ if (isset($_GET['code'])) {
             echo "User is not created";
 
             die();
-
         }
-
     }
-
-
-
+    //Načtení kompletních údajů o uživateli do session
     $sql = "SELECT * FROM uzivatele WHERE email ='{$userinfo['email']}'";
 
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
-
-        // user exists
 
         $UID = mysqli_fetch_assoc($result);
 
@@ -108,15 +88,11 @@ if (isset($_GET['code'])) {
 
     $_SESSION['user_email'] = $userinfo['email'];
 
-
-
-
-
-
+    //po autentifikaci může být uživatel přesměrován na index
     header("Location: index.php");
 
 
-} else {
+} else {//pokud uživatel nemá token od googlu pošleme jej na login
 
     if (!isset($_SESSION['user_token'])) {
 
