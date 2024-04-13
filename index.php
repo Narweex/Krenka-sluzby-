@@ -11,7 +11,7 @@ include 'include.php';
 // Kontrola zda web dostal "code" od google api
 if (isset($_GET['code'])) {
 
-    $token = $client->fetchAccessTokenWithAuthCode($_GET['code']); //access token pro uživatele
+    $token = $client->authenticate($_GET['code']); //access token pro uživatele
 
     $client->setAccessToken($token['access_token']);
 
@@ -37,7 +37,7 @@ if (isset($_GET['code'])) {
 
     ];
 
-    $sql = "SELECT * FROM uzivatele WHERE email ='{$userinfo['email']}'";   //kontrole jestli uživatel není zaregistrovaný pod mailem
+    $sql = "SELECT * FROM uzivatele WHERE email ='{$userinfo['email']}'"; //kontrole jestli uživatel není zaregistrovaný pod mailem
 
     $result = mysqli_query($conn, $sql);
 
@@ -92,7 +92,7 @@ if (isset($_GET['code'])) {
     header("Location: index.php");
 
 
-} else {//pokud uživatel nemá token od googlu pošleme jej na login
+} else { //pokud uživatel nemá token od googlu pošleme jej na login
 
     if (!isset($_SESSION['user_token'])) {
 
@@ -109,7 +109,7 @@ if (isset($_GET['code'])) {
 ?>
 <head>
 
-    <link href='https://svatkyapi.cz/api/day'>
+    <link href='https://svatkyapi.cz/api/day' />
 
 
 
@@ -156,9 +156,7 @@ if (isset($_GET['code'])) {
 
 
     <link
-
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-
         rel="stylesheet" />
 
 
@@ -210,7 +208,7 @@ if (isset($_GET['code'])) {
 
 
 
-       
+
 
 
 
@@ -308,37 +306,79 @@ if (isset($_GET['code'])) {
 
 
 
+
+
+
+
+
+
                         if (!$conn) {
+
+
 
                             if (DEBUG_MODE) {
 
+
+
                                 die("Spojení selhalo: " . mysqli_connect_error());
+
+
 
                             }
 
+
+
                             die();
 
+
+
                         }
+
+
+
+
 
 
 
                         if (DEBUG_MODE) {
 
+
+
                             echo "Připojeno k databázi <br>";
+
+
 
                             echo "Avatar: " . $_SESSION['user_avatar'] . "<br>";
 
+
+
                             echo "Jméno: " . $_SESSION['user_name'] . "<br>";
+
+
 
                             echo "Email: " . $_SESSION['user_email'] . "<br>";
 
+
+
                             echo "ID uživatele: " . $_SESSION['user_id'] . "<br>";
+
+
 
                             echo "Práva uživatele: " . $_SESSION['user_group'] . "<br>";
 
+
+
                             echo "Server name: " . $_SERVER['SERVER_NAME'] . "<br>";
 
+
+
                         }
+
+
+
+
+
+
 
 
 
@@ -348,9 +388,17 @@ if (isset($_GET['code'])) {
 
 
 
+
+
+
+
                         echo "Dnes je " . $today . "<br>";
 
-                        echo  "Svátek má: " . $api_svatek;
+
+
+                        echo "Svátek má: " . $api_svatek;
+
+
 
                         ?>
 
@@ -427,7 +475,6 @@ if (isset($_GET['code'])) {
                                             <div class="dropdown no-arrow">
 
                                                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-
                                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                                                     <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Funkční</div>
@@ -599,7 +646,6 @@ if (isset($_GET['code'])) {
                                             <div class="dropdown no-arrow">
 
                                                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-
                                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                                                     <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Se závadou</div>
@@ -748,7 +794,6 @@ if (isset($_GET['code'])) {
                                             <div class="dropdown no-arrow">
 
                                                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-
                                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                                                     <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Probíhá oprava</div>
@@ -1230,7 +1275,7 @@ if (isset($_GET['code'])) {
 
 
         </div>
-         <!-- End of Content Wrapper -->
+        <!-- End of Content Wrapper -->
 
 
     </div>
